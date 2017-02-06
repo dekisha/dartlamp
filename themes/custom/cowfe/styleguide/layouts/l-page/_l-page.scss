@@ -1,0 +1,37 @@
+// Page Layout
+//
+// Wrappers for the entire website
+//
+// Markup: _l-page.html
+//
+// Styleguide 3.4
+
+// .l-page {
+
+// }
+
+.l-page__header-wrapper {
+
+  @include dbl;
+}
+
+.l-page__header {
+  @extend %l-extends__page-limit;
+}
+
+.l-page__main {
+  @extend %l-extends__page-limit;
+}
+
+// .l-page__content {
+
+// }
+
+.l-page__footer-wrapper {
+
+  @include dbl;
+}
+
+.l-page__footer {
+  @extend %l-extends__page-limit;
+}
