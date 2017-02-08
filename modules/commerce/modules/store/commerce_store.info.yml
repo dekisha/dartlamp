@@ -2,7 +2,7 @@ name: Commerce Store
 type: module
 description: 'Defines the Store entity and associated features.'
 package: Commerce
-# core: 8.x
+core: 8.x
 dependencies:
   - commerce
   - commerce:commerce_price
@@ -14,9 +14,3 @@ config_devel:
     - core.entity_view_display.commerce_store.online.default
     - views.view.commerce_stores
     - system.action.commerce_delete_store_action
-
-# Information added by Drupal.org packaging script on 2016-12-26
-version: '8.x-2.0-beta5'
-core: '8.x'
-project: 'commerce'
-datestamp: 1482792203

@@ -109,19 +109,24 @@ class CartManager implements CartManagerInterface {
       $new_quantity = Calculator::add($matching_order_item->getQuantity(), $quantity);
       $matching_order_item->setQuantity($new_quantity);
       $matching_order_item->save();
+      $saved_order_item = $matching_order_item;
     }
     else {
       $order_item->save();
       $cart->addItem($order_item);
+      $saved_order_item = $order_item;
     }
 
-    $event = new CartEntityAddEvent($cart, $purchased_entity, $quantity, $order_item);
-    $this->eventDispatcher->dispatch(CartEvents::CART_ENTITY_ADD, $event);
+    if ($purchased_entity) {
+      $event = new CartEntityAddEvent($cart, $purchased_entity, $quantity, $saved_order_item);
+      $this->eventDispatcher->dispatch(CartEvents::CART_ENTITY_ADD, $event);
+    }
+
     if ($save_cart) {
       $cart->save();
     }
 
-    return $order_item;
+    return $saved_order_item;
   }
 
   /**

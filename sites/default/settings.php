@@ -765,3 +765,16 @@ $databases['default']['default'] = array (
 );
 $settings['install_profile'] = 'standard';
 $config_directories['sync'] = 'sites/default/files/config_xLLVkilH5FzLP6poq_bIa-MCmLisZ78GViOVTeVnP37o_sn8wDtVWFbqyULbyweu0rnDjhQPgQ/sync';
+
+$base_url = 'http://dartlamp.loc';
+
+$conf['preprocess_css'] = FALSE;
+$conf['preprocess_js'] = FALSE;
+
+$conf['file_public_path'] = 'sites/default/files';
+$conf['file_temporary_path'] = 'sites/default/files/tmp';
+$conf['file_private_path'] = 'sites/default/files/private';
+
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);

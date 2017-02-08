@@ -2,7 +2,7 @@
 
 namespace Drupal\Tests\commerce_checkout\Functional;
 
-use Drupal\commerce_store\StoreCreationTrait;
+use Drupal\commerce_price\Price;
 use Drupal\Tests\commerce\Functional\CommerceBrowserTestBase;
 use Drupal\profile\Entity\Profile;
 use Drupal\commerce_order\Entity\OrderItem;
@@ -16,8 +16,6 @@ use Drupal\user\RoleInterface;
  * @group commerce
  */
 class CheckoutOrderTest extends CommerceBrowserTestBase {
-
-  use StoreCreationTrait;
 
   /**
    * The current user.
@@ -40,7 +38,7 @@ class CheckoutOrderTest extends CommerceBrowserTestBase {
    */
   public static $modules = ['system', 'field', 'user', 'text',
     'entity', 'views', 'address', 'profile', 'commerce', 'inline_entity_form',
-    'commerce_price', 'commerce_store', 'commerce_product', 'commerce_cart',
+    'commerce_price', 'commerce_product', 'commerce_cart',
     'commerce_checkout', 'commerce_order', 'views_ui',
     // @see https://www.drupal.org/node/2807567
     'editor',
@@ -49,12 +47,20 @@ class CheckoutOrderTest extends CommerceBrowserTestBase {
   /**
    * {@inheritdoc}
    */
+  protected function getAdministratorPermissions() {
+    return array_merge([
+      'administer commerce_checkout_flow',
+      'administer views',
+    ], parent::getAdministratorPermissions());
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp() {
     parent::setUp();
 
     $this->placeBlock('commerce_cart');
-
-    $store = $this->createStore('Demo', 'demo@example.com', 'default', TRUE);
 
     $variation = $this->createEntity('commerce_product_variation', [
       'type' => 'default',
@@ -70,7 +76,7 @@ class CheckoutOrderTest extends CommerceBrowserTestBase {
       'type' => 'default',
       'title' => 'My product',
       'variations' => [$variation],
-      'stores' => [$store],
+      'stores' => [$this->store],
     ]);
   }
 
@@ -99,11 +105,14 @@ class CheckoutOrderTest extends CommerceBrowserTestBase {
     ]);
     $profile->save();
     $order_item = OrderItem::create([
-      'type' => 'test',
+      'type' => 'default',
+      'quantity' => 2,
+      'unit_price' => new Price('12.00', 'USD'),
     ]);
     $order_item->save();
     $order = Order::create([
       'type' => 'default',
+      'store_id' => $this->store,
       'state' => 'in_checkout',
       'order_number' => '6',
       'mail' => 'test@example.com',
@@ -143,16 +152,6 @@ class CheckoutOrderTest extends CommerceBrowserTestBase {
   }
 
   /**
-   * {@inheritdoc}
-   */
-  protected function getAdministratorPermissions() {
-    return array_merge([
-      'administer commerce_checkout_flow',
-      'administer views',
-    ], parent::getAdministratorPermissions());
-  }
-
-  /**
    * Tests than an order can go through checkout steps.
    */
   public function testGuestOrderCheckout() {
@@ -168,11 +167,13 @@ class CheckoutOrderTest extends CommerceBrowserTestBase {
     $this->submitForm([
       'contact_information[email]' => 'guest@example.com',
       'contact_information[email_confirm]' => 'guest@example.com',
-      'billing_information[address][0][given_name]' => $this->randomString(),
-      'billing_information[address][0][family_name]' => $this->randomString(),
-      'billing_information[address][0][organization]' => $this->randomString(),
-      'billing_information[address][0][address_line1]' => $this->randomString(),
-      'billing_information[address][0][locality]' => $this->randomString(),
+      'billing_information[profile][address][0][address][given_name]' => $this->randomString(),
+      'billing_information[profile][address][0][address][family_name]' => $this->randomString(),
+      'billing_information[profile][address][0][address][organization]' => $this->randomString(),
+      'billing_information[profile][address][0][address][address_line1]' => $this->randomString(),
+      'billing_information[profile][address][0][address][postal_code]' => '94043',
+      'billing_information[profile][address][0][address][locality]' => 'Mountain View',
+      'billing_information[profile][address][0][address][administrative_area]' => 'CA',
     ], 'Continue to review');
     $this->assertSession()->pageTextContains('Contact information');
     $this->assertSession()->pageTextContains('Billing information');
@@ -192,11 +193,13 @@ class CheckoutOrderTest extends CommerceBrowserTestBase {
     $this->submitForm([
       'contact_information[email]' => 'guest@example.com',
       'contact_information[email_confirm]' => 'guest@example.com',
-      'billing_information[address][0][given_name]' => $this->randomString(),
-      'billing_information[address][0][family_name]' => $this->randomString(),
-      'billing_information[address][0][organization]' => $this->randomString(),
-      'billing_information[address][0][address_line1]' => $this->randomString(),
-      'billing_information[address][0][locality]' => $this->randomString(),
+      'billing_information[profile][address][0][address][given_name]' => $this->randomString(),
+      'billing_information[profile][address][0][address][family_name]' => $this->randomString(),
+      'billing_information[profile][address][0][address][organization]' => $this->randomString(),
+      'billing_information[profile][address][0][address][address_line1]' => $this->randomString(),
+      'billing_information[profile][address][0][address][postal_code]' => '94043',
+      'billing_information[profile][address][0][address][locality]' => 'Mountain View',
+      'billing_information[profile][address][0][address][administrative_area]' => 'CA',
     ], 'Continue to review');
     $this->assertSession()->pageTextContains('Contact information');
     $this->assertSession()->pageTextContains('Billing information');

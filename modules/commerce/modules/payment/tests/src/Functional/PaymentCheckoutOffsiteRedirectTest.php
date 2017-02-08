@@ -5,7 +5,6 @@ namespace Drupal\Tests\commerce_payment\Functional;
 use Drupal\commerce_order\Entity\Order;
 use Drupal\commerce_payment\Entity\Payment;
 use Drupal\commerce_payment\Entity\PaymentGateway;
-use Drupal\commerce_store\StoreCreationTrait;
 use Drupal\Core\Entity\Entity\EntityFormDisplay;
 use Drupal\Tests\commerce\Functional\CommerceBrowserTestBase;
 
@@ -15,8 +14,6 @@ use Drupal\Tests\commerce\Functional\CommerceBrowserTestBase;
  * @group commerce
  */
 class PaymentCheckoutOffsiteRedirectTest extends CommerceBrowserTestBase {
-
-  use StoreCreationTrait;
 
   /**
    * The current user.
@@ -51,8 +48,6 @@ class PaymentCheckoutOffsiteRedirectTest extends CommerceBrowserTestBase {
   protected function setUp() {
     parent::setUp();
 
-    $store = $this->createStore('Demo', 'demo@example.com', 'default', TRUE);
-
     $variation = $this->createEntity('commerce_product_variation', [
       'type' => 'default',
       'sku' => strtolower($this->randomMachineName()),
@@ -67,7 +62,7 @@ class PaymentCheckoutOffsiteRedirectTest extends CommerceBrowserTestBase {
       'type' => 'default',
       'title' => 'My product',
       'variations' => [$variation],
-      'stores' => [$store],
+      'stores' => [$this->store],
     ]);
 
     /** @var \Drupal\commerce_payment\Entity\PaymentGateway $gateway */
@@ -103,12 +98,12 @@ class PaymentCheckoutOffsiteRedirectTest extends CommerceBrowserTestBase {
     $this->submitForm([], 'Checkout');
     $this->assertSession()->pageTextContains('Order Summary');
     $this->submitForm([
-      'payment_information[address][0][given_name]' => 'Johnny',
-      'payment_information[address][0][family_name]' => 'Appleseed',
-      'payment_information[address][0][address_line1]' => '123 New York Drive',
-      'payment_information[address][0][locality]' => 'New York City',
-      'payment_information[address][0][administrative_area]' => 'NY',
-      'payment_information[address][0][postal_code]' => '10001',
+      'payment_information[billing_information][address][0][address][given_name]' => 'Johnny',
+      'payment_information[billing_information][address][0][address][family_name]' => 'Appleseed',
+      'payment_information[billing_information][address][0][address][address_line1]' => '123 New York Drive',
+      'payment_information[billing_information][address][0][address][locality]' => 'New York City',
+      'payment_information[billing_information][address][0][address][administrative_area]' => 'NY',
+      'payment_information[billing_information][address][0][address][postal_code]' => '10001',
     ], 'Continue to review');
     $this->assertSession()->pageTextContains('Contact information');
     $this->assertSession()->pageTextContains($this->loggedInUser->getEmail());
@@ -146,12 +141,12 @@ class PaymentCheckoutOffsiteRedirectTest extends CommerceBrowserTestBase {
     $this->submitForm([], 'Checkout');
     $this->assertSession()->pageTextContains('Order Summary');
     $this->submitForm([
-      'payment_information[address][0][given_name]' => 'Johnny',
-      'payment_information[address][0][family_name]' => 'Appleseed',
-      'payment_information[address][0][address_line1]' => '123 New York Drive',
-      'payment_information[address][0][locality]' => 'New York City',
-      'payment_information[address][0][administrative_area]' => 'NY',
-      'payment_information[address][0][postal_code]' => '10001',
+      'payment_information[billing_information][address][0][address][given_name]' => 'Johnny',
+      'payment_information[billing_information][address][0][address][family_name]' => 'Appleseed',
+      'payment_information[billing_information][address][0][address][address_line1]' => '123 New York Drive',
+      'payment_information[billing_information][address][0][address][locality]' => 'New York City',
+      'payment_information[billing_information][address][0][address][administrative_area]' => 'NY',
+      'payment_information[billing_information][address][0][address][postal_code]' => '10001',
     ], 'Continue to review');
     $this->assertSession()->pageTextContains('Contact information');
     $this->assertSession()->pageTextContains($this->loggedInUser->getEmail());
