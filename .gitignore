@@ -34,3 +34,7 @@ sites/simpletest
 # */private
 
 *.gz
+<<<<<<< HEAD
+=======
+sites/*/files
+>>>>>>> gitignore
