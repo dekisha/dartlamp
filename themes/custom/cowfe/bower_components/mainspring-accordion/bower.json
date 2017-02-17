@@ -1,5 +1,0 @@
-{
-	"name": "mainspring-accordian",
-	"version": "0.0.2",
-  "main": ["mainspring.accordion.js"]
-}
