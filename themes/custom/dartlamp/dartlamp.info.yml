@@ -1,10 +1,11 @@
-core: 8.x
+name: 'Dartlamp'
 type: theme
+description: 'Dartlamp theme.'
+core: 8.x
 base theme: classy
 
-name: 'Dartlamp'
-description: 'Dartlamp theme.'
-package: Core
+libraries:
+  - dartlamp/global
 
 regions:
   top: Top
@@ -21,16 +22,3 @@ regions:
   pre_footer: Pre-footer
   footer: Footer
   post_footer: Post-footer
-
-#
-# Load library
-libraries:
-  - 'cowfe/global'
-
-#
-# Remove style from core or modules
-stylesheets-remove:
-#  - '@classy/css/components/tabs.css'
-#  - core/assets/vendor/normalize-css/normalize.css
-
-libraries-override:
