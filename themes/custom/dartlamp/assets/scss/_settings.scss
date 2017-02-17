@@ -1,0 +1,9 @@
+$inuit-config: (
+  env: dev,
+  healthcheck: false,
+  debug: true,
+);
+
+@function inuit-config($key) {
+  @return map-get($inuit-config, $key);
+}
