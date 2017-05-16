@@ -1,10 +1,15 @@
-(function($) {
+(function ($) {
   'use strict';
 
-  $(document).ready(function() {
-    // alert('Helloooooooo?');
-    // console.log('caoo');
-
-  });
+  Drupal.behaviors.galleryMasonry = {
+    attach: function (context) {
+      
+      $('.view-galery .view-content').once().masonry({
+        // options
+        itemSelector: '.views-row',
+        columnWidth: 200
+      });
+    }
+  };
 
 })(jQuery);

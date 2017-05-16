@@ -1,1 +1,1 @@
-!function(n){"use strict";n(document).ready(function(){})}(jQuery);
+!function(e){"use strict";Drupal.behaviors.galleryMasonry={attach:function(t){e(".view-galery .view-content").once().masonry({itemSelector:".views-row",columnWidth:200})}}}(jQuery);
