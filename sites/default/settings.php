@@ -750,31 +750,6 @@ $settings['file_scan_ignore_directories'] = [
  * Keep this code block at the end of this file to take full effect.
  */
 #
-# if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-#   include $app_root . '/' . $site_path . '/settings.local.php';
-# }
-$databases['default']['default'] = array (
-  'database' => 'dartlamp_drup',
-  'username' => 'root',
-  'password' => 'xx',
-  'prefix' => '',
-  'host' => 'localhost',
-  'port' => '3306',
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'driver' => 'mysql',
-);
-$settings['install_profile'] = 'standard';
-$config_directories['sync'] = 'sites/default/files/config_xLLVkilH5FzLP6poq_bIa-MCmLisZ78GViOVTeVnP37o_sn8wDtVWFbqyULbyweu0rnDjhQPgQ/sync';
-
-$base_url = 'http://dartlamp.loc';
-
-$conf['preprocess_css'] = FALSE;
-$conf['preprocess_js'] = FALSE;
-
-$conf['file_public_path'] = 'sites/default/files';
-$conf['file_temporary_path'] = 'sites/default/files/tmp';
-$conf['file_private_path'] = 'sites/default/files/private';
-
-error_reporting(E_ALL);
-ini_set('display_errors', TRUE);
-ini_set('display_startup_errors', TRUE);
+if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+  include $app_root . '/' . $site_path . '/settings.local.php';
+}

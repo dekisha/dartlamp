@@ -1,8 +1,8 @@
 
-vendor
+/vendor
 
-sites/*/settings*.php
-sites/*/services*.yml
+sites/*/settings.local.php
+sites/*/development.services.yml
 
 sites/*/files
 sites/*/private
@@ -10,8 +10,3 @@ sites/*/private
 sites/simpletest
 
 # */settings*.php
-
-# */files
-# */private
-
-# simpletest
