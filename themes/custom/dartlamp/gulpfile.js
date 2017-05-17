@@ -28,9 +28,7 @@ var gulp = require('gulp'),
     'assets/scss/*.scss'
   ],
   fonts = [
-    'node_modules/font-awesome/fonts/*',
-    'node_modules/npm-font-open-sans/fonts/Bold/*',
-    'node_modules/npm-font-open-sans/fonts/Regular/*'
+    'node_modules/font-awesome/fonts/*'
   ];
 
 //SETTINGS

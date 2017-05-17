@@ -1,17 +1,34 @@
 (function ($) {
   'use strict';
 
-  Drupal.behaviors.galleryMasonry = {
+  Drupal.behaviors.gallery = {
     attach: function (context) {
 
-      $('.view-galery .view-content').isotope({
+      // init Isotope
+      var $grid = $('.view-galery .view-content').isotope({
         itemSelector: '.views-row',
-        masonry: {
-          columnWidth: '.views-row'
-        },
+        layoutMode: 'masonry',
         getSortData: {
-          name: '.views-field-title a'
-        },
+          name: '.views-field-title a',
+          number: '.views-field-nid span'
+        }
+      });
+
+      // bind sort button click
+      $('.sort-by-button-group').on('click', 'button', function () {
+        var sortValue = $(this)["0"].attributes["0"].nodeValue;
+        $grid.isotope({
+          sortBy: sortValue
+        });
+      });
+
+      // change is-checked class on buttons
+      $('.button-group').each(function (i, buttonGroup) {
+        var $buttonGroup = $(buttonGroup);
+        $buttonGroup.on('click', 'button', function () {
+          $buttonGroup.find('.is-checked').removeClass('is-checked');
+          $(this).addClass('is-checked');
+        });
       });
     }
   };

@@ -1,24 +1,22 @@
 // ----------------------------------------------------------------------------
-// CONFIG
+// TOP
 // ----------------------------------------------------------------------------
-$inuit-config: (
-  env: dev,
-  healthcheck: false,
-  debug: true,
-);
-
-@function inuit-config($key) {
-  @return map-get($inuit-config, $key);
-}
-
-@font-face {
-  font-family: 'LeelawUI';
-  src: url('../fonts/LeelawUI.ttf');
-  font-weight: normal;
-  font-style: normal;
+.region-top {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 // ----------------------------------------------------------------------------
-// GLOBALS
+// HEADER
 // ----------------------------------------------------------------------------
-$leelawui-fonts: 'LeelawUI';
+.l-header {
+  background-color: rgba(black, 0.6);
+  padding: 2px 0;
+}
+
+.region-header {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}

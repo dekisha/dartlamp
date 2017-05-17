@@ -7,6 +7,14 @@ base theme: classy
 libraries:
   - dartlamp/global
 
+libraries-override:
+  classy/base:
+    css:
+      component:
+        css/components/links.css: false
+        css/components/menu.css: false
+        css/components/tabs.css: false
+
 regions:
   top: Top
   header: Header
