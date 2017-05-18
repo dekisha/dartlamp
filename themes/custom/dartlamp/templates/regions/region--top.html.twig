@@ -1,0 +1,12 @@
+{%
+  set classes = [
+    'region',
+    'region-' ~ region|clean_class,
+    '[ o-layout  o-layout--stretch  o-layout--auto ]'
+  ]
+%}
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+    {{ content }}
+  </div>
+{% endif %}

@@ -9,12 +9,13 @@
 @import "node_modules/inuitcss/tools/tools.clearfix";
 @import "node_modules/inuitcss/tools/tools.hidden";
 $mq-breakpoints: (
-  mobile:  320px,
-  mobileLandscape: 480px,
-  tablet: 550px,
-  tabletLandscape:  768px,
-  desktop: 980px,
-  wide:    1300px
+    mobile:  320px,
+    tablet: 600px,
+    tablet_landscape:  900px,
+    desktop: 1200px,
+    
+    // custom breakpoints
+    desktop_wide: 1350px
 );
 @if (inuit-config(debug) == true) {
   $mq-show-breakpoints: (mobile, tablet, tablet_landscape, desktop, desktop_wide);
@@ -57,9 +58,10 @@ $legacy-support-for-ie8: false;
 
 
 // COMPONENTS
-//@import 'node_modules/slick-carousel/slick/slick.scss';
+@import 'node_modules/slick-carousel/slick/slick.scss';
 //@import 'node_modules/swiper/dist/css/swiper';
 @import "layouts";
+$btn-radius: 50px;
 @import "components";
 
 

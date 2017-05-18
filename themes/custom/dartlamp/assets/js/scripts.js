@@ -33,4 +33,16 @@
     }
   };
 
+  Drupal.behaviors.hpSlider = {
+    attach: function (context) {
+      $('.field--name-field-homepage-slider-images').once().slick({
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 8000,
+        fade: true,
+        dots: true
+      });
+    }
+  };
+
 })(jQuery);

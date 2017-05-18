@@ -1,10 +1,22 @@
 // ----------------------------------------------------------------------------
 // TOP
 // ----------------------------------------------------------------------------
+.l-top {
+  padding: $inuit-global-spacing-unit-small 0;
+}
+
 .region-top {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  > div {
+    &:first-child {
+      text-align: left;
+    }
+    &:last-child {
+      text-align: right;
+    }
+  }
 }
 
 // ----------------------------------------------------------------------------
@@ -16,7 +28,15 @@
 }
 
 .region-header {
-  display: table;
-  table-layout: fixed;
-  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  > div {
+    &:first-child {
+      text-align: left;
+    }
+    &:last-child {
+      text-align: right;
+    }
+  }
 }

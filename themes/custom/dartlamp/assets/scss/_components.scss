@@ -1,4 +1,150 @@
 // ----------------------------------------------------------------------------
+// CAPTION
+// ----------------------------------------------------------------------------
+figure {
+  > figcaption {
+    border-bottom: 1px solid #e8edf2;
+    color: #666666;
+    padding: $inuit-global-spacing-unit-small;
+
+    @include inuit-font-size(15px);
+    @include mq($from: tablet_landscape) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+// ----------------------------------------------------------------------------
+// BUTTONS
+// ----------------------------------------------------------------------------
+@mixin c-btn() {
+  border-radius: $btn-radius;
+  cursor: pointer;
+  display: inline-block;
+  // font-family: $montserrat-fonts;
+  font-weight: 700;
+  padding: 6px 25px;
+  text-align: center;
+  transition: $transition;
+  vertical-align: middle;
+
+  @include inuit-font-size(14px);
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
+}
+
+@mixin c-btn--primary() {
+  background-color: $brand-color-lighter;
+  border: 2px solid $brand-color-lighter;
+  color: white;
+}
+
+@mixin c-btn--ghost() {
+  background-color: transparent;
+  border: 2px solid #e8edf2;
+}
+
+.c-btn.fa {
+  padding: 6px 15px;
+}
+
+.c-btn.fa-facebook {
+  background-color: #3b5998;
+}
+
+.c-btn.fa-twitter {
+  background-color: $twitter-color;
+}
+
+.c-btn.fa-instagram {
+  background-color: $instagram-color;
+}
+
+.c-btn.fa-linkedin {
+  background-color: $linkedin-color;
+}
+
+.c-btn__wrapper {
+  a {
+    @include c-btn();
+    @include c-btn--primary();
+  }
+}
+
+.c-btn__wrapper--arrow {
+  a {
+    &:after {
+      font-awesome: long-arrow-right;
+      margin-left: 10px;
+    }
+  }
+}
+
+.form-submit {
+  @include c-btn();
+  @include c-btn--primary();
+}
+
+.c-btn {
+  @include c-btn();
+}
+
+.c-btn--primary {
+  @include c-btn--primary();
+}
+
+.is-disabled {
+  cursor: default !important;
+  opacity: 0.5 !important;
+  pointer-events: none !important;
+}
+
+// ----------------------------------------------------------------------------
+// TABS
+// ----------------------------------------------------------------------------
+[id="block-m2q-local-tasks"] {
+  // clear: both;
+}
+ul.tabs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tabs > li {
+  display: inline-block;
+  margin-right: 0.3em; /* LTR */
+}
+[dir="rtl"] .tabs > li {
+  margin-left: 0.3em;
+  margin-right: 0;
+}
+.tabs a {
+  background-color: initial;
+  box-shadow: inset 0 -0.2em 0 0 #e5eaec;
+  color: #96a8b2;
+  display: block;
+  padding: 1em;
+  text-decoration: none;
+}
+.tabs a.active {
+  box-shadow: inset 0 -0.2em 0 0 #96a8b2;
+  color: initial;
+}
+.tabs a:focus,
+.tabs a:hover {
+  color: initial;
+}
+
+// ----------------------------------------------------------------------------
 // LOGO
 // ----------------------------------------------------------------------------
 .block-system-branding-block {
@@ -65,17 +211,13 @@
 // MENUS
 // ----------------------------------------------------------------------------  
 .menu--main {
-  display: table-cell;
-  text-align: right;
   .menu {
-    margin: 0;
+    margin: 0 (-$inuit-global-spacing-unit-small);
   }
   .menu-item {
     display: inline-block;
-    margin-left: $inuit-global-spacing-unit;
-    &:first-child {
-      margin-left: 0;
-    }
+    margin: 0 $inuit-global-spacing-unit-small;
+    vertical-align: middle;
     a {
       color: white;
       font-family: $leelawui-fonts;
@@ -86,26 +228,30 @@
 }
 
 .menu--account {
-  // float: right;
   .menu {
-    margin: 0;
+    margin: 0 (-$inuit-global-spacing-unit-tiny);
   }
   .menu-item {
     display: inline-block;
+    margin: 0 $inuit-global-spacing-unit-tiny;
+    vertical-align: middle;
   }
 }
 
 .menu--social {
-  // float: left;
+  .menu {
+    margin: 0 (-$inuit-global-spacing-unit-tiny);
+  }
   .menu-item {
     display: inline-block;
-    margin-right: 4px;
+    margin: 0 $inuit-global-spacing-unit-tiny;
+    vertical-align: middle;
     .fa {
-      background: rgba(#333,0.3);
+      background: rgba(#333333,0.3);
       border-radius: 50%;
-      color: #333;
+      color: #333333;
       cursor: pointer;
-      display: inline-block;
+      display: block;
       font-size: 0;
       height: 32px;
       position: relative;
@@ -114,7 +260,7 @@
       width: 32px;
       z-index: 1;
       &:hover {
-        background: #333;
+        background: #333333;
         color: #ffffff;
         &:after {
           opacity: 1;
@@ -134,7 +280,7 @@
       }
       &:after {
         border-radius: 50%;
-        box-shadow: 0 0 0 2px #333;
+        box-shadow: 0 0 0 2px #333333;
         box-sizing: content-box;
         content: "";
         height: 100%;
@@ -151,3 +297,29 @@
     }
   }
 }
+
+// ----------------------------------------------------------------------------
+// HP SLIDER
+// ---------------------------------------------------------------------------- 
+.slick-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.slick-slide {
+  img {
+    margin: auto;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.slick-active {
+  img {
+    animation: zoom 10s;
+  }
+}
+  

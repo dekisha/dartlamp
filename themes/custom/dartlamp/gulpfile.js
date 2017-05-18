@@ -19,7 +19,7 @@ var gulp = require('gulp'),
     postcss_font_awesome
   ],
   jsfiles = [
-    // 'node_modules/slick-carousel/slick/slick.js',
+    'node_modules/slick-carousel/slick/slick.js',
     // 'node_modules/swiper/dist/js/swiper.jquery.js',
     'node_modules/isotope-layout/dist/isotope.pkgd.js',
     'assets/js/scripts.js'
