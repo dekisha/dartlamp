@@ -8,15 +8,21 @@ var gulp = require('gulp'),
   browserSync = require('browser-sync').create(),
   gp_concat = require('gulp-concat'),
   gp_uglify = require('gulp-uglify'),
+  gp_postcss_size = require('postcss-size'),
+  gp_assets  = require('postcss-assets'),
   gp_filter = require('gulp-filter'),
   gp_livereload = require('gulp-livereload'),
-  gp_header = require('gulp-header'),
+  gp_rucksack = require('gulp-rucksack'),
   processors = [
     autoprefixer({
       browsers: ['last 5 versions', 'IE 9', 'IE 10'],
       cascade: false
     }),
-    postcss_font_awesome
+    gp_assets({
+      loadPaths: ['images']
+    }),
+    postcss_font_awesome,
+    gp_postcss_size,
   ],
   jsfiles = [
     'node_modules/slick-carousel/slick/slick.js',
@@ -49,9 +55,9 @@ gulp.task('fonts', function() {
 //CSS
 gulp.task('styles', function() {
   return gulp.src(scssfiles)
-    .pipe(gp_header('$debug: true;'))
     .pipe(gp_sourcemaps.init())
     .pipe(gp_sass().on('error', gp_sass.logError))
+    .pipe(gp_rucksack())
     .pipe(gp_postcss(processors))
     .pipe(gp_sourcemaps.write('.'))
     .pipe(gulp.dest('css'))
@@ -63,8 +69,8 @@ gulp.task('styles', function() {
 //CSS MINIFY
 gulp.task('styles_prod', function() {
   return gulp.src(scssfiles)
-    // .pipe(header('$debug: false;')) set as default from sass
     .pipe(gp_sass({outputStyle: 'compressed'}).on('error', gp_sass.logError))
+    .pipe(gp_rucksack())
     .pipe(gp_postcss(processors))
     .pipe(gulp.dest('css'));
 });

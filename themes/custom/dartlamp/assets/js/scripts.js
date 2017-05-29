@@ -9,7 +9,7 @@
         itemSelector: '.views-row',
         layoutMode: 'masonry',
         getSortData: {
-          name: '.views-field-title a',
+          name: '.views-field-nothing a',
           number: '.views-field-nid span'
         }
       });
