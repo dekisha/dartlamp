@@ -44,5 +44,27 @@
       });
     }
   };
+  
+  Drupal.behaviors.nodeSlider = {
+    attach: function (context) {
+      $('.node--type-lamp .field--name-field-images').once().clone().insertAfter($('.node--type-lamp .field--name-field-images')).addClass('slider-nav');
+
+      $('.node--type-lamp .field--name-field-images:first-child').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.slider-nav'
+      });
+      $('.slider-nav').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.node--type-lamp .field--name-field-images:first-child',
+        dots: true,
+        centerMode: true,
+        focusOnSelect: true
+      });
+    }
+  };
 
 })(jQuery);

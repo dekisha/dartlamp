@@ -190,6 +190,18 @@ ul.tabs {
 }
 
 // ----------------------------------------------------------------------------
+// BLOCKS
+// ----------------------------------------------------------------------------
+.block {
+  .region-content & {
+    margin-bottom: $inuit-global-spacing-unit;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// ----------------------------------------------------------------------------
 // VIEWS
 // ----------------------------------------------------------------------------
 .view-galery {
@@ -205,15 +217,15 @@ ul.tabs {
         filter: alpha(opacity=70);
       }
       img {
-        transform: scale(1.1);
+        transform: scale(1.02);
         transition: transform 0.3s ease-out;
       }
     }
     img {
-      height: auto;
-      opacity: 1;
+      // height: auto;
+      // opacity: 1;
       transform: scale(1);
-      width: 100%;
+      // width: 100%;
     }
   }
   .views-field-field-images {
@@ -233,6 +245,7 @@ ul.tabs {
     left: 0;
     line-height: 24px;
     opacity: 0;
+    pointer-events: none;
     position: absolute;
     text-align: center;
     top: 0;
@@ -254,6 +267,18 @@ ul.tabs {
 }
 
 // ----------------------------------------------------------------------------
+// NODES
+// ----------------------------------------------------------------------------
+.node--type-lamp {
+  .slick-slider {
+    img {
+      height: auto;
+      max-width: 100%;
+    }
+  }
+}
+
+// ----------------------------------------------------------------------------
 // MENUS
 // ----------------------------------------------------------------------------  
 .menu--main {
@@ -265,10 +290,34 @@ ul.tabs {
     margin: 0 $inuit-global-spacing-unit-small;
     vertical-align: middle;
     a {
-      color: white;
+      color: rgba(255, 255, 255, 0.3);
+      display: block;
       font-family: $leelawui-fonts;
+      overflow: hidden;
+      position: relative;
       text-decoration: none;
       text-transform: uppercase;
+      &.is-active,
+      &:hover {
+        color: white;
+      }
+      &:hover {
+        color: white;
+        &:after {
+          transform: translate(102%, 0px);
+        }
+      }
+      &:after {
+        background-color: #ffffff;
+        bottom: 0;
+        content: "";
+        height: 1.5px;
+        left: 0;
+        position: absolute;
+        transform: translate(-102%, 0px);
+        transition: transform 700ms cubic-bezier(0.23, 1, 0.32, 1) 0s;
+        width: 100%;
+      }
     }
   }
 }
@@ -347,74 +396,70 @@ ul.tabs {
 // ----------------------------------------------------------------------------
 // HP SLIDER
 // ---------------------------------------------------------------------------- 
-.slick-slider {
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: -1;
-}
-
-.slick-slide {
-  img {
-    height: auto;
-    margin: auto;
-    width: 100%;
+.field--name-field-homepage-slider-images {
+  &.slick-slider {
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
   }
-}
-
-.slick-active {
-  img {
-    animation: zoom 10s;
+  .slick-slide {
+    img {
+      height: auto;
+      margin: auto;
+      width: 100%;
+    }
   }
-}
-
-.slick-arrow {
-  background-color: transparent;
-  border: 0;
-  bottom: 0;
-  font-size: 0;
-  padding: 0 20px;
-  position: absolute;
-  top: 0;
-  z-index: 1;
-  &:before {
-    color: white;
-    font-size: 70px;
+  .slick-active {
+    img {
+      animation: zoom 10s;
+    }
   }
-}
-
-.slick-prev {
-  left: 0;
-  &:before {
-    font-awesome: angle-left;
-  }
-}
-
-.slick-next {
-  right: 0;
-  &:before {
-    font-awesome: angle-right;
-  }
-}
-
-.slick-dots {
-  bottom: $inuit-global-spacing-unit;
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-  right: 0;
-  text-align: center;
-  li {
-    display: inline-block;
-    margin: 0 $inuit-global-spacing-unit-tiny;
-  }
-  button {
-    background-color: white;
+  .slick-arrow {
+    background-color: transparent;
     border: 0;
-    border-radius: 50%;
+    bottom: 0;
     font-size: 0;
-    size: 20px;
+    padding: 0 20px;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    &:before {
+      color: white;
+      font-size: 70px;
+    }
+  }
+  .slick-prev {
+    left: 0;
+    &:before {
+      font-awesome: angle-left;
+    }
+  }
+  .slick-next {
+    right: 0;
+    &:before {
+      font-awesome: angle-right;
+    }
+  }
+  .slick-dots {
+    bottom: $inuit-global-spacing-unit;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    li {
+      display: inline-block;
+      margin: 0 $inuit-global-spacing-unit-tiny;
+    }
+    button {
+      background-color: white;
+      border: 0;
+      border-radius: 50%;
+      font-size: 0;
+      size: 20px;
+    }
   }
 }
 
