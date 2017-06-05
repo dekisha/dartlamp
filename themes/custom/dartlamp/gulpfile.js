@@ -26,8 +26,8 @@ var gulp = require('gulp'),
   ],
   jsfiles = [
     'node_modules/slick-carousel/slick/slick.js',
-    // 'node_modules/swiper/dist/js/swiper.jquery.js',
     'node_modules/isotope-layout/dist/isotope.pkgd.js',
+    'node_modules/jquery.scrollbar/jquery.scrollbar.js',
     'assets/js/scripts.js'
   ],
   scssfiles = [

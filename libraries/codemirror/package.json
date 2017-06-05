@@ -2,26 +2,26 @@
   "_args": [
     [
       {
-        "raw": "codemirror@5.21.0",
+        "raw": "codemirror@5.25.2",
         "scope": null,
         "escapedName": "codemirror",
         "name": "codemirror",
-        "rawSpec": "5.21.0",
-        "spec": "5.21.0",
+        "rawSpec": "5.25.2",
+        "spec": "5.25.2",
         "type": "version"
       },
-      "/private/var/folders/9p/clj0fc754y35m01btd46043c0000gn/T/tmp.jcwKwtRA"
+      "/private/var/folders/9p/clj0fc754y35m01btd46043c0000gn/T/tmp.wUKcXUPV"
     ]
   ],
-  "_from": "codemirror@5.21.0",
-  "_id": "codemirror@5.21.0",
+  "_from": "codemirror@5.25.2",
+  "_id": "codemirror@5.25.2",
   "_inCache": true,
   "_installable": true,
   "_location": "/codemirror",
   "_nodeVersion": "6.9.1",
   "_npmOperationalInternal": {
-    "host": "packages-18-east.internal.npmjs.com",
-    "tmp": "tmp/codemirror-5.21.0.tgz_1479723046708_0.6828831229358912"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/codemirror-5.25.2.tgz_1492683066328_0.4468107109423727"
   },
   "_npmUser": {
     "name": "marijn",
@@ -30,22 +30,22 @@
   "_npmVersion": "3.10.8",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "codemirror@5.21.0",
+    "raw": "codemirror@5.25.2",
     "scope": null,
     "escapedName": "codemirror",
     "name": "codemirror",
-    "rawSpec": "5.21.0",
-    "spec": "5.21.0",
+    "rawSpec": "5.25.2",
+    "spec": "5.25.2",
     "type": "version"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://registry.npmjs.org/codemirror/-/codemirror-5.21.0.tgz",
-  "_shasum": "9ec4caeda50807575b2115226bf12414f85d2246",
+  "_resolved": "https://registry.npmjs.org/codemirror/-/codemirror-5.25.2.tgz",
+  "_shasum": "8c77677ca9c9248d757d3a07ed1e89a8404850b7",
   "_shrinkwrap": null,
-  "_spec": "codemirror@5.21.0",
-  "_where": "/private/var/folders/9p/clj0fc754y35m01btd46043c0000gn/T/tmp.jcwKwtRA",
+  "_spec": "codemirror@5.25.2",
+  "_where": "/private/var/folders/9p/clj0fc754y35m01btd46043c0000gn/T/tmp.wUKcXUPV",
   "bugs": {
     "url": "http://github.com/codemirror/CodeMirror/issues"
   },
@@ -70,6 +70,9 @@
     },
     {
       "name": "Adam King"
+    },
+    {
+      "name": "Adam Particka"
     },
     {
       "name": "adanlobato"
@@ -141,6 +144,9 @@
       "name": "Allen Sarkisyan"
     },
     {
+      "name": "Ami Fischman"
+    },
+    {
       "name": "Amin Shali"
     },
     {
@@ -187,6 +193,9 @@
     },
     {
       "name": "Andre von Houck"
+    },
+    {
+      "name": "Andrew Cheng"
     },
     {
       "name": "Andrey Fedorov"
@@ -255,6 +264,12 @@
       "name": "Arnab Bose"
     },
     {
+      "name": "Arthur Müller"
+    },
+    {
+      "name": "Arun Narasani"
+    },
+    {
       "name": "as3boyan"
     },
     {
@@ -268,6 +283,9 @@
     },
     {
       "name": "Aurelian Oancea"
+    },
+    {
+      "name": "Axel Lewenhaupt"
     },
     {
       "name": "Barret Rennie"
@@ -354,7 +372,13 @@
       "name": "Brian Sletten"
     },
     {
+      "name": "brrd"
+    },
+    {
       "name": "Bruce Mitchener"
+    },
+    {
+      "name": "Bryan Massoth"
     },
     {
       "name": "Caitlin Potter"
@@ -409,6 +433,9 @@
     },
     {
       "name": "Christopher Brown"
+    },
+    {
+      "name": "Christopher Kramer"
     },
     {
       "name": "Christopher Mitchell"
@@ -576,6 +603,9 @@
       "name": "Elisée"
     },
     {
+      "name": "Emmanuel Schanzer"
+    },
+    {
       "name": "Enam Mijbah Noor"
     },
     {
@@ -586,6 +616,9 @@
     },
     {
       "name": "eustas"
+    },
+    {
+      "name": "Fabien Dubosson"
     },
     {
       "name": "Fabien O'Carroll"
@@ -612,6 +645,9 @@
       "name": "Felix Raab"
     },
     {
+      "name": "ficristo"
+    },
+    {
       "name": "Filip Noetzel"
     },
     {
@@ -619,6 +655,9 @@
     },
     {
       "name": "flack"
+    },
+    {
+      "name": "Florian Felten"
     },
     {
       "name": "ForbesLindesay"
@@ -658,6 +697,9 @@
     },
     {
       "name": "gekkoe"
+    },
+    {
+      "name": "Geordie Hall"
     },
     {
       "name": "geowarin"
@@ -789,6 +831,9 @@
       "name": "Jacob Lee"
     },
     {
+      "name": "Jake Peyser"
+    },
+    {
       "name": "Jakob Miland"
     },
     {
@@ -808,6 +853,9 @@
     },
     {
       "name": "Jamie Hill"
+    },
+    {
+      "name": "Jamie Morris"
     },
     {
       "name": "Jan Jongboom"
@@ -949,6 +997,9 @@
       "name": "Joseph Pecoraro"
     },
     {
+      "name": "Josh Barnes"
+    },
+    {
       "name": "Josh Cohen"
     },
     {
@@ -1013,6 +1064,9 @@
     },
     {
       "name": "Kevin Earls"
+    },
+    {
+      "name": "Kevin Muret"
     },
     {
       "name": "Kevin Sawicki"
@@ -1088,6 +1142,9 @@
     },
     {
       "name": "Lorenzo Stoakes"
+    },
+    {
+      "name": "Luca Fabbri"
     },
     {
       "name": "Luciano Longo"
@@ -1256,6 +1313,9 @@
     },
     {
       "name": "McBrainy"
+    },
+    {
+      "name": "mce2"
     },
     {
       "name": "melpon"
@@ -1427,6 +1487,9 @@
       "name": "pabloferz"
     },
     {
+      "name": "Pablo Zubieta"
+    },
+    {
       "name": "Page"
     },
     {
@@ -1547,6 +1610,9 @@
       "name": "Remi Nyborg"
     },
     {
+      "name": "Renaud Durlin"
+    },
+    {
       "name": "Richard Denton"
     },
     {
@@ -1554,6 +1620,9 @@
     },
     {
       "name": "Richard Z.H. Wang"
+    },
+    {
+      "name": "Rishi Goomar"
     },
     {
       "name": "Robert Crossfield"
@@ -1571,7 +1640,13 @@
       "name": "Rrandom"
     },
     {
+      "name": "Rrrandom"
+    },
+    {
       "name": "Ruslan Osmanov"
+    },
+    {
+      "name": "Ryan Petrello"
     },
     {
       "name": "Ryan Prior"
@@ -1611,6 +1686,9 @@
     },
     {
       "name": "sathyamoorthi"
+    },
+    {
+      "name": "Saul Costa"
     },
     {
       "name": "S. Chris Colbert"
@@ -1802,6 +1880,9 @@
       "name": "Tom Erik Støwer"
     },
     {
+      "name": "Tom Klancer"
+    },
+    {
       "name": "Tom MacWright"
     },
     {
@@ -1895,7 +1976,13 @@
       "name": "Zachary Dremann"
     },
     {
+      "name": "Zeno Rocha"
+    },
+    {
       "name": "Zhang Hao"
+    },
+    {
+      "name": "Ziv"
     },
     {
       "name": "zziuni"
@@ -1910,18 +1997,18 @@
     "blint": "^0.5.1",
     "node-static": "0.6.0",
     "phantomjs-prebuilt": "^2.1.12",
-    "rollup": "^0.34.10",
-    "rollup-plugin-buble": "^0.14.0",
-    "rollup-watch": "^2.5.0"
+    "rollup": "^0.41.0",
+    "rollup-plugin-buble": "^0.15.0",
+    "rollup-watch": "^3.2.0"
   },
   "directories": {
     "lib": "./lib"
   },
   "dist": {
-    "shasum": "9ec4caeda50807575b2115226bf12414f85d2246",
-    "tarball": "https://registry.npmjs.org/codemirror/-/codemirror-5.21.0.tgz"
+    "shasum": "8c77677ca9c9248d757d3a07ed1e89a8404850b7",
+    "tarball": "https://registry.npmjs.org/codemirror/-/codemirror-5.25.2.tgz"
   },
-  "gitHead": "692393d609e4cc96a1726830ff161c3f4e56670e",
+  "gitHead": "2474ce6e2e1254812a7800b55fb7a295dc34669b",
   "homepage": "http://codemirror.net",
   "jspm": {
     "directories": {},
@@ -1955,5 +2042,5 @@
     "test": "node ./test/run.js",
     "watch": "rollup -w -c"
   },
-  "version": "5.21.0"
+  "version": "5.25.2"
 }

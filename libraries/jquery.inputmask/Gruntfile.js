@@ -12,10 +12,12 @@ module.exports = function (grunt) {
 	function createUglifyConfig(path) {
 		function stripModuleLoaders(src, dst) {
 			var srcFile = grunt.file.read(src);
-			srcFile = srcFile.replace(new RegExp("\\(function\\s?\\(factory\\)[\\s\\S]*\\(function\\s?\\(\\$"), "(function ($");
-			if (src.indexOf("extensions") === -1 && src.indexOf("jquery.inputmask") === -1) {
-				srcFile = srcFile.replace(new RegExp("\\}\\)\\);[\\s]*$"), "})(jQuery);");
-			} else srcFile = srcFile.replace(new RegExp("\\}\\)\\);[\\s]*$"), "})(jQuery, Inputmask);");
+			if (src.indexOf("inputmask.config") === -1) {
+				srcFile = srcFile.replace(new RegExp("\\(function\\s?\\(factory\\)[\\s\\S]*\\(function\\s?\\(\\$"), "(function ($");
+				if (src.indexOf("extensions") === -1 && src.indexOf("jquery.inputmask") === -1) {
+					srcFile = srcFile.replace(new RegExp("\\}\\)\\);[\\s]*$"), "})(jQuery);");
+				} else srcFile = srcFile.replace(new RegExp("\\}\\)\\);[\\s]*$"), "})(jQuery, Inputmask);");
+			}
 			grunt.file.write(dst, srcFile);
 		}
 
@@ -40,13 +42,14 @@ module.exports = function (grunt) {
 				src: srcFiles[srcNdx],
 				options: {
 					banner: createBanner(dstFileMin),
-					preserveComments: "some",
+					preserveComments: false,
 					ASCIIOnly: true
 				}
 			};
 
 			stripModuleLoaders("js/" + dstFile, "build/" + dstFile);
 		}
+
 		srcFiles = grunt.file.expand("build/*.extensions.js");
 		srcFiles.splice(0, 0, "build/jquery.inputmask.js");
 		srcFiles.splice(0, 0, "build/inputmask.js");
@@ -66,7 +69,7 @@ module.exports = function (grunt) {
 			src: srcFiles,
 			options: {
 				banner: createBanner("jquery.inputmask.bundle.js"),
-				preserveComments: "some",
+				preserveComments: false,
 				ASCIIOnly: true
 			}
 		};
@@ -74,7 +77,7 @@ module.exports = function (grunt) {
 		return uglifyConfig;
 	}
 
-	// Project configuration.
+// Project configuration.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON("package.json"),
 		uglify: createUglifyConfig("js"),
@@ -142,7 +145,7 @@ module.exports = function (grunt) {
 			tasks: {
 				options: {
 					filter: 'exclude',
-					tasks: ['availabletasks', 'default'],
+					tasks: ['availabletasks', 'default', 'updateDistConfig'],
 					showTasks: ['user']
 				}
 			}
@@ -158,7 +161,7 @@ module.exports = function (grunt) {
 		}
 	});
 
-	// Load the plugin that provides the tasks.
+// Load the plugin that provides the tasks.
 	require('load-grunt-tasks')(grunt);
 
 	grunt.registerTask('publish:patch', ['clean', 'bump:patch', 'uglify', 'shell:gitcommitchanges', 'release', 'nugetpack', 'nugetpush']);
@@ -167,5 +170,4 @@ module.exports = function (grunt) {
 	grunt.registerTask('validate', ['eslint', 'browserify', 'karma']);
 	grunt.registerTask('build', ['bump:prerelease', 'clean', 'uglify']);
 	grunt.registerTask('default', ["availabletasks"]);
-
 };

@@ -1,6 +1,41 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.3.4 - 2016-12-22]
+### Added
+- extra extension points: analyseMask
+- colorMask option ~ css styleable mask
+
+### Updates
+- remove tooltip option
+- remove h,s,d,m,y definitions => use the date/time aliases
+- phone-alias - fine-tune mask sorting
+- make data-inputmask attribute naming configurable (dataAttribute on Inputmask)
+- numeric alias move negation symbols to the edges
+- handle android predictive text enabled
+- rename js/inputmask.dependencyLib.jquery.js to js/inputmask.dependencyLib.js
+- rename dist/inputmask.dependencyLib.jquery.js to dist/inputmask.dependencyLib.js
+- commonjs dep to inputmask.dependencyLib instead to inputmask.dependencyLib.jquery => can be symlinked to another dependencyLib
+- improve inputfallback (Android support)
+
+### Fixed
+- IE11 : SCRIPT438: Object doesn't support property or method 'isFinite' #1472
+- () as literal followed by an optional, doubles the optional template #1453
+- Decimal mask excluding zero with custom RadixPoint and GroupSeparator #1418
+- Can't remove dot from the middle of a word #1439
+- Invalid Leap Year dates can be entered #1368
+- jquery.val returns empty value (when using an unsupported input type) #1415
+- Losing the decimal part when the maximum number of digits is reached #1257
+- Not allowing to change existing number to 0 #1381
+- Numbers get swapped when cursor near suffix. #1278
+- androidHack: Caret positioning needs some fine tuning #1412
+- How can I get "-$123.45", not "$-123.45"? #1360
+- Placeholder color #972
+- Other color on placeholder (wrap placeholder in span, using contenteditable?) #873
+- Error on 3.3.3: Uncaught TypeError: Cannot set property 'generatedInput' of undefined #1399
+- ios 8, safari, on first visit unable to enter any characters #826
+- Numerica mask not run in Galaxy S5 + Chrome + Android #1357
+
 ## [3.3.3 - 2016-09-09] - hotfix
 
 ### Updates

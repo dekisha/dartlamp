@@ -11,7 +11,7 @@
 	if (typeof define === "function" && define.amd) {
 		define(["inputmask.dependencyLib", "inputmask"], factory);
 	} else if (typeof exports === "object") {
-		module.exports = factory(require("./inputmask.dependencyLib.jquery"), require("./inputmask"));
+		module.exports = factory(require("./inputmask.dependencyLib"), require("./inputmask"));
 	} else {
 		factory(window.dependencyLib || jQuery, window.Inputmask);
 	}
@@ -83,8 +83,9 @@
 					opts.decimalProtect = false;
 				}
 
-				var mask = autoEscape(opts.prefix);
-				mask += "[+]";
+				var mask = "[+]";
+				mask += autoEscape(opts.prefix);
+
 				if (opts.integerOptional === true) {
 					mask += "~{1," + opts.integerDigits + "}";
 				} else mask += "~{" + opts.integerDigits + "}";
@@ -99,8 +100,8 @@
 						} else mask += (opts.decimalProtect ? ":" : opts.radixPoint) + ";{" + opts.digits + "}";
 					}
 				}
-				mask += "[-]";
 				mask += autoEscape(opts.suffix);
+				mask += "[-]";
 
 				opts.greedy = false; //enforce greedy false
 
@@ -144,6 +145,7 @@
 			insertMode: true,
 			autoUnmask: false,
 			unmaskAsNumber: false,
+			inputmode: "numeric",
 			postFormat: function (buffer, pos, opts) { //this needs to be removed // this is crap
 				// console.log(buffer);
 				if (opts.numericInput === true) {
@@ -155,7 +157,7 @@
 				var i, l;
 
 				//position overflow corrections
-				pos = pos >= buffer.length ? buffer.length - 1 : (pos < opts.prefix.length ? opts.prefix.length : pos);
+				pos = pos >= buffer.length ? buffer.length - 1 : (pos < 0 ? 0 : pos);
 
 				var charAtPos = buffer[pos];
 
@@ -164,9 +166,20 @@
 					cbuf.splice(pos--, 1);
 					charAtPos = cbuf[pos];
 				}
-				//mark current pos
-				cbuf[pos] = "!";
-				var bufVal = cbuf.join(""), bufValOrigin = bufVal;
+
+				var isNegative = cbuf.join("").match(new RegExp("^" + Inputmask.escapeRegex(opts.negationSymbol.front)));
+				isNegative = isNegative !== null && isNegative.length === 1;
+
+				if (pos > ((isNegative ? opts.negationSymbol.front.length : 0 ) + opts.prefix.length ) && (pos < (cbuf.length - opts.suffix.length))) {
+					//mark current pos
+					cbuf[pos] = "!";
+				}
+				var bufVal = cbuf.join(""), bufValOrigin = cbuf.join(); //join without args to keep the exact elements
+
+				if (isNegative) {
+					bufVal = bufVal.replace(new RegExp("^" + Inputmask.escapeRegex(opts.negationSymbol.front)), "");
+					bufVal = bufVal.replace(new RegExp(Inputmask.escapeRegex(opts.negationSymbol.back) + "$"), "");
+				}
 
 				bufVal = bufVal.replace(new RegExp(Inputmask.escapeRegex(opts.suffix) + "$"), "");
 				bufVal = bufVal.replace(new RegExp("^" + Inputmask.escapeRegex(opts.prefix)), "");
@@ -190,17 +203,20 @@
 				}
 
 				bufVal = opts.prefix + bufVal + opts.suffix;
+				if (isNegative) {
+					bufVal = opts.negationSymbol.front + bufVal + opts.negationSymbol.back;
+				}
 
-
-				var needsRefresh = bufValOrigin !== bufVal;
+				var needsRefresh = bufValOrigin !== bufVal.split('').join(),
+					newPos = $.inArray("!", bufVal);
+				if (newPos === -1) newPos = pos;
 				if (needsRefresh) {
 					buffer.length = bufVal.length; //align the length
 					for (i = 0, l = bufVal.length; i < l; i++) {
 						buffer[i] = bufVal.charAt(i);
 					}
+					buffer[newPos] = charAtPos;
 				}
-				var newPos = $.inArray("!", bufVal);
-				buffer[newPos] = charAtPos;
 
 				// console.log("formatted " + buffer + " refresh " + needsRefresh);
 				newPos = (opts.numericInput && isFinite(pos)) ? buffer.join("").length - newPos - 1 : newPos;
@@ -213,7 +229,8 @@
 				return {
 					pos: newPos,
 					"refreshFromBuffer": needsRefresh,
-					"buffer": buffer
+					"buffer": buffer,
+					isNegative: isNegative
 				};
 			}
 			,
@@ -272,11 +289,12 @@
 						}
 
 						if ((floatValue.toString() !== processValue && floatValue.toString() + "." !== processValue) || isNegative) {
+							processValue = (opts.prefix + processValue.join("")).split("");
 							if (isNegative && (floatValue !== 0 || e.type !== "blur")) {
 								processValue.unshift(opts.negationSymbol.front);
 								processValue.push(opts.negationSymbol.back);
 							}
-							processValue = (opts.prefix + processValue.join("")).split("");
+
 							if (opts.numericInput) processValue = processValue.reverse();
 							rslt = opts.postFormat(processValue, opts.numericInput ? caretPos : caretPos - 1, opts);
 							if (rslt.buffer) rslt.refreshFromBuffer = rslt.buffer.join("") !== buffer.join("");
@@ -285,8 +303,11 @@
 					}
 				}
 				if (opts.autoGroup) {
-					rslt = opts.postFormat(buffer, opts.numericInput ? caretPos : caretPos - 1, opts);
-					rslt.caret = caretPos <= opts.prefix.length ? rslt.pos : rslt.pos + 1;
+					rslt = opts.postFormat(buffer, opts.numericInput ? caretPos : (caretPos - 1), opts);
+					rslt.caret =
+						((caretPos < (rslt.isNegative ? opts.negationSymbol.front.length : 0) + opts.prefix.length) ||
+						(caretPos > (rslt.buffer.length - (rslt.isNegative ? opts.negationSymbol.back.length : 0))))
+							? rslt.pos : rslt.pos + 1;
 					return rslt;
 				}
 			}
@@ -310,49 +331,49 @@
 							if (chrs === "-") {
 								if (opts.negationSymbol.back !== "") {
 									return {
-										"pos": matchRslt.index,
+										"pos": 0,
 										"c": opts.negationSymbol.front,
-										"remove": matchRslt.index,
+										"remove": 0,
 										"caret": pos,
 										"insert": {
-											"pos": maskset.buffer.length - opts.suffix.length - 1,
+											"pos": maskset.buffer.length - 1,
 											"c": opts.negationSymbol.back
 										}
 									};
 								} else {
 									return {
-										"pos": matchRslt.index,
+										"pos": 0,
 										"c": opts.negationSymbol.front,
-										"remove": matchRslt.index,
+										"remove": 0,
 										"caret": pos
 									};
 								}
 							} else {
 								if (opts.negationSymbol.back !== "") {
 									return {
-										"pos": matchRslt.index,
+										"pos": 0,
 										"c": "+",
-										"remove": [matchRslt.index, maskset.buffer.length - opts.suffix.length - 1],
+										"remove": [0, maskset.buffer.length - 1],
 										"caret": pos
 									};
 								} else {
 									return {
-										"pos": matchRslt.index,
+										"pos": 0,
 										"c": "+",
-										"remove": matchRslt.index,
+										"remove": 0,
 										"caret": pos
 									};
 								}
 							}
-						} else if (maskset.buffer[matchRslt.index] === (chrs === "-" ? opts.negationSymbol.front : "+")) {
+						} else if (maskset.buffer[0] === (chrs === "-" ? opts.negationSymbol.front : "+")) {
 							if (chrs === "-" && opts.negationSymbol.back !== "") {
 								return {
-									"remove": [matchRslt.index, maskset.buffer.length - opts.suffix.length - 1],
+									"remove": [0, maskset.buffer.length - 1],
 									"caret": pos - 1
 								};
 							} else {
 								return {
-									"remove": matchRslt.index,
+									"remove": 0,
 									"caret": pos - 1
 								};
 							}
@@ -360,24 +381,24 @@
 							if (chrs === "-") {
 								if (opts.negationSymbol.back !== "") {
 									return {
-										"pos": matchRslt.index,
+										"pos": 0,
 										"c": opts.negationSymbol.front,
 										"caret": pos + 1,
 										"insert": {
-											"pos": maskset.buffer.length - opts.suffix.length,
+											"pos": maskset.buffer.length,
 											"c": opts.negationSymbol.back
 										}
 									};
 								} else {
 									return {
-										"pos": matchRslt.index,
+										"pos": 0,
 										"c": opts.negationSymbol.front,
 										"caret": pos + 1
 									};
 								}
 							} else {
 								return {
-									"pos": matchRslt.index,
+									"pos": 0,
 									"c": chrs,
 									"caret": pos + 1
 								};
@@ -547,9 +568,7 @@
 								};
 							}
 						}
-						return isValid ? {
-							c: opts.radixPoint
-						} : isValid;
+						return isValid;
 					}
 					,
 					cardinality: 1,
@@ -592,23 +611,25 @@
 					initialValue = initialValue.split("").reverse().join("");
 				}
 				if (opts.radixPoint !== "" && isFinite(initialValue)) {
-					initialValue = initialValue.toString().replace(".", opts.radixPoint);
-				} else {
-					var kommaMatches = initialValue.match(/,/g);
-					var dotMatches = initialValue.match(/\./g);
-					if (dotMatches && kommaMatches) {
-						if (dotMatches.length > kommaMatches.length) {
-							initialValue = initialValue.replace(/\./g, "");
-							initialValue = initialValue.replace(",", opts.radixPoint);
-						} else if (kommaMatches.length > dotMatches.length) {
-							initialValue = initialValue.replace(/,/g, "");
-							initialValue = initialValue.replace(".", opts.radixPoint);
-						} else { //equal
-							initialValue = initialValue.indexOf(".") < initialValue.indexOf(",") ? initialValue.replace(/\./g, "") : initialValue = initialValue.replace(/,/g, "");
-						}
-					} else {
-						initialValue = initialValue.replace(new RegExp(Inputmask.escapeRegex(opts.groupSeparator), "g"), "");
+					var vs = initialValue.split("."),
+						groupSize = opts.groupSeparator !== "" ? parseInt(opts.groupSize) : 0;
+					if (vs.length === 2 && (vs[0].length > groupSize || vs[1].length > groupSize))
+						initialValue = initialValue.toString().replace(".", opts.radixPoint);
+				}
+				var kommaMatches = initialValue.match(/,/g);
+				var dotMatches = initialValue.match(/\./g);
+				if (dotMatches && kommaMatches) {
+					if (dotMatches.length > kommaMatches.length) {
+						initialValue = initialValue.replace(/\./g, "");
+						initialValue = initialValue.replace(",", opts.radixPoint);
+					} else if (kommaMatches.length > dotMatches.length) {
+						initialValue = initialValue.replace(/,/g, "");
+						initialValue = initialValue.replace(".", opts.radixPoint);
+					} else { //equal
+						initialValue = initialValue.indexOf(".") < initialValue.indexOf(",") ? initialValue.replace(/\./g, "") : initialValue = initialValue.replace(/,/g, "");
 					}
+				} else {
+					initialValue = initialValue.replace(new RegExp(Inputmask.escapeRegex(opts.groupSeparator), "g"), "");
 				}
 
 				if (opts.digits === 0) {
@@ -635,8 +656,7 @@
 					initialValue = initialValue.split("").reverse().join("");
 				}
 				return initialValue.toString();
-			}
-			,
+			},
 			canClearPosition: function (maskset, position, lvp, strict, opts) {
 				var positionInput = maskset.validPositions[position].input,
 					canClear = ((positionInput !== opts.radixPoint || (maskset.validPositions[position].match.fn !== null && opts.decimalProtect === false)) || isFinite(positionInput)) ||
@@ -645,8 +665,7 @@
 						positionInput === opts.negationSymbol.front ||
 						positionInput === opts.negationSymbol.back;
 				return canClear;
-			}
-			,
+			},
 			onKeyDown: function (e, buffer, caretPos, opts) {
 				var $input = $(this);
 				if (e.ctrlKey) {
@@ -672,18 +691,15 @@
 			digits: 2,
 			digitsOptional: false,
 			clearMaskOnLostFocus: false
-		}
-		,
+		},
 		"decimal": {
 			alias: "numeric"
-		}
-		,
+		},
 		"integer": {
 			alias: "numeric",
 			digits: 0,
 			radixPoint: ""
-		}
-		,
+		},
 		"percentage": {
 			alias: "numeric",
 			digits: 2,

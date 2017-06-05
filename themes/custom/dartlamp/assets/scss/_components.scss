@@ -277,6 +277,18 @@ ul.tabs {
     }
   }
 }
+.field--name-field-homepage-slider-images {
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+}
+
+.field--name-body {
+  max-height: 250px;
+  overflow: auto;
+}
+
 
 // ----------------------------------------------------------------------------
 // MENUS
@@ -471,4 +483,15 @@ ul.tabs {
   .stLarge {
     vertical-align: middle;
   }
+}
+
+// ----------------------------------------------------------------------------
+// STICKY
+// ----------------------------------------------------------------------------
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
 }
