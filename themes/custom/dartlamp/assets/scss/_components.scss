@@ -270,13 +270,15 @@ ul.tabs {
 // NODES
 // ----------------------------------------------------------------------------
 .node--type-lamp {
-  .slick-slider {
-    img {
-      height: auto;
-      max-width: 100%;
-    }
+}
+
+.field--name-field-images {
+  img {
+    height: auto;
+    max-width: 100%;
   }
 }
+
 .field--name-field-homepage-slider-images {
   img {
     height: auto;
@@ -284,11 +286,10 @@ ul.tabs {
   }
 }
 
-.field--name-body {
+.node--type-lamp.node--view-mode-full .field--name-body {
   max-height: 250px;
   overflow: auto;
 }
-
 
 // ----------------------------------------------------------------------------
 // MENUS

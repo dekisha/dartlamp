@@ -18,11 +18,12 @@
         </h2>
         {{ content.body }}
         {{ content.field_price }}
+        {{ content.field_ebay_link }}
       </div>
       <div class="o-layout__item u-2/3">
         {{ content.field_images }}
       </div>
     </div>
-    {{ content|without('field_images', 'body', 'field_price') }}
+    {{ content|without('field_images', 'body', 'field_price', 'field_ebay_link') }}
   </div>
 </article>

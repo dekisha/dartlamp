@@ -67,7 +67,7 @@
   //     });
   //   }
   // };
-  
+
   Drupal.behaviors.nodeSlider = {
     attach: function (context) {
       $('.node--type-lamp .field--name-field-images').once().clone().insertAfter($('.node--type-lamp .field--name-field-images')).addClass('slider-nav');
@@ -83,17 +83,44 @@
         slidesToShow: 3,
         slidesToScroll: 1,
         asNavFor: '.node--type-lamp .field--name-field-images:first-child',
-        dots: true,
+        dots: false,
         centerMode: true,
         focusOnSelect: true
       });
     }
   };
-  
+
   Drupal.behaviors.customScrollbar = {
     attach: function (context) {
-      $('.field--name-body').scrollbar();
+      $('.node--type-lamp.node--view-mode-full .field--name-body').once().mCustomScrollbar({
+        theme: "dark"
+      });
     }
   };
-    
+
+  Drupal.behaviors.threesixty = {
+    attach: function (context) {
+      $('.product1').once().ThreeSixty({
+        totalFrames: 52, // Total no. of image you have for 360 slider
+        endFrame: 52, // end frame for the auto spin animation
+        currentFrame: 1, // This the start frame for auto spin
+        imgList: '.threesixty_images', // selector for image list
+        progress: '.spinner', // selector to show the loading progress
+        imagePath: '/themes/custom/dartlamp/images/assets/', // path of the image assets
+        filePrefix: '', // file prefix if any
+        ext: '.png', // extention for the assets
+        height: 265,
+        width: 400,
+        navigation: true,
+        disableSpin: true // Default false
+      });
+    }
+  };
+  
 })(jQuery);
+
+
+
+
+
+

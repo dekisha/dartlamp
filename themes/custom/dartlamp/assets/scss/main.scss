@@ -1,7 +1,5 @@
 // SETTINGS
 @import "node_modules/inuitcss/settings/settings.core";
-@import "node_modules/font-awesome/scss/font-awesome";
-@import "node_modules/jquery.scrollbar/sass/jquery.scrollbar";
 @import "settings.scss";
 
 
@@ -61,6 +59,9 @@ $legacy-support-for-ie8: false;
 // COMPONENTS
 @import 'node_modules/slick-carousel/slick/slick.scss';
 //@import 'node_modules/swiper/dist/css/swiper';
+@import "node_modules/font-awesome/scss/font-awesome";
+@import "node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar";
+@import "node_modules/threesixty-slider/src/styles/threesixty";
 @import "layouts";
 $btn-radius: 50px;
 @import "components";
