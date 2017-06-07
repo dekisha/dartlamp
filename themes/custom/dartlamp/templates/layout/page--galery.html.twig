@@ -1,0 +1,61 @@
+<div class="l-container">
+
+  <div class="l-master-header">
+    
+    {% if page.top %}
+      <aside class="l-top">
+        <div class="o-wrapper">
+          {{ page.top }}
+        </div>
+      </aside>
+    {% endif %}
+
+    <header id="header" class="l-header" role="banner">
+      <div class="o-wrapper">
+        {{ page.header }}
+      </div>
+    </header>
+  </div>
+
+  {% if page.submenu is defined and page.submenu|render|striptags|trim %}
+    <div id="submenu" class="l-submenu" role="banner">
+      <div class="o-wrapper">
+        {{ page.submenu }}
+      </div>
+    </div>
+  {% endif %}
+
+  <main class="l-main" role="main">
+    
+    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+    
+    {% if page.pre_content %}
+      <div class="l-pre-content">
+        <div class="o-wrapper">
+          {{ page.pre_content }}
+        </div>
+      </div>
+    {% endif %}
+    
+    <div class="l-content">
+      {{ page.help }}
+      {{ page.content }}
+    </div>{# /.l-content #}
+    
+    {% if page.post_content %}
+    <div class="l-post-content">
+      {{ page.post_content }}
+    </div>
+    {% endif %}
+    
+  </main>{# /.l-main #}
+
+  {% if page.footer %}
+    <footer class="l-footer" role="contentinfo">
+      <div class="o-wrapper">
+        {{ page.footer }}
+      </div>
+    </footer>
+  {% endif %}
+
+</div>{# /.l-container #}

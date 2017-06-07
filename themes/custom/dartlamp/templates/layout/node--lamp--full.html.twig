@@ -17,6 +17,7 @@
           <a href="{{ url }}" rel="bookmark">{{ label }}</a>
         </h2>
         {{ content.body }}
+        {{ content.made_in }}
         {{ content.field_price }}
         {{ content.field_ebay_link }}
       </div>
@@ -24,6 +25,6 @@
         {{ content.field_images }}
       </div>
     </div>
-    {{ content|without('field_images', 'body', 'field_price', 'field_ebay_link') }}
+    {{ content|without('field_images', 'body', 'field_price', 'field_ebay_link', 'made_in') }}
   </div>
 </article>
