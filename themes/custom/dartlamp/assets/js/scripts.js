@@ -70,23 +70,31 @@
 
   Drupal.behaviors.nodeSlider = {
     attach: function (context) {
-      $('.node--type-lamp .field--name-field-images').once().clone().insertAfter($('.node--type-lamp .field--name-field-images')).addClass('slider-nav');
+      $('.node--type-lamp').once('my-custom-behaviour').each(function () {
+        
+        var images = $(this).find('.field--name-field-images');
+        $(this).find('.field--name-field-images').clone().insertAfter(images).addClass('slider-nav');
+        images.addClass('slick-slider');
+        
+        $('.slick-slider').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          fade: true,
+          autoplay: true,
+          asNavFor: '.slider-nav'
+        });
+        
+        $('.slider-nav').slick({
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          asNavFor: '.slick-slider',
+          dots: false,
+          centerMode: true,
+          focusOnSelect: true
+        });
+      });
 
-      $('.node--type-lamp .field--name-field-images:first-child').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        fade: true,
-        asNavFor: '.slider-nav'
-      });
-      $('.slider-nav').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        asNavFor: '.node--type-lamp .field--name-field-images:first-child',
-        dots: false,
-        centerMode: true,
-        focusOnSelect: true
-      });
     }
   };
 
@@ -116,11 +124,5 @@
       });
     }
   };
-  
+
 })(jQuery);
-
-
-
-
-
-

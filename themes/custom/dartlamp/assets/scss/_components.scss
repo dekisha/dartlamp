@@ -294,7 +294,7 @@ ul.tabs {
 }
 
 .node--type-lamp.node--view-mode-full .field--name-body {
-  max-height: 250px;
+  max-height: 500px;
   overflow: auto;
 }
 
@@ -473,6 +473,20 @@ ul.tabs {
     li {
       display: inline-block;
       margin: 0 $inuit-global-spacing-unit-tiny;
+      vertical-align: middle;
+      &.slick-active {
+        button {
+          &:before {
+            background-color: $brand-color;
+            size: 10px;
+            border-radius: 50%;
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            margin: auto;
+          }
+        }
+      }
     }
     button {
       background-color: white;
@@ -480,6 +494,7 @@ ul.tabs {
       border-radius: 50%;
       font-size: 0;
       size: 20px;
+      padding: 0;
     }
   }
 }
