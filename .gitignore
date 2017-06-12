@@ -1,5 +1,5 @@
 
-/vendor
+# /vendor
 
 sites/*/settings.local.php
 sites/*/development.services.yml
