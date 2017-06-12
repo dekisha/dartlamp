@@ -1,0 +1,20 @@
+uuid: 74396f0d-dc6e-4a04-8947-5aefc60fb381
+langcode: en
+status: false
+dependencies:
+  module:
+    - sharethis
+  theme:
+    - cowfe
+id: cowfe_sharethis
+theme: cowfe
+region: '-1'
+weight: -3
+provider: null
+plugin: sharethis_block
+settings:
+  id: sharethis_block
+  label: Sharethis
+  provider: sharethis
+  label_display: visible
+visibility: {  }

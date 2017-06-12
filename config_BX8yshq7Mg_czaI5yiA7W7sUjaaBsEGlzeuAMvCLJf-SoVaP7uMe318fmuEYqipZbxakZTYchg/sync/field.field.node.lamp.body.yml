@@ -1,0 +1,22 @@
+uuid: 672487c8-847a-4946-8833-848acd38ea24
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.lamp
+  module:
+    - text
+id: node.lamp.body
+field_name: body
+entity_type: node
+bundle: lamp
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

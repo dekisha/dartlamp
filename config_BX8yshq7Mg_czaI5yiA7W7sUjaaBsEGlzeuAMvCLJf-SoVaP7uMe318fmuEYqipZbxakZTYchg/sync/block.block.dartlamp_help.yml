@@ -1,0 +1,22 @@
+uuid: e61f4b18-4c39-4f08-93a1-a4f814c84cc9
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - dartlamp
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: dartlamp_help
+theme: dartlamp
+region: content
+weight: -9
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

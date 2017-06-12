@@ -1,0 +1,36 @@
+uuid: 31edb7d3-edfb-4648-bb5f-977e4e0abccf
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - ctools
+    - sharethis
+  theme:
+    - dartlamp
+third_party_settings:
+  block_class:
+    classes: ''
+id: dartlamp_sharethiswidget_2
+theme: dartlamp
+region: sidebar_first
+weight: 0
+provider: null
+plugin: sharethis_widget_block
+settings:
+  id: sharethis_widget_block
+  label: 'Sharethis Widget'
+  provider: sharethis
+  label_display: '0'
+  path: global
+  external_path: ''
+  sharethis_path: global
+  sharethis_path_external: ''
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      lamp: lamp
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

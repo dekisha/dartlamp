@@ -1,0 +1,26 @@
+uuid: 19d61233-9609-48e6-9486-9add7cdc65e6
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - system
+  theme:
+    - dartlamp
+third_party_settings:
+  block_class:
+    classes: 'u-hidden-visually  u-margin-none'
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: dartlamp_breadcrumbs
+theme: dartlamp
+region: content
+weight: -8
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

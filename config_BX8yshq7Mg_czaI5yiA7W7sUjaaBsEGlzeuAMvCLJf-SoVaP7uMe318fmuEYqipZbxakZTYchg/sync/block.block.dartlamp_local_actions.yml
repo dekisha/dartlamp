@@ -1,0 +1,20 @@
+uuid: 5516ed30-b3ae-4b8e-a841-a7ce4e4488a3
+langcode: en
+status: true
+dependencies:
+  theme:
+    - dartlamp
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: dartlamp_local_actions
+theme: dartlamp
+region: content
+weight: -6
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,28 @@
+uuid: b2788654-97e5-4f64-a685-f36e58b0090f
+langcode: en
+status: true
+dependencies:
+  module:
+    - image_effects
+name: extra_large_800x700_
+label: 'Extra large (800x700)'
+effects:
+  1b750a75-7dd6-44bc-afab-6afa41f6350c:
+    uuid: 1b750a75-7dd6-44bc-afab-6afa41f6350c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 800
+      height: 700
+  445caab1-aa4b-4c9d-8f64-a5640688fe7d:
+    uuid: 445caab1-aa4b-4c9d-8f64-a5640688fe7d
+    id: image_effects_watermark
+    weight: 2
+    data:
+      watermark_image: themes/custom/dartlamp/logo.png
+      watermark_width: '100'
+      watermark_height: ''
+      placement: left-top
+      x_offset: '20'
+      y_offset: '20'
+      opacity: 100

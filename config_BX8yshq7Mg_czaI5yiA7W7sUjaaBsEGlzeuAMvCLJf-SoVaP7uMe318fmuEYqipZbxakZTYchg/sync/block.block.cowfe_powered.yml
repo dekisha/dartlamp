@@ -1,0 +1,22 @@
+uuid: 455e55ab-dc2a-4d3d-af54-dec9422dfa5b
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - cowfe
+_core:
+  default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
+id: cowfe_powered
+theme: cowfe
+region: '-1'
+weight: -9
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

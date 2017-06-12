@@ -1,0 +1,24 @@
+uuid: 863616d3-6218-4e8b-ac83-5ba3cf864461
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.slick_x
+  module:
+    - views
+  theme:
+    - cowfe
+id: cowfe_views_block__slick_x_block_fullscreen
+theme: cowfe
+region: '-1'
+weight: -5
+provider: null
+plugin: 'views_block:slick_x-block_fullscreen'
+settings:
+  id: 'views_block:slick_x-block_fullscreen'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility: {  }

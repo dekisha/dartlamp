@@ -1,0 +1,115 @@
+uuid: fab8dec1-ec8b-4619-a1d4-7128c8f64165
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.lamp.body
+    - field.field.node.lamp.field_block_field
+    - field.field.node.lamp.field_ebay_link
+    - field.field.node.lamp.field_images
+    - field.field.node.lamp.field_made_in
+    - field.field.node.lamp.field_price
+    - node.type.lamp
+  module:
+    - datetime
+    - ds
+    - image
+    - link
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_2col
+      library: ds/ds_2col
+      disable_css: true
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          left: div
+          right: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class:
+            o-layout: o-layout
+          left:
+            o-layout__item: o-layout__item
+            u-1/3: u-1/3
+          right:
+            o-layout__item: o-layout__item
+            u-2/3: u-2/3
+    regions:
+      left:
+        - node_title
+        - body
+        - field_made_in
+        - field_price
+        - field_ebay_link
+      right:
+        - field_images
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+id: node.lamp.default
+targetEntityType: node
+bundle: lamp
+mode: default
+content:
+  body:
+    type: text_summary_or_trimmed
+    weight: 1
+    region: left
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  field_ebay_link:
+    type: link
+    weight: 4
+    region: left
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_images:
+    type: image
+    weight: 5
+    region: right
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  field_made_in:
+    type: datetime_custom
+    weight: 2
+    region: left
+    label: above
+    settings:
+      date_format: 'Y-m-d\TH:i:s'
+      timezone_override: ''
+    third_party_settings: {  }
+  field_price:
+    type: number_decimal
+    weight: 3
+    region: left
+    label: hidden
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+hidden:
+  field_block_field: true
+  links: true

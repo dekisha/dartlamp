@@ -1,0 +1,7 @@
+uuid: 0a1d47d6-de20-494c-b6b6-97ebea568b86
+langcode: en
+status: true
+dependencies: {  }
+id: homepage_slider
+label: 'Homepage slider'
+behavior_plugins: {  }

@@ -1,0 +1,25 @@
+uuid: f7e5abcf-5b0e-4dc3-accb-ec80044096ea
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - dartlamp
+_core:
+  default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
+id: dartlamp_branding
+theme: dartlamp
+region: header
+weight: -9
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

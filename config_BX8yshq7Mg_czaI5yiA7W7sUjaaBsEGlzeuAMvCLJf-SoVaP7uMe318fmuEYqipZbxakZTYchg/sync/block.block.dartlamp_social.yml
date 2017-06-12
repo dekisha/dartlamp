@@ -1,0 +1,24 @@
+uuid: a6d9f5fd-0cd6-4bc8-97c5-2b3dd41cc3ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.social
+  module:
+    - system
+  theme:
+    - dartlamp
+id: dartlamp_social
+theme: dartlamp
+region: top
+weight: -9
+provider: null
+plugin: 'system_menu_block:social'
+settings:
+  id: 'system_menu_block:social'
+  label: Social
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility: {  }

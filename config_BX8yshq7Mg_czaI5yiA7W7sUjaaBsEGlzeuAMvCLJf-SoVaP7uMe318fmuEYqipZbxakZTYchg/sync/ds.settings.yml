@@ -1,0 +1,14 @@
+disabled: false
+field_template: false
+ft-default: default
+ft-show-colon: false
+classes:
+  region:
+    - o-layout
+    - o-layout__item
+    - u-1/3
+    - u-2/3
+  field: {  }
+use_field_names: true
+_core:
+  default_config_hash: xfB0qOeoAomOThclNNokdKTrVwXLcXz13SU3-4a5-FY

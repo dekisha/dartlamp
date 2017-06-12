@@ -1,0 +1,31 @@
+uuid: 81f11ce5-ce40-403a-be5b-6f5f37300a23
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.lamp.body
+    - field.field.node.lamp.field_images
+    - field.field.node.lamp.field_price
+    - node.type.lamp
+  module:
+    - image
+    - user
+id: node.lamp.teaser
+targetEntityType: node
+bundle: lamp
+mode: teaser
+content:
+  field_images:
+    type: image
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  body: true
+  field_price: true
+  links: true

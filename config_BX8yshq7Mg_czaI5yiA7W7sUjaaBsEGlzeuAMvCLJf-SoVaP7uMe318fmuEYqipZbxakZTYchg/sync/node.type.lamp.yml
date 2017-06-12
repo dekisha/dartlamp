@@ -1,0 +1,17 @@
+uuid: c2d82a4e-7e39-4707-a8c1-a9d244bc9194
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Lamp
+type: lamp
+description: 'Input new lamp'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

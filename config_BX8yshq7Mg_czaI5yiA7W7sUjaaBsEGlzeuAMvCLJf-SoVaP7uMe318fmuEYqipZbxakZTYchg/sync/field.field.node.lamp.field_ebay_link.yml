@@ -1,0 +1,23 @@
+uuid: 980b2276-3229-4820-84e6-f6c4ce109ec5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ebay_link
+    - node.type.lamp
+  module:
+    - link
+id: node.lamp.field_ebay_link
+field_name: field_ebay_link
+entity_type: node
+bundle: lamp
+label: 'Ebay link'
+description: 'Linking this gourd lamp to the one on Ebay'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 2
+field_type: link

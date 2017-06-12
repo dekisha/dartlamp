@@ -1,0 +1,20 @@
+uuid: 381fa91b-7952-4908-8bde-08a057c39ca2
+langcode: en
+status: true
+dependencies:
+  theme:
+    - cowfe
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: cowfe_local_actions
+theme: cowfe
+region: content
+weight: -8
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

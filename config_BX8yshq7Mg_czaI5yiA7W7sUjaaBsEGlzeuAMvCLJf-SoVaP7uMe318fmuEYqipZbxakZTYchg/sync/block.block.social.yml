@@ -1,0 +1,24 @@
+uuid: 14b33b22-7446-4602-b658-45a7c888f835
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.social
+  module:
+    - system
+  theme:
+    - bartik
+id: social
+theme: bartik
+region: header
+weight: 0
+provider: null
+plugin: 'system_menu_block:social'
+settings:
+  id: 'system_menu_block:social'
+  label: Social
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility: {  }

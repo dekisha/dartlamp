@@ -1,0 +1,24 @@
+uuid: 6c7552cb-e3f1-49f5-bfe1-c758724cf130
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.slick_x
+  module:
+    - views
+  theme:
+    - bartik
+id: views_block__slick_x_block_carousel
+theme: bartik
+region: header
+weight: -7
+provider: null
+plugin: 'views_block:slick_x-block_carousel'
+settings:
+  id: 'views_block:slick_x-block_carousel'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility: {  }

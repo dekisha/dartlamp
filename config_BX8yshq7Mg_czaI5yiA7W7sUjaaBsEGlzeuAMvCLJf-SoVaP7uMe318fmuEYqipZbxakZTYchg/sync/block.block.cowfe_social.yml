@@ -1,0 +1,24 @@
+uuid: b65608a1-d118-4df8-a174-36644c0cc9dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.social
+  module:
+    - system
+  theme:
+    - cowfe
+id: cowfe_social
+theme: cowfe
+region: header
+weight: 0
+provider: null
+plugin: 'system_menu_block:social'
+settings:
+  id: 'system_menu_block:social'
+  label: Social
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility: {  }

@@ -1,0 +1,21 @@
+uuid: eb94701c-56c0-4afa-b048-d694e871ef03
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_made_in
+    - node.type.lamp
+  module:
+    - datetime
+id: node.lamp.field_made_in
+field_name: field_made_in
+entity_type: node
+bundle: lamp
+label: 'Made in'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime
