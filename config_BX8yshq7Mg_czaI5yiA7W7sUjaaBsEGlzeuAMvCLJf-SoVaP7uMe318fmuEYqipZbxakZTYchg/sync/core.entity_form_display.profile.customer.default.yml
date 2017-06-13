@@ -20,4 +20,5 @@ content:
     settings:
       default_country: site_default
     third_party_settings: {  }
+    region: content
 hidden: {  }

@@ -14,6 +14,7 @@ mode: default
 content:
   copy:
     weight: 50
+    region: content
   field_email:
     weight: 51
     settings:
@@ -21,6 +22,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: email_default
+    region: content
   field_message:
     weight: 53
     settings:
@@ -28,6 +30,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
+    region: content
   field_name:
     weight: 52
     settings:
@@ -35,8 +38,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
   mail:
     weight: -40
+    region: content
   message:
     type: string_textarea
     weight: 0
@@ -44,12 +49,16 @@ content:
       rows: 12
       placeholder: ''
     third_party_settings: {  }
+    region: content
   name:
     weight: -50
+    region: content
   preview:
     weight: 40
+    region: content
   recipient:
     weight: -30
+    region: content
   subject:
     type: string_textfield
     weight: -10
@@ -57,4 +66,5 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
 hidden: {  }
