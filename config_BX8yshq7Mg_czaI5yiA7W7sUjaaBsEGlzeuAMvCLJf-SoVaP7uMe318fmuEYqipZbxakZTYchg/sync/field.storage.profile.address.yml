@@ -2,9 +2,6 @@ uuid: 72f40835-945b-4c37-ae1c-27a1f5993a1e
 langcode: en
 status: true
 dependencies:
-  enforced:
-    module:
-      - commerce_order
   module:
     - address
     - profile

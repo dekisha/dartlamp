@@ -5,9 +5,6 @@ dependencies:
   config:
     - field.field.profile.customer.address
     - profile.type.customer
-  enforced:
-    module:
-      - commerce_order
   module:
     - address
 _core:
