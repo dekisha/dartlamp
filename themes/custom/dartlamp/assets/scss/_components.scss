@@ -214,7 +214,6 @@ ul.tabs {
   .views-row {
     overflow: hidden;
     position: relative;
-    // width: 33.333333333%;
     &:hover {
       .views-field-nothing {
         filter: alpha(opacity=70);
@@ -227,10 +226,7 @@ ul.tabs {
       }
     }
     img {
-      // height: auto;
-      // opacity: 1;
       transform: scale(1);
-      // width: 100%;
     }
   }
   .o-layout__item {
