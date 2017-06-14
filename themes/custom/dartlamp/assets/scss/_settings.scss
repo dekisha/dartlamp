@@ -14,7 +14,14 @@ $inuit-config: (
 @font-face {
   font-family: 'LeelawUI';
   src: url('../fonts/LeelawUI.ttf');
-  font-weight: normal;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LeelawUI';
+  src: url('../fonts/leelawdb.ttf');
+  font-weight: 700;
   font-style: normal;
 }
 

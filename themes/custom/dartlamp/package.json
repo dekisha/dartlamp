@@ -24,6 +24,7 @@
     "inuit-displays": "^0.1.14",
     "inuitcss": "git+https://github.com/inuitcss/inuitcss.git#develop",
     "isotope-layout": "^3.0.4",
+    "jquery-sticky": "^1.0.4",
     "malihu-custom-scrollbar-plugin": "^3.1.5",
     "postcss-assets": "^3.0.3",
     "postcss-font-awesome": "^0.3.3",

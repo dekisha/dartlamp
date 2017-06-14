@@ -211,6 +211,25 @@ ul.tabs {
 // VIEWS
 // ----------------------------------------------------------------------------
 .view-galery {
+  .view-header {
+    @at-root .button-group {
+      background-color: rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: space-between;
+      button {
+        background: none;
+        border: 0;
+        color: white;
+        font-weight: 700;
+        padding: $inuit-global-spacing-unit-small;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: 'LeelawUI';
+        font-weight: 700;
+        flex-grow: 1;
+      }
+    }
+  }
   .views-row {
     overflow: hidden;
     position: relative;
@@ -474,12 +493,12 @@ ul.tabs {
         button {
           &:before {
             background-color: $brand-color;
-            size: 10px;
             border-radius: 50%;
-            content: '';
+            content: "";
             display: inline-block;
-            vertical-align: middle;
             margin: auto;
+            size: 10px;
+            vertical-align: middle;
           }
         }
       }
@@ -489,8 +508,8 @@ ul.tabs {
       border: 0;
       border-radius: 50%;
       font-size: 0;
-      size: 20px;
       padding: 0;
+      size: 20px;
     }
   }
 }
@@ -508,10 +527,7 @@ ul.tabs {
 // ----------------------------------------------------------------------------
 // STICKY
 // ----------------------------------------------------------------------------
-.sticky {
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
+.sticky-wrapper {
+  position: relative;
   z-index: 1;
 }

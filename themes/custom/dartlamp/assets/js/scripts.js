@@ -30,6 +30,30 @@
           $(this).addClass('is-checked');
         });
       });
+
+      // TODO: 
+      // filter functions
+      // var filterFns = {
+      //   // show if number is greater than 50
+      //   numberGreaterThan50: function () {
+      //     var number = $(this).find('.number').text();
+      //     return parseInt(number, 10) > 50;
+      //   },
+      //   // show if name ends with -ium
+      //   ium: function () {
+      //     var name = $(this).find('.name').text();
+      //     return name.match(/ium$/);
+      //   }
+      // };
+      // // bind filter button click
+      // $('.filters-button-group').on('click', 'button', function () {
+      //   var filterValue = $(this).attr('data-filter');
+      //   // use filterFn if matches value
+      //   filterValue = filterFns[filterValue] || filterValue;
+      //   $grid.isotope({
+      //     filter: filterValue
+      //   });
+      // });
     }
   };
 
@@ -45,37 +69,20 @@
     }
   };
 
-  // Drupal.behaviors.getItSticky = {
-  //   attach: function (context) {
-  //     var menu = document.querySelector('.not-logged-in #submenu');
-  //     var menuPosition = menu.getBoundingClientRect();
-  //     var placeholder = document.createElement('div');
-  //     placeholder.style.width = menuPosition.width + 'px';
-  //     placeholder.style.height = menuPosition.height + 'px';
-  //     var isAdded = false;
-  // 
-  //     window.addEventListener('scroll', function () {
-  //       if (window.pageYOffset >= menuPosition.top && !isAdded) {
-  //         menu.classList.add('sticky');
-  //         menu.parentNode.insertBefore(placeholder, menu);
-  //         isAdded = true;
-  //       } else if (window.pageYOffset < menuPosition.top && isAdded) {
-  //         menu.classList.remove('sticky');
-  //         menu.parentNode.removeChild(placeholder);
-  //         isAdded = false;
-  //       }
-  //     });
-  //   }
-  // };
+  Drupal.behaviors.getItSticky = {
+    attach: function (context) {
+      $(".button-group").once().sticky({topSpacing:0});
+    }
+  };
 
   Drupal.behaviors.nodeSlider = {
     attach: function (context) {
       $('.node--type-lamp').once('my-custom-behaviour').each(function () {
-        
+
         var images = $(this).find('.field--name-field-images');
         $(this).find('.field--name-field-images').clone().insertAfter(images).addClass('slider-nav');
         images.addClass('slick-slider');
-        
+
         $('.slick-slider').slick({
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -84,7 +91,7 @@
           autoplay: true,
           asNavFor: '.slider-nav'
         });
-        
+
         $('.slider-nav').slick({
           slidesToShow: 3,
           slidesToScroll: 1,

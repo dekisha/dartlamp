@@ -29,6 +29,7 @@ var gulp = require('gulp'),
     'node_modules/isotope-layout/dist/isotope.pkgd.js',
     'node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js',
     'node_modules/threesixty-slider/src/threesixty.js',
+    'node_modules/jquery-sticky/jquery.sticky.js',
     'assets/js/scripts.js'
   ],
   scssfiles = [
