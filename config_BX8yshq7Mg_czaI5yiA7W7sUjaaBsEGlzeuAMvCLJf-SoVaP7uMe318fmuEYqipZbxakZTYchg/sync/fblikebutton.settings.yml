@@ -1,0 +1,16 @@
+node_types:
+  lamp: lamp
+  article: 0
+  homepage: 0
+  page: 0
+full_node_display: null
+teaser_display: 1
+layout: standard
+show_faces: false
+action: like
+font: arial
+color_scheme: light
+weight: 0
+language: en_US
+_core:
+  default_config_hash: uRXpt-S6s6tBIQWiNrx80vJiidmbxCSpHgi5I7gdeCQ

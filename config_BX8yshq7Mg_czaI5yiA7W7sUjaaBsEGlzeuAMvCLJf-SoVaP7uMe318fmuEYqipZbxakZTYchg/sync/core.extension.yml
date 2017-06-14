@@ -25,6 +25,7 @@ module:
   editor: 0
   entity: 0
   entity_reference_revisions: 0
+  fblikebutton: 0
   field: 0
   field_ui: 0
   file: 0
@@ -51,7 +52,6 @@ module:
   quickedit: 0
   rdf: 0
   search: 0
-  sharethis: 0
   shortcut: 0
   slick: 0
   slick_example: 0
@@ -75,6 +75,7 @@ module:
   ds: 1
   menu_link_content: 1
   pathauto: 1
+  ds_extras: 2
   views: 10
   paragraphs: 11
   standard: 1000

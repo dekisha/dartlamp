@@ -48,9 +48,15 @@ third_party_settings:
         - field_made_in
         - field_price
         - field_ebay_link
+        - 'dynamic_block_field:node-facebook_like_button_field'
       right:
         - field_images
     fields:
+      'dynamic_block_field:node-facebook_like_button_field':
+        plugin_id: 'dynamic_block_field:node-facebook_like_button_field'
+        weight: 5
+        label: hidden
+        formatter: default
       node_title:
         plugin_id: node_title
         weight: 0
@@ -83,7 +89,7 @@ content:
     third_party_settings: {  }
   field_images:
     type: image
-    weight: 5
+    weight: 6
     region: right
     label: hidden
     settings:

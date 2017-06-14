@@ -1,0 +1,34 @@
+uuid: 61a5fd92-60da-4bcd-b92a-ec389af0e5d6
+langcode: en
+status: false
+dependencies:
+  module:
+    - block_class
+    - fblikebutton
+  theme:
+    - dartlamp
+third_party_settings:
+  block_class:
+    classes: ''
+id: facebooklikebutton
+theme: dartlamp
+region: content
+weight: 0
+provider: null
+plugin: fblikebutton_block
+settings:
+  id: fblikebutton_block
+  label: 'Facebook Like Button'
+  provider: fblikebutton
+  label_display: visible
+  block_url: 'http://dartlamp.loc'
+  layout: standard
+  show_faces: '1'
+  action: like
+  font: arial
+  color_scheme: light
+  iframe_width: 200
+  iframe_height: 80
+  iframe_css: null
+  language: en_US
+visibility: {  }
