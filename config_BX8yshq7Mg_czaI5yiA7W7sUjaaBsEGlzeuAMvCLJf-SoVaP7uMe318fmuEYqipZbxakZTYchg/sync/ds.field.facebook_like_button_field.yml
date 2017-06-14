@@ -1,0 +1,10 @@
+id: facebook_like_button_field
+label: 'Facebook Like Button Field'
+ui_limit: ''
+properties:
+  block: fblikebutton_block
+  use_block_title: false
+type: block
+type_label: 'Block field'
+entities:
+  node: node
