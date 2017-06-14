@@ -5,6 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.page.body
+    - field.field.node.page.field_photo
+    - field.field.node.page.field_video
     - node.type.page
   module:
     - text
@@ -23,6 +25,10 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
+    region: content
   links:
     weight: 101
-hidden: {  }
+    region: content
+hidden:
+  field_photo: true
+  field_video: true

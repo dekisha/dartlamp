@@ -5,7 +5,10 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.lamp.body
+    - field.field.node.lamp.field_block_field
+    - field.field.node.lamp.field_ebay_link
     - field.field.node.lamp.field_images
+    - field.field.node.lamp.field_made_in
     - field.field.node.lamp.field_price
     - node.type.lamp
   module:
@@ -27,5 +30,8 @@ content:
     region: content
 hidden:
   body: true
+  field_block_field: true
+  field_ebay_link: true
+  field_made_in: true
   field_price: true
   links: true
