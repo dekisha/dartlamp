@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.lamp.body
-    - field.field.node.lamp.field_block_field
     - field.field.node.lamp.field_ebay_link
     - field.field.node.lamp.field_images
     - field.field.node.lamp.field_lamp_type
@@ -126,5 +125,4 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
 hidden:
-  field_block_field: true
   links: true

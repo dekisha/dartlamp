@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.lamp.body
-    - field.field.node.lamp.field_block_field
     - field.field.node.lamp.field_ebay_link
     - field.field.node.lamp.field_images
     - field.field.node.lamp.field_lamp_type
@@ -13,7 +12,6 @@ dependencies:
     - image.style.thumbnail
     - node.type.lamp
   module:
-    - block_field
     - datetime
     - image
     - link
@@ -38,14 +36,6 @@ content:
     weight: 10
     settings: {  }
     third_party_settings: {  }
-    region: content
-  field_block_field:
-    weight: 36
-    settings:
-      plugin_id: ''
-      settings: {  }
-    third_party_settings: {  }
-    type: block_field_default
     region: content
   field_ebay_link:
     weight: 34
