@@ -220,12 +220,13 @@ ul.tabs {
         background: none;
         border: 0;
         color: white;
+        font-family: "LeelawUI";
+        font-weight: 700;
         font-weight: 700;
         padding: $inuit-global-spacing-unit-small;
         text-align: center;
         text-transform: uppercase;
-        font-family: 'LeelawUI';
-        font-weight: 700;
+
         flex-grow: 1;
       }
     }
@@ -286,12 +287,31 @@ ul.tabs {
       }
     }
   }
+  @at-root .views-field-field-lamp-type {
+    .field-content {
+      &:contains("interior") {
+        &:before {
+          content: "\ea07";
+          font-family: "Fontice-IconsFont";
+        }
+      }
+    }
+  }
 }
 
 // ----------------------------------------------------------------------------
 // NODES
 // ----------------------------------------------------------------------------
-.node--type-lamp {
+.node--type-lamp.node--view-mode-full {
+  margin-bottom: $inuit-global-spacing-unit-large;
+  .o-layout__item {
+    > * {
+      margin-bottom: $inuit-global-spacing-unit;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
 }
 
 .field--name-field-images {
@@ -432,20 +452,20 @@ ul.tabs {
 // HP SLIDER
 // ---------------------------------------------------------------------------- 
 .field--name-field-homepage-slider-images {
-  // &.slick-slider {
-  left: 0;
-  position: fixed; // because of contextual links
-  right: 0;
-  top: 0;
-  z-index: -1;
-  // }
-  // .slick-slide {
-  img {
-    height: auto;
-    margin: auto;
-    width: 100%;
+  &.slick-slider {
+    left: 0;
+    position: fixed; // because of contextual links
+    right: 0;
+    top: 0;
+    z-index: -1;
   }
-  // }
+  .slick-slide {
+    img {
+      height: auto;
+      margin: auto;
+      width: 100%;
+    }
+  }
   .slick-active {
     img {
       animation: zoom 10s;
@@ -514,6 +534,47 @@ ul.tabs {
   }
 }
 
+// ----------------------------------------------------------------------------
+// LAMP SLIDER
+// ---------------------------------------------------------------------------- 
+.field--name-field-images {
+  &.slick-slider {
+    
+  }
+  .slick-arrow {
+    background-color: transparent;
+    border: 0;
+    font-size: 0;
+    padding: 0 20px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    z-index: 1;
+    &:before {
+      color: white;
+      font-size: 30px;
+    }
+  }
+  .slick-prev {
+    left: 0;
+
+  }
+  .slick-next {
+    right: 0;
+
+  }
+}
+
+// ----------------------------------------------------------------------------
+// SLICK SLIDER
+// ---------------------------------------------------------------------------- 
+// prevent content jump before JS init
+.slick-slider {
+  > .field__item:not(:first-child) {
+    display: none;
+  }
+}
 // ----------------------------------------------------------------------------
 // SHARETHIS
 // ---------------------------------------------------------------------------- 

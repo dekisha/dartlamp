@@ -15,10 +15,20 @@
       });
 
       // bind sort button click
-      $('.sort-by-button-group').on('click', 'button', function () {
-        var sortValue = $(this)["0"].attributes["0"].nodeValue;
+      // $('.sort-by-button-group').on('click', 'button', function () {
+      //   var sortValue = $(this)["0"].attributes["0"].nodeValue;
+      //   $grid.isotope({
+      //     sortBy: sortValue
+      //   });
+      // });
+
+      // bind filter button click
+      $('.filters-button-group').on('click', 'button', function () {
+        console.log('click!');
+        var filterValue = $(this).attr('data-filter');
+        console.log(filterValue);
         $grid.isotope({
-          sortBy: sortValue
+          filter: filterValue
         });
       });
 
@@ -30,30 +40,6 @@
           $(this).addClass('is-checked');
         });
       });
-
-      // TODO: 
-      // filter functions
-      // var filterFns = {
-      //   // show if number is greater than 50
-      //   numberGreaterThan50: function () {
-      //     var number = $(this).find('.number').text();
-      //     return parseInt(number, 10) > 50;
-      //   },
-      //   // show if name ends with -ium
-      //   ium: function () {
-      //     var name = $(this).find('.name').text();
-      //     return name.match(/ium$/);
-      //   }
-      // };
-      // // bind filter button click
-      // $('.filters-button-group').on('click', 'button', function () {
-      //   var filterValue = $(this).attr('data-filter');
-      //   // use filterFn if matches value
-      //   filterValue = filterFns[filterValue] || filterValue;
-      //   $grid.isotope({
-      //     filter: filterValue
-      //   });
-      // });
     }
   };
 
@@ -71,37 +57,48 @@
 
   Drupal.behaviors.getItSticky = {
     attach: function (context) {
-      $(".button-group").once().sticky({topSpacing:0});
+      $(".button-group").once().sticky({
+        topSpacing: 0
+      });
     }
   };
 
   Drupal.behaviors.nodeSlider = {
     attach: function (context) {
       $('.node--type-lamp').once('my-custom-behaviour').each(function () {
-
         var images = $(this).find('.field--name-field-images');
-        $(this).find('.field--name-field-images').clone().insertAfter(images).addClass('slider-nav');
-        images.addClass('slick-slider');
-
-        $('.slick-slider').slick({
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          arrows: false,
-          fade: true,
-          autoplay: true,
-          asNavFor: '.slider-nav'
-        });
-
-        $('.slider-nav').slick({
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          asNavFor: '.slick-slider',
-          dots: false,
-          centerMode: true,
-          focusOnSelect: true
-        });
+        // images.addClass('slick-slider');
+        // if there are more than 3 images init 2 sliders
+        if (images.find('.field__item').length > 3) {
+          $(this).find('.field--name-field-images').clone().insertAfter(images).addClass('slider-nav').removeClass('slick-slider');
+          $('.slick-slider').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            fade: true,
+            autoplay: true,
+            asNavFor: '.slider-nav'
+          });
+          $('.slider-nav').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            asNavFor: '.slick-slider',
+            dots: false,
+            centerMode: true,
+            focusOnSelect: true,
+            prevArrow: '<button class="slick-prev fi fi-line-angle-left"></button>',
+            nextArrow: '<button class="slick-next fi fi-line-angle-right"></button>'
+          });
+        } else { // and init only one slider if less than 3 
+          $('.slick-slider').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            fade: true,
+            autoplay: true,
+          });
+        }
       });
-
     }
   };
 
