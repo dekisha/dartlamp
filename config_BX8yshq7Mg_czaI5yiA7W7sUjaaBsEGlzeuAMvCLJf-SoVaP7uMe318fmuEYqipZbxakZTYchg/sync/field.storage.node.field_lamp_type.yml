@@ -1,0 +1,30 @@
+uuid: 20fc8e81-7620-4ec3-9501-018741219923
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_lamp_type
+field_name: field_lamp_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: interior
+      label: interior
+    -
+      value: table
+      label: table
+    -
+      value: other
+      label: other
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,23 @@
+uuid: 84de3174-8ecb-43ac-850d-e9b5c84ecdba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lamp_type
+    - node.type.lamp
+  module:
+    - options
+id: node.lamp.field_lamp_type
+field_name: field_lamp_type
+entity_type: node
+bundle: lamp
+label: 'Lamp type'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: other
+default_value_callback: ''
+settings: {  }
+field_type: list_string

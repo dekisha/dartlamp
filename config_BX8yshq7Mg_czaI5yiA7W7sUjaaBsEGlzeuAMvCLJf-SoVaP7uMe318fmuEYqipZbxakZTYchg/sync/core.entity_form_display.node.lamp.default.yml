@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.lamp.field_block_field
     - field.field.node.lamp.field_ebay_link
     - field.field.node.lamp.field_images
+    - field.field.node.lamp.field_lamp_type
     - field.field.node.lamp.field_made_in
     - field.field.node.lamp.field_price
     - image.style.thumbnail
@@ -61,6 +62,12 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
+  field_lamp_type:
+    weight: 37
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_made_in:
     weight: 35

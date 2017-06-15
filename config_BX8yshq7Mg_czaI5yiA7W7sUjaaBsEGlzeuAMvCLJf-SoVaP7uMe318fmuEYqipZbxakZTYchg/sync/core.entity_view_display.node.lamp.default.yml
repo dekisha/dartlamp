@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.lamp.field_block_field
     - field.field.node.lamp.field_ebay_link
     - field.field.node.lamp.field_images
+    - field.field.node.lamp.field_lamp_type
     - field.field.node.lamp.field_made_in
     - field.field.node.lamp.field_price
     - node.type.lamp
@@ -15,6 +16,7 @@ dependencies:
     - ds
     - image
     - link
+    - options
     - text
     - user
 third_party_settings:
@@ -96,6 +98,13 @@ content:
       image_style: ''
       image_link: ''
     third_party_settings: {  }
+  field_lamp_type:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   field_made_in:
     type: datetime_custom
     weight: 2
