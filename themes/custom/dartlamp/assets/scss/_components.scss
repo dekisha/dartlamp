@@ -344,20 +344,43 @@ ul.tabs {
     display: inline-block;
     margin: 0 $inuit-global-spacing-unit-small;
     vertical-align: middle;
+    .region-header & {
+      &--active-trail {
+        position: relative;
+        &:after {
+          content:"\ea10";
+          font-family: "Fontice-IconsFont";
+          color: #ffffff;
+          bottom: -20px;
+          position: absolute;
+          transform: translate(0, 0);
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
     a {
-      color: rgba(255, 255, 255, 0.3);
+      color: white;
       display: block;
       font-family: $leelawui-fonts;
       overflow: hidden;
       position: relative;
       text-decoration: none;
       text-transform: uppercase;
-      &.is-active,
-      &:hover {
-        color: white;
+      &.is-active {
+        pointer-events: none;
+        &:after {
+          background-color: #ffffff;
+          bottom: 0;
+          content: "";
+          height: 2px;
+          left: 0;
+          position: absolute;
+          transform: translate(0, 0);
+          width: 100%;
+        }
       }
       &:hover {
-        color: white;
         &:after {
           transform: translate(102%, 0px);
         }
@@ -366,7 +389,7 @@ ul.tabs {
         background-color: #ffffff;
         bottom: 0;
         content: "";
-        height: 1.5px;
+        height: 2px;
         left: 0;
         position: absolute;
         transform: translate(-102%, 0px);
