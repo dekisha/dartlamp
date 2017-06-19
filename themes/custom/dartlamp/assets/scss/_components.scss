@@ -142,16 +142,16 @@ ul.tabs {
   text-decoration: none;
 }
 .tabs a.active {
-  box-shadow: inset 0 -0.2em 0 0 #96a8b2;
-  color: initial;
+  color: white;
 }
 .tabs a:focus,
 .tabs a:hover,
 .tabs a.is-active {
-  color: initial;
+  color: white;
+  transition: $transition;
 }
 .tabs a.is-active {
-  box-shadow: inset 0 -0.2em 0 0 $brand-color;
+  box-shadow: inset 0 -0.2em 0 0 white;
 }
 
 // ----------------------------------------------------------------------------
@@ -246,6 +246,7 @@ ul.tabs {
       }
     }
     img {
+      max-width: 100%;
       transform: scale(1);
     }
   }
@@ -347,16 +348,19 @@ ul.tabs {
     .region-header & {
       &--active-trail {
         position: relative;
-        &:after {
-          content:"\ea10";
-          font-family: "Fontice-IconsFont";
-          color: #ffffff;
-          bottom: -20px;
-          position: absolute;
-          transform: translate(0, 0);
-          width: 100%;
-          text-align: center;
-        }
+        // &:after {
+        //   bottom: -20px;
+        //   content: "\ea10";
+        //   color: #ffffff;
+        //   font-family: "Fontice-IconsFont";
+        //   position: absolute;
+        //   text-align: center;
+        //   transform: translate(0, 0);
+        //   width: 100%;
+        //   a.is-active:after {
+        //     display: none;
+        //   }
+        // }
       }
     }
     a {
@@ -420,7 +424,7 @@ ul.tabs {
     margin: 0 $inuit-global-spacing-unit-tiny;
     vertical-align: middle;
     .fa {
-      background: rgba(#333333,0.3);
+      background: rgba(#ffffff,0.3);
       border-radius: 50%;
       color: #333333;
       cursor: pointer;
@@ -433,15 +437,20 @@ ul.tabs {
       width: 32px;
       z-index: 1;
       &:hover {
-        background: #333333;
+        background: #ffffff;
         color: #ffffff;
         &:after {
           opacity: 1;
           transform: scale(1);
         }
       }
+      &.fa-facebook:hover {
+        color: #3b5998;
+      }
+      &.fa-pinterest:hover {
+        color: #bd081c;
+      }
       &:before {
-        color: white;
         left: 0;
         position: absolute;
         right: 0;
@@ -453,7 +462,7 @@ ul.tabs {
       }
       &:after {
         border-radius: 50%;
-        box-shadow: 0 0 0 2px #333333;
+        box-shadow: 0 0 0 2px #ffffff;
         box-sizing: content-box;
         content: "";
         height: 100%;
@@ -491,7 +500,7 @@ ul.tabs {
   }
   .slick-active {
     img {
-      animation: zoom 10s;
+      animation: zoomin 120s infinite linear 1s;
     }
   }
   .slick-arrow {
@@ -499,6 +508,7 @@ ul.tabs {
     border: 0;
     font-size: 0;
     height: 100vh;
+    opacity: 0.5;
     padding: 0 20px;
     position: absolute;
     top: 0;
@@ -507,53 +517,16 @@ ul.tabs {
       color: white;
       font-size: 70px;
     }
+    &:hover {
+      opacity: 1;
+      transition: $transition;
+    }
   }
   .slick-prev {
     left: 0;
-    &:before {
-      font-awesome: angle-left;
-    }
   }
   .slick-next {
     right: 0;
-    &:before {
-      font-awesome: angle-right;
-    }
-  }
-  .slick-dots {
-    left: 0;
-    margin: 0 auto;
-    margin-top: -50px;
-    position: absolute;
-    right: 0;
-    text-align: center;
-    top: 100vh;
-    li {
-      display: inline-block;
-      margin: 0 $inuit-global-spacing-unit-tiny;
-      vertical-align: middle;
-      &.slick-active {
-        button {
-          &:before {
-            background-color: $brand-color;
-            border-radius: 50%;
-            content: "";
-            display: inline-block;
-            margin: auto;
-            size: 10px;
-            vertical-align: middle;
-          }
-        }
-      }
-    }
-    button {
-      background-color: white;
-      border: 0;
-      border-radius: 50%;
-      font-size: 0;
-      padding: 0;
-      size: 20px;
-    }
   }
 }
 
@@ -562,17 +535,16 @@ ul.tabs {
 // ---------------------------------------------------------------------------- 
 .field--name-field-images {
   &.slick-slider {
-    
   }
   .slick-arrow {
     background-color: transparent;
     border: 0;
+    bottom: 0;
     font-size: 0;
+    height: 100%;
     padding: 0 20px;
     position: absolute;
     top: 0;
-    bottom: 0;
-    height: 100%;
     z-index: 1;
     &:before {
       color: white;
@@ -581,11 +553,9 @@ ul.tabs {
   }
   .slick-prev {
     left: 0;
-
   }
   .slick-next {
     right: 0;
-
   }
 }
 
@@ -614,4 +584,55 @@ ul.tabs {
 .sticky-wrapper {
   position: relative;
   z-index: 1;
+}
+
+// ----------------------------------------------------------------------------
+// SPLASHIFY
+// ----------------------------------------------------------------------------
+.splash-active {
+  margin: 0 !important;
+  padding: 0 !important;
+  .toolbar,
+  .l-container {
+    display: none;
+  }
+}
+
+.splash-inner {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  img {
+    height: 100vh;
+    max-width: none;
+
+    flex: none;
+  }
+}
+
+.c-power-cta {
+  position: absolute;
+  right: 19%;
+  top: 60%;
+  z-index: 1;
+  i {
+    animation: pulse 3s infinite;
+    background: #ffffff;
+    border: 8px solid;
+    border-radius: 50%;
+    box-shadow: 0 0 0 rgba(0,0,0, 0.4);
+    cursor: pointer;
+    display: block;
+    font-size: 100px;
+    padding: 10px;
+    &:before {
+      position: relative;
+      top: -4px;
+    }
+    &:hover {
+      animation: none;
+    }
+  }
 }

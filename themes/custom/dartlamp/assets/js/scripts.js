@@ -47,10 +47,12 @@
     attach: function (context) {
       $('.field--name-field-homepage-slider-images').once().slick({
         infinite: true,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 8000,
         fade: true,
-        dots: true
+        dots: false,
+        prevArrow: '<button class="slick-prev fi fi-line-angle-left"></button>',
+        nextArrow: '<button class="slick-next fi fi-line-angle-right"></button>'
       });
     }
   };
@@ -128,5 +130,14 @@
       });
     }
   };
+
+  // Drupal.behaviors.landingPage = {
+  //   attach: function (context) {
+  //     $('.path-frontpage').once().each(function(){
+  //       alert('test');
+  //       $(this).append('<img src="/themes/custom/dartlamp/images/landing-page.jpg" />');
+  //     });
+  //   }
+  // };
 
 })(jQuery);
