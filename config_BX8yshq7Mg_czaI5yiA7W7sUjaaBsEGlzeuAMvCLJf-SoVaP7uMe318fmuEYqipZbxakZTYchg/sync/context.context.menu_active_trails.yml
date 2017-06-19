@@ -1,0 +1,29 @@
+uuid: 297b05d0-b10e-4b0c-a895-6e0759ae468a
+langcode: en
+status: true
+dependencies:
+  module:
+    - context_active_trail
+    - ctools
+name: menu_active_trails
+label: 'Menu active trails'
+group: 'Menu active classes'
+description: ''
+requireAllConditions: false
+disabled: false
+conditions:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      lamp: lamp
+    negate: 0
+    uuid: b667d328-4193-4d87-b072-0154768fe498
+    context_mapping:
+      node: '@node.node_route_context:node'
+reactions:
+  active_trail:
+    id: active_trail
+    trail: 'main:views_view:views.galery.page_1'
+    breadcrumbs: 0
+    uuid: 9dd56552-5f3d-4b94-9bb2-ef9d6fe9f042
+weight: 0

@@ -11,10 +11,13 @@ module:
   breakpoint: 0
   ckeditor: 0
   color: 0
+  colorbox: 0
   comment: 0
   config: 0
   contact: 0
   context: 0
+  context_active_trail: 0
+  context_ui: 0
   contextual: 0
   ctools: 0
   datetime: 0
@@ -27,6 +30,7 @@ module:
   entity_reference_revisions: 0
   fblikebutton: 0
   field: 0
+  field_group: 0
   field_ui: 0
   file: 0
   filter: 0
@@ -53,11 +57,7 @@ module:
   rdf: 0
   search: 0
   shortcut: 0
-  slick: 0
-  slick_example: 0
-  slick_extras: 0
-  slick_ui: 0
-  slick_views: 0
+  splashify: 0
   stage_file_proxy: 0
   state_machine: 0
   system: 0

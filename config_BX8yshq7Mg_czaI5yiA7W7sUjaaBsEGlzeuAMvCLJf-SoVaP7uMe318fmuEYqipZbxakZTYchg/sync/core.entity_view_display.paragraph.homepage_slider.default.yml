@@ -4,9 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.homepage_slider.field_homepage_slider_images
-    - image.style.slick_fullscreen
     - paragraphs.paragraphs_type.homepage_slider
   module:
+    - ds
     - image
 id: paragraph.homepage_slider.default
 targetEntityType: paragraph
@@ -17,9 +17,11 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: slick_fullscreen
+      image_style: ''
       image_link: ''
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ds_limit: ''
     type: image
     region: content
 hidden: {  }
