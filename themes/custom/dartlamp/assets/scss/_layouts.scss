@@ -9,6 +9,11 @@ html {
   a {
     color: white;
   }
+  .form-text,
+  .form-textarea,
+  .form-email {
+    color: inherit;
+  }
 }
 
 // ----------------------------------------------------------------------------
