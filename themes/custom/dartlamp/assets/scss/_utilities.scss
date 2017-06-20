@@ -15,9 +15,42 @@
     box-shadow: 0 0 0 0 rgba(0,0,0, 0.4);
   }
   70% {
-    box-shadow: 0 0 0 30px rgba(0,0,0, 0);
+    box-shadow: 0 0 0 20px rgba(0,0,0, 0);
   }
   100% {
     box-shadow: 0 0 0 0 rgba(0,0,0, 0);
+  }
+}
+
+@keyframes reveal-text {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes revealer-text {
+  0%,
+  50% {
+    transform-origin: 0 50%;
+  }
+
+  60%,
+  100% {
+    transform-origin: 100% 50%;
+  }
+
+  50% {
+    transform: scaleX(1);
+  }
+
+  60% {
+    transform: scaleX(1);
+  }
+
+  100% {
+    transform: scaleX(0);
   }
 }
