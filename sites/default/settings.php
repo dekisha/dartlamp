@@ -86,7 +86,26 @@
  * );
  * @endcode
  */
- $databases = array();
+$databases['default']['default'] = array (
+  'database' => 'dartlamp_drup',
+  'username' => 'dartlamp_drup',
+  'password' => '01021989',
+  'prefix' => '',
+  'host' => 'localhost',
+  'port' => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);
+
+
+$conf['file_public_path'] = 'sites/default/files';
+$conf['file_temporary_path'] = 'sites/default/files/tmp';
+#$conf['file_private_path'] = '../private';
+
+
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
 
 /**
  * Customizing database settings.
@@ -244,7 +263,7 @@
  *   );
  * @endcode
  */
-$config_directories = array();
+$config_directories['sync'] = 'config_BX8yshq7Mg_czaI5yiA7W7sUjaaBsEGlzeuAMvCLJf-SoVaP7uMe318fmuEYqipZbxakZTYchg/sync';
 
 /**
  * Settings:
@@ -709,6 +728,9 @@ $settings['trusted_host_patterns'] = array(
   '^dartlamp\.com$',
   '^www\.dartlamp\.com$',
 );
+
+
+
  /* @endcode
  * will allow the site to only run from www.example.com.
  *
