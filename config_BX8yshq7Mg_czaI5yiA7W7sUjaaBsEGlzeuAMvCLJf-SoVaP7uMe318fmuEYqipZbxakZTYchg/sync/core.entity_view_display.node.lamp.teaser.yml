@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.lamp.field_images
     - field.field.node.lamp.field_lamp_type
     - field.field.node.lamp.field_made_in
-    - field.field.node.lamp.field_price
     - node.type.lamp
   module:
     - image
@@ -33,5 +32,4 @@ hidden:
   field_ebay_link: true
   field_lamp_type: true
   field_made_in: true
-  field_price: true
   links: true

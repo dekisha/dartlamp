@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.lamp.field_images
     - field.field.node.lamp.field_lamp_type
     - field.field.node.lamp.field_made_in
-    - field.field.node.lamp.field_price
     - image.style.thumbnail
     - node.type.lamp
   module:
@@ -64,13 +63,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
-    region: content
-  field_price:
-    weight: 33
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
     region: content
   path:
     type: path

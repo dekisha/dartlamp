@@ -1,0 +1,9 @@
+id: lamp_images_copy
+label: 'Lamp images copy'
+ui_limit: 'lamp|*'
+properties:
+  field_id: node.lamp.field_images
+type: display_field_copy
+type_label: 'Copy field'
+entities:
+  node: node

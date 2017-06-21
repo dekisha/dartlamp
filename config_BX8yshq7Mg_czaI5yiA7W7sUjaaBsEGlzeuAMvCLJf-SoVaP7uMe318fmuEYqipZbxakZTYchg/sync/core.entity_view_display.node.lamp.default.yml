@@ -8,15 +8,13 @@ dependencies:
     - field.field.node.lamp.field_images
     - field.field.node.lamp.field_lamp_type
     - field.field.node.lamp.field_made_in
-    - field.field.node.lamp.field_price
-    - image.style.extra_large_800x700_
+    - image.style.extra_large_800x_
     - node.type.lamp
   module:
     - datetime
     - ds
     - image
     - link
-    - options
     - text
     - user
 third_party_settings:
@@ -48,16 +46,24 @@ third_party_settings:
         - node_title
         - body
         - field_made_in
-        - field_price
         - field_ebay_link
         - 'dynamic_block_field:node-facebook_like_button_field'
-        - field_lamp_type
       right:
         - field_images
+        - 'display_field_copy:node-lamp_images_copy'
     fields:
+      'display_field_copy:node-lamp_images_copy':
+        plugin_id: 'display_field_copy:node-lamp_images_copy'
+        weight: 6
+        label: hidden
+        formatter: image
+        settings:
+          formatter:
+            image_style: extra_medium_240x210_
+            image_link: ''
       'dynamic_block_field:node-facebook_like_button_field':
         plugin_id: 'dynamic_block_field:node-facebook_like_button_field'
-        weight: 5
+        weight: 4
         label: hidden
         formatter: default
       node_title:
@@ -80,7 +86,7 @@ content:
     third_party_settings: {  }
   field_ebay_link:
     type: link
-    weight: 4
+    weight: 3
     region: left
     label: hidden
     settings:
@@ -92,41 +98,24 @@ content:
     third_party_settings: {  }
   field_images:
     type: image
-    weight: 6
+    weight: 5
     region: right
     label: hidden
     settings:
-      image_style: extra_large_800x700_
+      image_style: extra_large_800x_
       image_link: ''
     third_party_settings:
       ds:
         ds_limit: ''
-  field_lamp_type:
-    weight: 7
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: left
   field_made_in:
     type: datetime_custom
     weight: 2
     region: left
     label: above
     settings:
-      date_format: 'Y-m-d\TH:i:s'
       timezone_override: ''
-    third_party_settings: {  }
-  field_price:
-    type: number_decimal
-    weight: 3
-    region: left
-    label: hidden
-    settings:
-      thousand_separator: ''
-      decimal_separator: .
-      scale: 2
-      prefix_suffix: true
+      date_format: 'Y M'
     third_party_settings: {  }
 hidden:
+  field_lamp_type: true
   links: true

@@ -1,0 +1,14 @@
+uuid: 36ba5414-fa0c-481d-9882-e07c7817e125
+langcode: en
+status: true
+dependencies: {  }
+name: extra_medium_240x210_
+label: 'Extra medium(240x210)'
+effects:
+  1f718b95-5da8-4ee1-b39b-6b30fcbda33d:
+    uuid: 1f718b95-5da8-4ee1-b39b-6b30fcbda33d
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 240
+      height: 210
