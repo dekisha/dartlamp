@@ -311,6 +311,10 @@ ul.tabs {
       }
     }
   }
+  .field--name-body {
+    max-height: 500px;
+    overflow: auto;
+  }
 }
 
 .field--name-field-images {
@@ -327,9 +331,9 @@ ul.tabs {
   }
 }
 
-.node--type-lamp.node--view-mode-full .field--name-body {
-  max-height: 500px;
-  overflow: auto;
+.field--name-dynamic-block-fieldnode-facebook-like-button-field {
+  background-color: white;
+  padding: 10px;
 }
 
 // ----------------------------------------------------------------------------
@@ -531,9 +535,40 @@ ul.tabs {
 // ----------------------------------------------------------------------------
 // LAMP SLIDER
 // ---------------------------------------------------------------------------- 
-.field--name-display-field-copynode-lamp-images-copy {
+.field--name-field-images {
   &.slick-slider {
     overflow: hidden;
+  }
+  .slick-arrow {
+    background-color: rgba(black, 0.8);
+    border: 0;
+    bottom: 0;
+    font-size: 0;
+    height: 100%;
+    padding: 0 20px;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    &:before {
+      color: white;
+      font-size: 30px;
+    }
+  }
+  .slick-prev {
+    left: 0;
+  }
+  .slick-next {
+    right: 0;
+  }
+}
+.field--name-display-field-copynode-lamp-images-copy {
+  &.slick-nav {
+    overflow: hidden;
+  }
+  .field__item {
+    &:at-most(3) {
+      display: none;
+    }
   }
   .slick-arrow {
     background-color: rgba(black, 0.8);

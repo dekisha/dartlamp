@@ -69,14 +69,15 @@
     attach: function (context) {
       $('.node--type-lamp').once('my-custom-behaviour').each(function () {
         // if there are more than 3 images init 2 sliders
-        // if ($('.slick-slider').find('.field__item').length > 3) {
+        if ($('.slick-slider').find('.field__item').length > 3) {
           $('.slick-slider').slick({
             slidesToShow: 1,
             slidesToScroll: 1,
             arrows: false,
             fade: true,
             autoplay: true,
-            asNavFor: '.slick-nav'
+            asNavFor: '.slick-nav',
+            adaptiveHeight: true
           });
           $('.slick-nav').slick({
             slidesToShow: 3,
@@ -88,16 +89,19 @@
             prevArrow: '<button class="slick-prev fi fi-line-angle-left"></button>',
             nextArrow: '<button class="slick-next fi fi-line-angle-right"></button>'
           });
-        // } 
-        // else { // and init only one slider if less than 3 
-        //   $('.slick-slider').slick({
-        //     slidesToShow: 1,
-        //     slidesToScroll: 1,
-        //     arrows: true,
-        //     fade: true,
-        //     autoplay: true,
-        //   });
-        // }
+        } 
+        else { // and init only one slider if less than 3 
+          $('.slick-slider').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            fade: true,
+            autoplay: false,
+            adaptiveHeight: true,
+            prevArrow: '<button class="slick-prev fi fi-line-angle-left"></button>',
+            nextArrow: '<button class="slick-next fi fi-line-angle-right"></button>'
+          });
+        }
       });
     }
   };
