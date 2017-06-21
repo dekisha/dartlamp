@@ -531,11 +531,12 @@ ul.tabs {
 // ----------------------------------------------------------------------------
 // LAMP SLIDER
 // ---------------------------------------------------------------------------- 
-.field--name-field-images {
+.field--name-display-field-copynode-lamp-images-copy {
   &.slick-slider {
+    overflow: hidden;
   }
   .slick-arrow {
-    background-color: transparent;
+    background-color: rgba(black, 0.8);
     border: 0;
     bottom: 0;
     font-size: 0;

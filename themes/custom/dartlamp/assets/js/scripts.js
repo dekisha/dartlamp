@@ -68,20 +68,17 @@
   Drupal.behaviors.nodeSlider = {
     attach: function (context) {
       $('.node--type-lamp').once('my-custom-behaviour').each(function () {
-        var images = $(this).find('.field--name-field-images');
-        // images.addClass('slick-slider');
         // if there are more than 3 images init 2 sliders
-        if (images.find('.field__item').length > 3) {
-          $(this).find('.field--name-field-images').clone().insertAfter(images).addClass('slider-nav').removeClass('slick-slider');
+        // if ($('.slick-slider').find('.field__item').length > 3) {
           $('.slick-slider').slick({
             slidesToShow: 1,
             slidesToScroll: 1,
             arrows: false,
             fade: true,
             autoplay: true,
-            asNavFor: '.slider-nav'
+            asNavFor: '.slick-nav'
           });
-          $('.slider-nav').slick({
+          $('.slick-nav').slick({
             slidesToShow: 3,
             slidesToScroll: 1,
             asNavFor: '.slick-slider',
@@ -91,15 +88,16 @@
             prevArrow: '<button class="slick-prev fi fi-line-angle-left"></button>',
             nextArrow: '<button class="slick-next fi fi-line-angle-right"></button>'
           });
-        } else { // and init only one slider if less than 3 
-          $('.slick-slider').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: true,
-            fade: true,
-            autoplay: true,
-          });
-        }
+        // } 
+        // else { // and init only one slider if less than 3 
+        //   $('.slick-slider').slick({
+        //     slidesToShow: 1,
+        //     slidesToScroll: 1,
+        //     arrows: true,
+        //     fade: true,
+        //     autoplay: true,
+        //   });
+        // }
       });
     }
   };
