@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.lamp.field_lamp_type
     - field.field.node.lamp.field_made_in
     - field.field.node.lamp.field_price
+    - image.style.extra_large_800x700_
     - node.type.lamp
   module:
     - datetime
@@ -50,6 +51,7 @@ third_party_settings:
         - field_price
         - field_ebay_link
         - 'dynamic_block_field:node-facebook_like_button_field'
+        - field_lamp_type
       right:
         - field_images
     fields:
@@ -94,16 +96,18 @@ content:
     region: right
     label: hidden
     settings:
-      image_style: ''
+      image_style: extra_large_800x700_
       image_link: ''
-    third_party_settings: {  }
+    third_party_settings:
+      ds:
+        ds_limit: ''
   field_lamp_type:
     weight: 7
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
-    region: content
+    region: left
   field_made_in:
     type: datetime_custom
     weight: 2
