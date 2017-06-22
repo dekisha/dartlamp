@@ -56,7 +56,7 @@ content:
     weight: 37
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: options_buttons
     region: content
   field_made_in:
     weight: 35
