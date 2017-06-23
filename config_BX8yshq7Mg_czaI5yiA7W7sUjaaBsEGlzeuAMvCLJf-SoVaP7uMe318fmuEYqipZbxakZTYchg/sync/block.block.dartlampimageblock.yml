@@ -1,24 +1,27 @@
-uuid: d486c803-beb6-4dcc-a74f-573488db7786
+uuid: 8b4d1706-5c3a-4657-a7a3-5ad05dce0b38
 langcode: en
-status: false
+status: true
 dependencies:
+  content:
+    - 'block_content:image_block:dd8dddf4-41c5-47c8-b289-2989635877a0'
   module:
     - block_class
+    - block_content
     - system
   theme:
     - dartlamp
 third_party_settings:
   block_class:
     classes: c-hero
-id: biographyimageblock
+id: dartlampimageblock
 theme: dartlamp
 region: featured
 weight: 0
 provider: null
-plugin: 'block_content:4030653c-2ec6-49b8-ab6d-7faae7be65e4'
+plugin: 'block_content:dd8dddf4-41c5-47c8-b289-2989635877a0'
 settings:
-  id: 'block_content:4030653c-2ec6-49b8-ab6d-7faae7be65e4'
-  label: 'Biography image block'
+  id: 'block_content:dd8dddf4-41c5-47c8-b289-2989635877a0'
+  label: 'Dartlamp image block'
   provider: block_content
   label_display: '0'
   status: true
@@ -27,6 +30,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /bio
+    pages: /dart-lamp
     negate: false
     context_mapping: {  }
