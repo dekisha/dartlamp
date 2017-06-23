@@ -303,17 +303,29 @@ ul.tabs {
 // ----------------------------------------------------------------------------
 .node--type-lamp.node--view-mode-full {
   margin-bottom: $inuit-global-spacing-unit-large;
-  .o-layout__item {
-    > * {
+  .field {
       margin-bottom: $inuit-global-spacing-unit;
       &:last-child {
         margin-bottom: 0;
       }
+    
+  }
+  .field--name-node-title {
+    text-align: center;
+    h2 {
+      margin: 0;
     }
   }
   .field--name-body {
     max-height: 500px;
     overflow: auto;
+  }
+}
+
+.field--name-field-made-in {
+  text-align: center;
+  > div {
+    display: inline-block;
   }
 }
 
@@ -332,8 +344,12 @@ ul.tabs {
 }
 
 .field--name-dynamic-block-fieldnode-facebook-like-button-field {
-  background-color: white;
-  padding: 10px;
+  text-align: center;
+  > .fb_iframe_widget {
+    background-color: white;
+    display: inline-block;
+    padding: 10px;
+  }
 }
 
 // ----------------------------------------------------------------------------
@@ -539,6 +555,9 @@ ul.tabs {
   &.slick-slider {
     overflow: hidden;
   }
+  .slick-slide {
+    position: relative;
+  }
   .slick-arrow {
     background-color: rgba(black, 0.8);
     border: 0;
@@ -561,13 +580,41 @@ ul.tabs {
     right: 0;
   }
 }
+
+.slick-expander {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  text-decoration: none;
+  display: none;
+  font-size: 30px;
+  .slick-active & {
+    display: block;
+  }
+  .fi {
+    display: block;
+  }
+}
+
 .field--name-display-field-copynode-lamp-images-copy {
   &.slick-nav {
     overflow: hidden;
+    position: absolute;
+    left: $inuit-global-spacing-unit;
+    width: 300px;
+    top: 0;
   }
   .field__item {
     &:at-most(3) {
       display: none;
+    }
+  }
+  .slick-slide {
+    border: 0;
+    margin-bottom: $inuit-global-spacing-unit;
+    img {
+      max-width: 100%;
+      height: auto;
     }
   }
   .slick-arrow {
@@ -597,7 +644,8 @@ ul.tabs {
 // SLICK SLIDER
 // ---------------------------------------------------------------------------- 
 // prevent content jump before JS init
-.slick-slider {
+.slick-slider,
+.slick-nav {
   > .field__item:not(:first-child) {
     display: none;
   }

@@ -72,22 +72,26 @@
         if ($('.slick-slider').find('.field__item').length > 3) {
           $('.slick-slider').slick({
             slidesToShow: 1,
-            slidesToScroll: 1,
+            // slidesToScroll: 1,
             arrows: false,
-            fade: true,
-            autoplay: true,
+            fade: false,
+            // autoplay: true,
             asNavFor: '.slick-nav',
-            adaptiveHeight: true
+            adaptiveHeight: true,
+            centerMode: true,
+            variableWidth: true
           });
           $('.slick-nav').slick({
-            slidesToShow: 3,
+            slidesToShow: 6,
             slidesToScroll: 1,
             asNavFor: '.slick-slider',
             dots: false,
             centerMode: true,
             focusOnSelect: true,
             prevArrow: '<button class="slick-prev fi fi-line-angle-left"></button>',
-            nextArrow: '<button class="slick-next fi fi-line-angle-right"></button>'
+            nextArrow: '<button class="slick-next fi fi-line-angle-right"></button>',
+            vertical: true,
+            verticalSwiping: true
           });
         } 
         else { // and init only one slider if less than 3 
@@ -133,13 +137,16 @@
     }
   };
 
-  // Drupal.behaviors.landingPage = {
-  //   attach: function (context) {
-  //     $('.path-frontpage').once().each(function(){
-  //       alert('test');
-  //       $(this).append('<img src="/themes/custom/dartlamp/images/landing-page.jpg" />');
-  //     });
-  //   }
-  // };
+  Drupal.behaviors.fullImageViewLink = {
+    attach: function (context) {
+      $('.field--name-field-images .field__item').once().each(function(){
+        console.log('test');
+        var link = $(this).find('a');
+        var linkHref = link.prop('href');
+        link.find('img').unwrap('a');
+        $(this).append('<a href="' + linkHref + '" class="slick-expander"><i class="fi fi-object-selected"/i></a>');
+      });
+    }
+  };
 
 })(jQuery);
