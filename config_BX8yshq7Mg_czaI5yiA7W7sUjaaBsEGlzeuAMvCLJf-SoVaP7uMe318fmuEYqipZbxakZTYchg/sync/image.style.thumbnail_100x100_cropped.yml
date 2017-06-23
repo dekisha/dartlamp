@@ -1,0 +1,14 @@
+uuid: 33c0dfc9-8ecd-427b-bd30-8d2d6d7a6e3e
+langcode: en
+status: true
+dependencies: {  }
+name: thumbnail_100x100_cropped
+label: 'Thumbnail (100x100) cropped'
+effects:
+  acec4104-3bb3-425d-8b96-9e1902eecd4a:
+    uuid: acec4104-3bb3-425d-8b96-9e1902eecd4a
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 100
+      height: 100

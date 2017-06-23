@@ -45,7 +45,7 @@ third_party_settings:
         formatter: image
         settings:
           formatter:
-            image_style: thumbnail
+            image_style: thumbnail_100x100_cropped
             image_link: ''
 id: node.lamp.field_containers
 targetEntityType: node
