@@ -1,4 +1,12 @@
 <div class="l-container">
+  
+  {% if page.highlighted %}
+    <aside class="l-highlighted">
+      <div class="o-wrapper">
+        {{ page.highlighted }}
+      </div>
+    </aside>
+  {% endif %}
 
   <div class="l-master-header">
     
@@ -29,11 +37,13 @@
     
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
     
+      <div class="l-featured">
+        {{ page.featured }}
+      </div>
+    
     {% if page.pre_content %}
       <div class="l-pre-content">
-        <div class="o-wrapper">
-          {{ page.pre_content }}
-        </div>
+        {{ page.pre_content }}
       </div>
     {% endif %}
     
