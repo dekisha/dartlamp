@@ -68,11 +68,9 @@
   Drupal.behaviors.nodeSlider = {
     attach: function (context) {
       $('.node--type-lamp').once('my-custom-behaviour').each(function () {
-        // if there are more than 3 images init 2 sliders
-        if ($('.slick-slider').find('.field__item').length > 3) {
           $('.slick-slider').slick({
             slidesToShow: 1,
-            // slidesToScroll: 1,
+            slidesToScroll: 1,
             arrows: false,
             fade: false,
             // autoplay: true,
@@ -82,41 +80,28 @@
             variableWidth: true
           });
           $('.slick-nav').slick({
-            slidesToShow: 6,
+            slidesToShow: 4,
             slidesToScroll: 1,
             asNavFor: '.slick-slider',
             dots: false,
             centerMode: true,
             focusOnSelect: true,
-            prevArrow: '<button class="slick-prev fi fi-line-angle-left"></button>',
-            nextArrow: '<button class="slick-next fi fi-line-angle-right"></button>',
+            prevArrow: '<button class="slick-prev fi fi-line-angle-up"></button>',
+            nextArrow: '<button class="slick-next fi fi-line-angle-down"></button>',
             vertical: true,
             verticalSwiping: true
           });
-        } 
-        else { // and init only one slider if less than 3 
-          $('.slick-slider').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: true,
-            fade: true,
-            autoplay: false,
-            adaptiveHeight: true,
-            prevArrow: '<button class="slick-prev fi fi-line-angle-left"></button>',
-            nextArrow: '<button class="slick-next fi fi-line-angle-right"></button>'
-          });
-        }
       });
     }
   };
 
-  Drupal.behaviors.customScrollbar = {
-    attach: function (context) {
-      $('.node--type-lamp.node--view-mode-full .field--name-body').once().mCustomScrollbar({
-        theme: "dark"
-      });
-    }
-  };
+  // Drupal.behaviors.customScrollbar = {
+  //   attach: function (context) {
+  //     $('.node--type-lamp.node--view-mode-full .field--name-body').once().mCustomScrollbar({
+  //       theme: "dark"
+  //     });
+  //   }
+  // };
 
   Drupal.behaviors.threesixty = {
     attach: function (context) {

@@ -303,12 +303,12 @@ ul.tabs {
 // ----------------------------------------------------------------------------
 .node--type-lamp.node--view-mode-full {
   margin-bottom: $inuit-global-spacing-unit-large;
+  text-align: center;
   .field {
-      margin-bottom: $inuit-global-spacing-unit;
-      &:last-child {
-        margin-bottom: 0;
-      }
-    
+    margin-bottom: $inuit-global-spacing-unit-large;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
   .field--name-node-title {
     text-align: center;
@@ -317,13 +317,11 @@ ul.tabs {
     }
   }
   .field--name-body {
-    max-height: 500px;
-    overflow: auto;
+    max-width: 800px;
   }
 }
 
 .field--name-field-made-in {
-  text-align: center;
   > div {
     display: inline-block;
   }
@@ -331,8 +329,8 @@ ul.tabs {
 
 .field--name-field-images {
   img {
-    height: auto;
-    max-width: 100%;
+    max-height: 100%;
+    width: auto;
   }
 }
 
@@ -344,7 +342,6 @@ ul.tabs {
 }
 
 .field--name-dynamic-block-fieldnode-facebook-like-button-field {
-  text-align: center;
   > .fb_iframe_widget {
     background-color: white;
     display: inline-block;
@@ -516,7 +513,7 @@ ul.tabs {
       width: 100%;
     }
   }
-  .slick-active {
+  .slick-current {
     img {
       animation: zoomin 120s infinite linear 1s;
     }
@@ -556,7 +553,13 @@ ul.tabs {
     overflow: hidden;
   }
   .slick-slide {
+    outline: none;
     position: relative;
+    &.slick-active {
+      outline-color: white;
+      outline-style: auto;
+      outline-width: 5px;
+    }
   }
   .slick-arrow {
     background-color: rgba(black, 0.8);
@@ -582,12 +585,20 @@ ul.tabs {
 }
 
 .slick-expander {
-  position: absolute;
+  background-color: rgba(black, 0.4);
+  border-radius: 50%;
   bottom: 30px;
-  right: 30px;
-  text-decoration: none;
   display: none;
   font-size: 30px;
+  opacity: 0.5;
+  padding: 10px;
+  position: absolute;
+  right: 30px;
+  text-decoration: none;
+  &:hover {
+    opacity: 1;
+    transition: $transition;
+  }
   .slick-active & {
     display: block;
   }
@@ -598,11 +609,12 @@ ul.tabs {
 
 .field--name-display-field-copynode-lamp-images-copy {
   &.slick-nav {
+    left: $inuit-global-spacing-unit;
     overflow: hidden;
     position: absolute;
-    left: $inuit-global-spacing-unit;
-    width: 300px;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100px;
   }
   .field__item {
     &:at-most(3) {
@@ -612,20 +624,27 @@ ul.tabs {
   .slick-slide {
     border: 0;
     margin-bottom: $inuit-global-spacing-unit;
+    outline: none;
+    &.slick-current {
+      outline-color: white;
+      outline-style: auto;
+      outline-width: 5px;
+    }
     img {
-      max-width: 100%;
       height: auto;
+      max-width: 100%;
     }
   }
   .slick-arrow {
     background-color: rgba(black, 0.8);
     border: 0;
-    bottom: 0;
     font-size: 0;
-    height: 100%;
+    left: 0;
+    // height: 100%;
     padding: 0 20px;
     position: absolute;
-    top: 0;
+    right: 0;
+    width: 100%;
     z-index: 1;
     &:before {
       color: white;
@@ -633,10 +652,10 @@ ul.tabs {
     }
   }
   .slick-prev {
-    left: 0;
+    top: 0;
   }
   .slick-next {
-    right: 0;
+    bottom: 0;
   }
 }
 
@@ -748,11 +767,10 @@ ul.tabs {
 .c-power-cta__reveal-text,
 .c-power-cta__reveal-text:after {
   animation-duration: 800ms;
+  animation-fill-mode: both;
   animation-iteration-count: 1;
   animation-play-state: paused;
   animation-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
-
-  animation-fill-mode: both;
 }
 
 .c-power-cta__reveal-text {
