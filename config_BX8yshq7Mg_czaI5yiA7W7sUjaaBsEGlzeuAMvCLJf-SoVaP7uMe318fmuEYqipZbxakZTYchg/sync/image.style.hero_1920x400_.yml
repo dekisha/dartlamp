@@ -1,0 +1,14 @@
+uuid: 454f6f0a-2857-49eb-8cec-394122ef7327
+langcode: en
+status: true
+dependencies: {  }
+name: hero_1920x400_
+label: 'Hero (1920x400)'
+effects:
+  00ef85ab-5c0e-483c-80f5-fba9e3d21dc7:
+    uuid: 00ef85ab-5c0e-483c-80f5-fba9e3d21dc7
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1920
+      height: 400

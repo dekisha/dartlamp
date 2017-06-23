@@ -1,0 +1,35 @@
+uuid: d486c803-beb6-4dcc-a74f-573488db7786
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:image_block:4030653c-2ec6-49b8-ab6d-7faae7be65e4'
+  module:
+    - block_class
+    - block_content
+    - system
+  theme:
+    - dartlamp
+third_party_settings:
+  block_class:
+    classes: c-hero
+id: biographyimageblock
+theme: dartlamp
+region: featured
+weight: 0
+provider: null
+plugin: 'block_content:4030653c-2ec6-49b8-ab6d-7faae7be65e4'
+settings:
+  id: 'block_content:4030653c-2ec6-49b8-ab6d-7faae7be65e4'
+  label: 'Biography image block'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /bio
+    negate: false
+    context_mapping: {  }

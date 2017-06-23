@@ -2,14 +2,19 @@ uuid: 182a30e4-4674-4d42-837f-81917d7b8f50
 langcode: en
 status: true
 dependencies:
+  module:
+    - block_class
   theme:
     - dartlamp
+third_party_settings:
+  block_class:
+    classes: ''
 _core:
   default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
 id: dartlamp_local_tasks
 theme: dartlamp
-region: content
-weight: -5
+region: highlighted
+weight: -10
 provider: null
 plugin: local_tasks_block
 settings:
