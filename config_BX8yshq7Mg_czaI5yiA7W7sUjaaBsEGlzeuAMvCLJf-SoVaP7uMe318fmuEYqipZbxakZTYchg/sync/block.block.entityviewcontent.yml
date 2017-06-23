@@ -1,0 +1,34 @@
+uuid: 4d3ee39b-cc0f-47c9-a99c-61a26baed2f1
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - ctools
+  theme:
+    - dartlamp
+third_party_settings:
+  block_class:
+    classes: ''
+id: entityviewcontent
+theme: dartlamp
+region: pre_content
+weight: 0
+provider: null
+plugin: 'entity_view:node'
+settings:
+  id: 'entity_view:node'
+  label: 'Entity view (Content)'
+  provider: ctools
+  label_display: '0'
+  view_mode: field_containers
+  context_mapping:
+    entity: '@node.node_route_context:node'
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      lamp: lamp
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

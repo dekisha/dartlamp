@@ -1,0 +1,15 @@
+uuid: b2788654-97e5-4f64-a685-f36e58b0090f
+langcode: en
+status: true
+dependencies: {  }
+name: extra_large_x700_
+label: 'Extra large (x700)'
+effects:
+  a5203373-f376-4de0-ad3f-116b59536998:
+    uuid: a5203373-f376-4de0-ad3f-116b59536998
+    id: image_scale
+    weight: -9
+    data:
+      width: null
+      height: 700
+      upscale: false

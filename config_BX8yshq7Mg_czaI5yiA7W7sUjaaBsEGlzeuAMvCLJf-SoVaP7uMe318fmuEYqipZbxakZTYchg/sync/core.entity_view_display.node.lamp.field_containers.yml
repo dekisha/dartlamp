@@ -1,0 +1,72 @@
+uuid: d6308103-ee95-430d-80ef-01d0a849837a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.field_containers
+    - field.field.node.lamp.body
+    - field.field.node.lamp.field_block_field_for_images
+    - field.field.node.lamp.field_ebay_link
+    - field.field.node.lamp.field_images
+    - field.field.node.lamp.field_lamp_type
+    - field.field.node.lamp.field_made_in
+    - image.style.extra_large_x700_
+    - node.type.lamp
+  module:
+    - ds
+    - image
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+          ds_content: {  }
+    regions:
+      ds_content:
+        - field_images
+        - 'display_field_copy:node-lamp_images_copy'
+    fields:
+      'display_field_copy:node-lamp_images_copy':
+        plugin_id: 'display_field_copy:node-lamp_images_copy'
+        weight: 1
+        label: hidden
+        formatter: image
+        settings:
+          formatter:
+            image_style: thumbnail
+            image_link: ''
+id: node.lamp.field_containers
+targetEntityType: node
+bundle: lamp
+mode: field_containers
+content:
+  field_images:
+    type: image
+    weight: 0
+    region: ds_content
+    label: hidden
+    settings:
+      image_style: extra_large_x700_
+      image_link: file
+    third_party_settings:
+      ds:
+        ds_limit: ''
+hidden:
+  body: true
+  field_block_field_for_images: true
+  field_ebay_link: true
+  field_lamp_type: true
+  field_made_in: true
+  links: true

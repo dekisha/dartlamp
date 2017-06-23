@@ -4,63 +4,45 @@ status: true
 dependencies:
   config:
     - field.field.node.lamp.body
+    - field.field.node.lamp.field_block_field_for_images
     - field.field.node.lamp.field_ebay_link
     - field.field.node.lamp.field_images
     - field.field.node.lamp.field_lamp_type
     - field.field.node.lamp.field_made_in
-    - image.style.extra_large_800x_
     - node.type.lamp
   module:
+    - block_field
     - datetime
     - ds
-    - image
     - link
     - text
     - user
 third_party_settings:
   ds:
     layout:
-      id: ds_2col
-      library: ds/ds_2col
-      disable_css: true
+      id: ds_1col
+      library: null
+      disable_css: false
       entity_classes: all_classes
       settings:
         wrappers:
-          left: div
-          right: div
+          ds_content: div
         outer_wrapper: div
         attributes: ''
         link_attribute: ''
         link_custom: ''
         classes:
-          layout_class:
-            o-layout: o-layout
-          left:
-            o-layout__item: o-layout__item
-            u-1/3: u-1/3
-          right:
-            o-layout__item: o-layout__item
-            u-2/3: u-2/3
+          layout_class: {  }
+          ds_content: {  }
     regions:
-      left:
+      ds_content:
         - node_title
         - body
         - field_made_in
         - field_ebay_link
         - 'dynamic_block_field:node-facebook_like_button_field'
-      right:
-        - field_images
-        - 'display_field_copy:node-lamp_images_copy'
+        - field_block_field_for_images
     fields:
-      'display_field_copy:node-lamp_images_copy':
-        plugin_id: 'display_field_copy:node-lamp_images_copy'
-        weight: 6
-        label: hidden
-        formatter: image
-        settings:
-          formatter:
-            image_style: extra_medium_240x210_
-            image_link: ''
       'dynamic_block_field:node-facebook_like_button_field':
         plugin_id: 'dynamic_block_field:node-facebook_like_button_field'
         weight: 4
@@ -79,15 +61,22 @@ content:
   body:
     type: text_summary_or_trimmed
     weight: 1
-    region: left
+    region: ds_content
     label: hidden
     settings:
       trim_length: 600
     third_party_settings: {  }
+  field_block_field_for_images:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: block_field
+    region: ds_content
   field_ebay_link:
     type: link
     weight: 3
-    region: left
+    region: ds_content
     label: hidden
     settings:
       trim_length: 80
@@ -96,26 +85,16 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-  field_images:
-    type: image
-    weight: 5
-    region: right
-    label: hidden
-    settings:
-      image_style: extra_large_800x_
-      image_link: ''
-    third_party_settings:
-      ds:
-        ds_limit: ''
   field_made_in:
     type: datetime_custom
     weight: 2
-    region: left
+    region: ds_content
     label: above
     settings:
       timezone_override: ''
       date_format: 'Y M'
     third_party_settings: {  }
 hidden:
+  field_images: true
   field_lamp_type: true
   links: true

@@ -1,0 +1,10 @@
+uuid: 13d6a752-677c-4165-b788-4d659d6b42c8
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_containers
+label: 'Field containers'
+targetEntityType: node
+cache: true
