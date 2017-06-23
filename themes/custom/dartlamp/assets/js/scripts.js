@@ -77,7 +77,8 @@
             asNavFor: '.slick-nav',
             adaptiveHeight: true,
             centerMode: true,
-            variableWidth: true
+            variableWidth: true,
+            focusOnSelect: true
           });
           $('.slick-nav').slick({
             slidesToShow: 4,
@@ -124,10 +125,10 @@
 
   Drupal.behaviors.fullImageViewLink = {
     attach: function (context) {
+      var link, linkHref;
       $('.field--name-field-images .field__item').once().each(function(){
-        console.log('test');
-        var link = $(this).find('a');
-        var linkHref = link.prop('href');
+        link = $(this).find('a');
+        linkHref = link.prop('href');
         link.find('img').unwrap('a');
         $(this).append('<a href="' + linkHref + '" class="slick-expander"><i class="fi fi-object-selected"/i></a>');
       });

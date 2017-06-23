@@ -318,10 +318,24 @@ ul.tabs {
   }
   .field--name-body {
     max-width: 800px;
+    margin: auto;
   }
 }
 
 .field--name-field-made-in {
+  .field__label {
+    &:before {
+      content: "\e946";
+      font-family: 'Fontice-IconsFont' !important;
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      margin-right: 5px;
+    }
+  }
   > div {
     display: inline-block;
   }
@@ -552,13 +566,18 @@ ul.tabs {
   &.slick-slider {
     overflow: hidden;
   }
+  .field__item {
+    text-align: center;
+  }
   .slick-slide {
     outline: none;
     position: relative;
+    cursor: pointer;
     &.slick-active {
       outline-color: white;
       outline-style: auto;
       outline-width: 5px;
+      cursor: default;
     }
   }
   .slick-arrow {
