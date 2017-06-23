@@ -1,9 +1,7 @@
 uuid: 0ab8ed18-c765-4d1f-8c85-1cd5afc399dc
 langcode: en
 status: true
-dependencies:
-  module:
-    - image_effects
+dependencies: {  }
 name: gallery_te
 label: 'Gallery teaser'
 effects:
@@ -15,15 +13,3 @@ effects:
       width: 400
       height: null
       upscale: true
-  4ee3def2-6e08-4659-a1fd-6abbaae030f6:
-    uuid: 4ee3def2-6e08-4659-a1fd-6abbaae030f6
-    id: image_effects_watermark
-    weight: 2
-    data:
-      watermark_image: themes/custom/dartlamp/logo.png
-      watermark_width: '50'
-      watermark_height: ''
-      placement: right-bottom
-      x_offset: '-20'
-      y_offset: '-20'
-      opacity: 100
