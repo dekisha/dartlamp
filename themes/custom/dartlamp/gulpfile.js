@@ -61,7 +61,7 @@ gulp.task('styles', function() {
     .pipe(gp_sass().on('error', gp_sass.logError))
     .pipe(gp_rucksack())
     .pipe(gp_postcss(processors))
-    .pipe(gp_sourcemaps.write('.'))
+    .pipe(gp_sourcemaps.write())
     .pipe(gulp.dest('css'))
     .pipe(gp_filter('**/*.css'))
     .pipe(gp_livereload());

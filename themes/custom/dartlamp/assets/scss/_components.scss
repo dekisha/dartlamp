@@ -683,7 +683,8 @@ ul.tabs {
 // ---------------------------------------------------------------------------- 
 // prevent content jump before JS init
 .slick-slider,
-.slick-nav {
+.slick-nav,
+.field--name-field-homepage-slider-images {
   > .field__item:not(:first-child) {
     display: none;
   }

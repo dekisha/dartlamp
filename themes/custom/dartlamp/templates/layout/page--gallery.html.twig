@@ -1,6 +1,6 @@
 <div class="l-container">
   
-  {% if page.highlighted %}
+  {% if page.highlighted|render|striptags|trim is not empty %}
     <aside class="l-highlighted">
       <div class="o-wrapper">
         {{ page.highlighted }}
@@ -10,7 +10,7 @@
 
   <div class="l-master-header">
     
-    {% if page.top %}
+    {% if page.top|render|striptags|trim is not empty %}
       <aside class="l-top">
         <div class="o-wrapper">
           {{ page.top }}
@@ -25,7 +25,7 @@
     </header>
   </div>
 
-  {% if page.submenu is defined and page.submenu|render|striptags|trim %}
+  {% if page.submenu|render|striptags|trim is not empty %}
     <div id="submenu" class="l-submenu" role="banner">
       <div class="o-wrapper">
         {{ page.submenu }}
@@ -41,7 +41,7 @@
         {{ page.featured }}
       </div>
     
-    {% if page.pre_content %}
+    {% if page.pre_content|render|striptags|trim is not empty %}
       <div class="l-pre-content">
         {{ page.pre_content }}
       </div>
@@ -52,7 +52,7 @@
       {{ page.content }}
     </div>{# /.l-content #}
     
-    {% if page.post_content %}
+    {% if page.post_content|render|striptags|trim is not empty %}
     <div class="l-post-content">
       {{ page.post_content }}
     </div>
@@ -60,7 +60,7 @@
     
   </main>{# /.l-main #}
 
-  {% if page.footer %}
+  {% if page.footer|render|striptags|trim is not empty %}
     <footer class="l-footer" role="contentinfo">
       <div class="o-wrapper">
         {{ page.footer }}

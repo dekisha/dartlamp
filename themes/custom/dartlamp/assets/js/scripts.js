@@ -44,15 +44,17 @@
   };
 
   Drupal.behaviors.hpSlider = {
-    attach: function (context) {
-      $('.field--name-field-homepage-slider-images').once().slick({
-        infinite: true,
-        autoplay: false,
-        autoplaySpeed: 8000,
-        fade: true,
-        dots: false,
-        prevArrow: '<button class="slick-prev fi fi-line-angle-left"></button>',
-        nextArrow: '<button class="slick-next fi fi-line-angle-right"></button>'
+    attach: function (context, settings) {
+      $('.field--name-field-homepage-slider-images', context).once('hp-slider').each(function() {
+        $(this).slick({
+          infinite: true,
+          autoplay: false,
+          autoplaySpeed: 8000,
+          fade: true,
+          dots: false,
+          prevArrow: '<button class="slick-prev fi fi-line-angle-left"></button>',
+          nextArrow: '<button class="slick-next fi fi-line-angle-right"></button>'
+        });
       });
     }
   };
