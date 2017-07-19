@@ -1,0 +1,69 @@
+// ----------------------------------------------------------------------------
+// VARIABLES
+// ----------------------------------------------------------------------------
+$font-path: '../../fonts';
+$fa-font-path: $font-path;
+
+$font-default: "Roboto", sans-serif;
+$font-leelawui: 'LeelawUI';
+$font-montserrat: 'Montserrat', sans-serif;
+$font-heading: $font-montserrat;
+
+@font-face {
+  font-family: 'LeelawUI';
+  src: url(#{$font-path}/LeelawUI.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LeelawUI';
+  src: url(#{$font-path}/leelawdb.ttf);
+  font-weight: 700;
+  font-style: normal;
+}
+
+// theme colors
+$color-brand: #000000;
+$color-brand-lighter: #00000f;
+$color-blue: #005da7;
+$color-grey: #f4f8fc;
+$color-dark: #444444;
+$color-dark-lighter: #999999;
+
+// social network colors
+$color-twitter: #1da1f2;
+$color-instagram: #e4405f;
+$color-linkedin: #0077b5;
+$color-facebook: #3B5998;
+$color-pinterest: #BD081C;
+
+$radius-global: 3px;
+$radius-btn: 50px;
+
+$transition-duration: (1/3) + s;
+
+// inuit variables
+$inuit-global-spacing-unit: 20px;
+$inuit-offsets: true;
+
+// by default theme debug mode is disabled
+// on gulp watch command we enable debug mode
+$debug: false !default;
+
+// ----------------------------------------------------------------------------
+// CONFIG
+// ----------------------------------------------------------------------------
+$mq-breakpoints: (
+    mobile:  320px,
+    tablet: 600px,
+    tablet_landscape:  900px,
+    desktop: 1200px,
+    
+    // tweakpoints based on content
+    desktop_wide: 1350px
+);
+
+@if (inuit-config(debug) == true) {
+  $mq-show-breakpoints: (mobile, tablet, tablet_landscape, desktop, desktop_wide);
+}

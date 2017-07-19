@@ -4,10 +4,10 @@ global:
     component: {}
     layout: {}
     theme:
-      css/main.css: {}
+      css/dist/main.css: {}
 
   js:
-    js/scripts.js: {}
+    js/dist/scripts.js: {}
 
   dependencies:
     - core/jquery

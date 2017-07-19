@@ -1,52 +1,71 @@
-// SETTINGS
+// ----------------------------------------------------------------------------
+// System Setup
+// ----------------------------------------------------------------------------
+// Requirements to compile this theme on your system
+//
+// copy this theme in your sites/all/themes/custom folder and rename it, and the
+// .info file according to the project name.
+//
+// Install the following stuff (only required the first time,
+// if your haven't used this theme before)
+//
+// -- Install node.js
+// -- npm install -g grunt-cli
+//
+// make sure you close and re-open your command-line after installation
+// otherwise it won't register the $path of the newly installed node modules
+//
+// go to the theme folder
+// -- run "npm install"
+//
+// and that should be it.
+//
+// during dev, run "gulp watch"
+// when done, run "gulp"
+//
+// all source files that needs to be worked on are in assets folder
+// 
+// if you need css or js plugin, try to find it in https://www.npmjs.com/
+// and include it through gulpfile.js
+//
+// if its not there add it in libraries folder
+//
+// following imports try to follow reversed triangle principle -> 
+// https://other.media/wp-content/uploads/2017/01/itcss_2.png
+
+
+// SETTINGS - colors, fonts, breakpoints...
 @import "node_modules/inuitcss/settings/settings.core";
 @import "settings.scss";
 
 
-// TOOLS
+// TOOLS - mixins
 @import "node_modules/inuitcss/tools/tools.font-size";
 @import "node_modules/inuitcss/tools/tools.clearfix";
 @import "node_modules/inuitcss/tools/tools.hidden";
-$mq-breakpoints: (
-    mobile:  320px,
-    tablet: 600px,
-    tablet_landscape:  900px,
-    desktop: 1200px,
-    
-    // custom breakpoints
-    desktop_wide: 1350px
-);
-@if (inuit-config(debug) == true) {
-  $mq-show-breakpoints: (mobile, tablet, tablet_landscape, desktop, desktop_wide);
-}
 @import "node_modules/sass-mq/mq";
-$legacy-support-for-ie6: false;
-$legacy-support-for-ie7: false;
-$legacy-support-for-ie8: false;
 @import "node_modules/singularitygs/stylesheets/singularitygs.scss";
 
 
-// GENERIC
+// GENERIC - resets, normalize, global style...
 @import "node_modules/inuitcss/generic/generic.box-sizing";
 @import "node_modules/inuitcss/generic/generic.normalize";
 @import "node_modules/inuitcss/generic/generic.reset";
 @import "node_modules/inuitcss/generic/generic.shared";
 
 
-// ELEMENTS
+// ELEMENTS - default element style
 @import "node_modules/inuitcss/elements/elements.page";
 @import "node_modules/inuitcss/elements/elements.headings";
 @import "node_modules/inuitcss/elements/elements.images";
 @import "node_modules/inuitcss/elements/elements.tables";
 
 
-// OBJECTS
+// OBJECTS - abstractions
 @import "node_modules/inuitcss/objects/objects.wrapper";
 @import "node_modules/inuitcss/objects/objects.layout";
 @import "node_modules/inuitcss/objects/objects.media";
 @import "node_modules/inuitcss/objects/objects.flag";
-@import "node_modules/inuitcss/objects/objects.list-bare";
-@import "node_modules/inuitcss/objects/objects.list-inline";
 @import "node_modules/inuitcss/objects/objects.box";
 @import "node_modules/inuitcss/objects/objects.block";
 @import "node_modules/inuitcss/objects/objects.ratio";
@@ -56,40 +75,19 @@ $legacy-support-for-ie8: false;
 @import "objects";
 
 
-// COMPONENTS
+// COMPONENTS - particular component theming
 @import 'node_modules/slick-carousel/slick/slick.scss';
-//@import 'node_modules/swiper/dist/css/swiper';
-@import "node_modules/font-awesome/scss/font-awesome";
 @import "node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar";
 @import "node_modules/threesixty-slider/src/styles/threesixty";
 @import "layouts";
-$btn-radius: 50px;
 @import "components";
 
 
-// UTILITIES
+// UTILITIES - do one thing, and one thing only classes
 @import "node_modules/inuitcss/utilities/utilities.clearfix";
-$inuit-offsets: true;
 @import "node_modules/inuitcss/utilities/utilities.widths";
 @import "node_modules/inuitcss/utilities/utilities.headings";
 @import "node_modules/inuitcss/utilities/utilities.spacings";
-$inuit-responsive-spacing-directions: (
-  "-bottom": "-bottom",
-  "-top": "-top",
-);
-
-$inuit-responsive-spacing-properties: (
-  "margin": "margin",
-  "padding": "padding",
-);
-
-$inuit-responsive-spacing-sizes: (
-  "-none": 0,
-  "-small": $inuit-global-spacing-unit-small,
-  "-large": $inuit-global-spacing-unit-large,
-  "-huge": $inuit-global-spacing-unit-huge,
-  "": $inuit-global-spacing-unit
-);
 @import "node_modules/inuitcss/utilities/utilities.responsive-spacings";
 @import "node_modules/inuitcss/utilities/utilities.print";
 @import "node_modules/inuitcss/utilities/utilities.hide";

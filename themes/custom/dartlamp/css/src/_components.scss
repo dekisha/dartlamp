@@ -19,14 +19,13 @@ figure {
 // BUTTONS
 // ----------------------------------------------------------------------------
 @mixin c-btn() {
-  border-radius: $btn-radius;
+  border-radius: $radius-btn;
   cursor: pointer;
   display: inline-block;
-  // font-family: $montserrat-fonts;
   font-weight: 700;
   padding: 6px 25px;
   text-align: center;
-  transition: $transition;
+  transition: $transition-duration;
   vertical-align: middle;
 
   @include inuit-font-size(14px);
@@ -43,8 +42,8 @@ figure {
 }
 
 @mixin c-btn--primary() {
-  background-color: $brand-color-lighter;
-  border: 2px solid $brand-color-lighter;
+  background-color: $color-brand-lighter;
+  border: 2px solid $color-brand-lighter;
   color: white;
 }
 
@@ -62,30 +61,21 @@ figure {
 }
 
 .c-btn.fa-twitter {
-  background-color: $twitter-color;
+  background-color: $color-twitter;
 }
 
 .c-btn.fa-instagram {
-  background-color: $instagram-color;
+  background-color: $color-instagram;
 }
 
 .c-btn.fa-linkedin {
-  background-color: $linkedin-color;
+  background-color: $color-linkedin;
 }
 
 .c-btn__wrapper {
   a {
     @include c-btn();
     @include c-btn--primary();
-  }
-}
-
-.c-btn__wrapper--arrow {
-  a {
-    &:after {
-      font-awesome: long-arrow-right;
-      margin-left: 10px;
-    }
   }
 }
 
@@ -112,27 +102,24 @@ figure {
 // TABS
 // ----------------------------------------------------------------------------
 [id="block-m2q-local-tasks"] {
-  // clear: both;
 }
+
 ul.tabs {
   list-style: none;
   margin: 0;
   padding: 0;
-  // .path-frontpage & {
-  //   background-color: white;
-  //   border: 1px solid;
-  //   display: inline-block;
-  //   padding: 12px;
-  // }
 }
+
 .tabs > li {
   display: inline-block;
   margin-right: 0.3em; /* LTR */
 }
+
 [dir="rtl"] .tabs > li {
   margin-left: 0.3em;
   margin-right: 0;
 }
+
 .tabs a {
   background-color: initial;
   box-shadow: inset 0 -0.2em 0 0 #e5eaec;
@@ -146,7 +133,7 @@ ul.tabs {
 .tabs a:hover,
 .tabs a.is-active {
   color: white;
-  transition: $transition;
+  transition: $transition-duration;
 }
 .tabs a.is-active {
   box-shadow: inset 0 -0.2em 0 0 white;
@@ -167,8 +154,8 @@ ul.tabs {
 .form-textarea,
 .form-email {
   background-color: white;
-  border: 2px solid $dark-color-lighter;
-  border-radius: $radius;
+  border: 2px solid $color-dark-lighter;
+  border-radius: $radius-global;
   max-width: 100%;
   padding: 6px 8px;
 
@@ -218,14 +205,13 @@ ul.tabs {
         background: none;
         border: 0;
         color: white;
+        flex-grow: 1;
         font-family: "LeelawUI";
         font-weight: 700;
         font-weight: 700;
         padding: $inuit-global-spacing-unit-small;
         text-align: center;
         text-transform: uppercase;
-
-        flex-grow: 1;
       }
     }
   }
@@ -286,16 +272,16 @@ ul.tabs {
       }
     }
   }
-  @at-root .views-field-field-lamp-type {
-    .field-content {
-      &:contains("interior") {
-        &:before {
-          content: "\ea07";
-          font-family: "Fontice-IconsFont";
-        }
-      }
-    }
-  }
+  // @at-root .views-field-field-lamp-type {
+  //   .field-content {
+  //     &:contains("interior") {
+  //       &:before {
+  //         content: "\ea07";
+  //         font-family: "Fontice-IconsFont";
+  //       }
+  //     }
+  //   }
+  // }
 }
 
 // ----------------------------------------------------------------------------
@@ -317,8 +303,8 @@ ul.tabs {
     }
   }
   .field--name-body {
-    max-width: 800px;
     margin: auto;
+    max-width: 800px;
   }
 }
 
@@ -326,14 +312,15 @@ ul.tabs {
   .field__label {
     &:before {
       content: "\e946";
-      font-family: 'Fontice-IconsFont' !important;
-      speak: none;
+      font-family: "Fontice-IconsFont" !important;
       font-style: normal;
-      font-weight: normal;
       font-variant: normal;
-      text-transform: none;
+      font-weight: normal;
       line-height: 1;
       margin-right: 5px;
+      text-transform: none;
+
+      speak: none;
     }
   }
   > div {
@@ -377,25 +364,12 @@ ul.tabs {
     .region-header & {
       &--active-trail {
         position: relative;
-        // &:after {
-        //   bottom: -20px;
-        //   content: "\ea10";
-        //   color: #ffffff;
-        //   font-family: "Fontice-IconsFont";
-        //   position: absolute;
-        //   text-align: center;
-        //   transform: translate(0, 0);
-        //   width: 100%;
-        //   a.is-active:after {
-        //     display: none;
-        //   }
-        // }
       }
     }
     a {
       color: white;
       display: block;
-      font-family: $leelawui-fonts;
+      font-family: $font-leelawui;
       overflow: hidden;
       position: relative;
       text-decoration: none;
@@ -452,8 +426,11 @@ ul.tabs {
     display: inline-block;
     margin: 0 $inuit-global-spacing-unit-tiny;
     vertical-align: middle;
-    .fa {
-      background: rgba(#ffffff,0.3);
+    .c-menu--social__icon {
+      background-color: rgba(#ffffff,0.3);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 20px;
       border-radius: 50%;
       color: #333333;
       cursor: pointer;
@@ -462,22 +439,34 @@ ul.tabs {
       height: 32px;
       position: relative;
       text-align: center;
-      transition: background 0.2s,color 0.2s;
+      transition: background-color 0.2s, background-image 0.2s, color 0.2s;
       width: 32px;
       z-index: 1;
       &:hover {
-        background: #ffffff;
+        background-color: #ffffff;
         color: #ffffff;
         &:after {
           opacity: 1;
           transform: scale(1);
         }
       }
-      &.fa-facebook:hover {
-        color: #3b5998;
+      &.c-menu--social__icon--facebook {
+        background-image: svg("facebook.svg", "[fill]: #333");
+        &:hover {
+          background-image: svg("facebook.svg", "[fill]: #{$color-facebook}");          
+        }
       }
-      &.fa-pinterest:hover {
-        color: #bd081c;
+      &.c-menu--social__icon--pinterest {
+        background-image: svg("pinterest.svg", "[fill]: #333");
+        &:hover {
+          background-image: svg("pinterest.svg", "[fill]: #{$color-pinterest}");          
+        }
+      }
+      &.c-menu--social__icon--instagram {
+        background-image: svg("instagram.svg", "[fill]: #333");
+        &:hover {
+          background-image: svg("instagram.svg", "[fill]: #{$color-instagram}");
+        }
       }
       &:before {
         left: 0;
@@ -548,7 +537,7 @@ ul.tabs {
     }
     &:hover {
       opacity: 1;
-      transition: $transition;
+      transition: $transition-duration;
     }
   }
   .slick-prev {
@@ -570,14 +559,14 @@ ul.tabs {
     text-align: center;
   }
   .slick-slide {
+    cursor: pointer;
     outline: none;
     position: relative;
-    cursor: pointer;
     &.slick-active {
+      cursor: default;
       outline-color: white;
       outline-style: auto;
       outline-width: 5px;
-      cursor: default;
     }
   }
   .slick-arrow {
@@ -616,7 +605,7 @@ ul.tabs {
   text-decoration: none;
   &:hover {
     opacity: 1;
-    transition: $transition;
+    transition: $transition-duration;
   }
   .slick-active & {
     display: block;
@@ -659,7 +648,6 @@ ul.tabs {
     border: 0;
     font-size: 0;
     left: 0;
-    // height: 100%;
     padding: 0 20px;
     position: absolute;
     right: 0;
@@ -777,7 +765,7 @@ ul.tabs {
 
 .c-power-cta__text {
   color: #000000;
-  font-family: $leelawui-fonts;
+  font-family: $font-leelawui;
   font-size: 24px;
   font-weight: bold;
   line-height: 36px;
@@ -823,8 +811,8 @@ ul.tabs {
 .c-hero {
   .field--type-image {
     img {
-      max-width: 100%;
       height: auto;
+      max-width: 100%;
     }
   }
 }
