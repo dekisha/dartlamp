@@ -311,20 +311,18 @@ ul.tabs {
 .field--name-field-made-in {
   .field__label {
     &:before {
-      content: "\e946";
-      font-family: "Fontice-IconsFont" !important;
-      font-style: normal;
-      font-variant: normal;
-      font-weight: normal;
-      line-height: 1;
+      background-image: svg("calendar.svg", "[fill]: white");
+      content: '';
+      size: 20px;
+      background-size: 20px;
+      display: inline-block;
+      vertical-align: top;
       margin-right: 5px;
-      text-transform: none;
-
-      speak: none;
     }
   }
   > div {
     display: inline-block;
+    vertical-align: middle;
   }
 }
 
