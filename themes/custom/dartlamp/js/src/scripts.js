@@ -1,3 +1,4 @@
+
 (function ($) {
   'use strict';
 
@@ -70,27 +71,29 @@
   Drupal.behaviors.nodeSlider = {
     attach: function (context) {
       $('.node--type-lamp').once('my-custom-behaviour').each(function () {
-          $('.slick-slider').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
+          $('.js-slick-slider').slick({
             arrows: false,
-            fade: false,
+            asNavFor: '.js-slick-nav',
             // autoplay: true,
-            asNavFor: '.slick-nav',
             adaptiveHeight: true,
             centerMode: true,
-            variableWidth: true,
-            focusOnSelect: true
+            fade: false,
+            focusOnSelect: true,
+            slide: '.field__item',
+            slidesToScroll: 1,
+            // slidesToShow: 3,
+            variableWidth: true
           });
-          $('.slick-nav').slick({
+          $('.js-slick-nav').slick({
+            asNavFor: '.js-slick-slider',
+            centerMode: true,
+            dots: false,
+            focusOnSelect: true,
+            nextArrow: '<button class="slick-next fi fi-line-angle-down"></button>',
+            prevArrow: '<button class="slick-prev fi fi-line-angle-up"></button>',
+            slide: '.field__item',
             slidesToShow: 4,
             slidesToScroll: 1,
-            asNavFor: '.slick-slider',
-            dots: false,
-            centerMode: true,
-            focusOnSelect: true,
-            prevArrow: '<button class="slick-prev fi fi-line-angle-up"></button>',
-            nextArrow: '<button class="slick-next fi fi-line-angle-down"></button>',
             vertical: true,
             verticalSwiping: true
           });

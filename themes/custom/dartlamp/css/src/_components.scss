@@ -232,6 +232,7 @@ ul.tabs {
       }
     }
     img {
+      height: auto;
       max-width: 100%;
       transform: scale(1);
     }
@@ -617,7 +618,7 @@ ul.tabs {
 }
 
 .field--name-display-field-copynode-lamp-images-copy {
-  &.slick-nav {
+  &.slick-vertical {
     left: $inuit-global-spacing-unit;
     overflow: hidden;
     position: absolute;
