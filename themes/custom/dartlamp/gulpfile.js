@@ -11,7 +11,7 @@ var gulp = require('gulp'),
   gp_assets = require('postcss-assets'),
   gp_filter = require('gulp-filter'),
   gp_livereload = require('gulp-livereload'),
-  gp_rucksack = require('gulp-rucksack'),
+  // gp_rucksack = require('gulp-rucksack'),
   gp_header = require('gulp-header'),
   postcss_svg = require('postcss-svg'),
   processors = [
@@ -20,7 +20,7 @@ var gulp = require('gulp'),
       cascade: false
     }),
     gp_assets({
-      loadPaths: ['images']
+      loadPaths: ['images/'],
     }),
     gp_postcss_size,
     postcss_svg({
@@ -62,7 +62,7 @@ gulp.task('styles', function () {
     .pipe(gp_header('$debug: true;'))
     .pipe(gp_sourcemaps.init())
     .pipe(gp_sass().on('error', gp_sass.logError))
-    .pipe(gp_rucksack())
+    // .pipe(gp_rucksack())
     .pipe(gp_postcss(processors))
     .pipe(gp_sourcemaps.write())
     .pipe(gulp.dest('css/dist'))
@@ -77,7 +77,7 @@ gulp.task('styles_prod', function () {
     .pipe(gp_sass({
       outputStyle: 'compressed'
     }).on('error', gp_sass.logError))
-    .pipe(gp_rucksack())
+    // .pipe(gp_rucksack())
     .pipe(gp_postcss(processors))
     .pipe(gulp.dest('css/dist'));
 });

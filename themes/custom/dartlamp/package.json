@@ -28,7 +28,7 @@
     "postcss-size": "^1.0.0",
     "postcss-svg": "^1.0.5",
     "sass-mq": "^3.3.2",
-	  "singularitygs": "^1.8.0",
+    "singularitygs": "^1.8.0",
     "slick-carousel": "^1.6.0",
     "threesixty-slider": "^2.0.6"
   },
