@@ -59,6 +59,7 @@ module:
   search: 0
   shortcut: 0
   splashify: 0
+  stage_file_proxy: 0
   state_machine: 0
   system: 0
   taxonomy: 0

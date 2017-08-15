@@ -9,11 +9,14 @@ dependencies:
     - field.field.node.lamp.field_images
     - field.field.node.lamp.field_lamp_type
     - field.field.node.lamp.field_made_in
+    - image.style.extra_large_x700_
     - node.type.lamp
   module:
     - block_field
     - datetime
     - ds
+    - field_group
+    - image
     - link
     - text
     - user
@@ -36,23 +39,53 @@ third_party_settings:
           ds_content: {  }
     regions:
       ds_content:
+        - group_lamp_slider
+        - field_images
         - node_title
+        - 'display_field_copy:node-lamp_images_copy'
         - body
         - field_made_in
         - field_ebay_link
         - 'dynamic_block_field:node-facebook_like_button_field'
         - field_block_field_for_images
     fields:
-      'dynamic_block_field:node-facebook_like_button_field':
-        plugin_id: 'dynamic_block_field:node-facebook_like_button_field'
-        weight: 4
+      'display_field_copy:node-lamp_images_copy':
+        plugin_id: 'display_field_copy:node-lamp_images_copy'
+        weight: 1
         label: hidden
-        formatter: default
+        formatter: image
+        settings:
+          formatter:
+            image_style: thumbnail_100x100_cropped
+            image_link: ''
       node_title:
         plugin_id: node_title
-        weight: 0
+        weight: 1
         label: hidden
         formatter: default
+      'dynamic_block_field:node-facebook_like_button_field':
+        plugin_id: 'dynamic_block_field:node-facebook_like_button_field'
+        weight: 5
+        label: hidden
+        formatter: default
+  field_group:
+    group_lamp_slider:
+      children:
+        - field_images
+        - 'display_field_copy:node-lamp_images_copy'
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: c-lamp-slider
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Lamp slider'
 id: node.lamp.default
 targetEntityType: node
 bundle: lamp
@@ -60,14 +93,14 @@ mode: default
 content:
   body:
     type: text_summary_or_trimmed
-    weight: 1
+    weight: 2
     region: ds_content
     label: hidden
     settings:
       trim_length: 600
     third_party_settings: {  }
   field_block_field_for_images:
-    weight: 5
+    weight: 6
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -75,7 +108,7 @@ content:
     region: ds_content
   field_ebay_link:
     type: link
-    weight: 3
+    weight: 4
     region: ds_content
     label: hidden
     settings:
@@ -85,9 +118,20 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
+  field_images:
+    type: image
+    weight: 0
+    region: ds_content
+    label: hidden
+    settings:
+      image_style: extra_large_x700_
+      image_link: file
+    third_party_settings:
+      ds:
+        ds_limit: ''
   field_made_in:
     type: datetime_custom
-    weight: 2
+    weight: 3
     region: ds_content
     label: above
     settings:
@@ -95,6 +139,5 @@ content:
       date_format: 'Y M'
     third_party_settings: {  }
 hidden:
-  field_images: true
   field_lamp_type: true
   links: true
