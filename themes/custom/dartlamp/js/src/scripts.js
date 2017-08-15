@@ -1,4 +1,3 @@
-
 (function ($) {
   'use strict';
 
@@ -46,15 +45,15 @@
 
   Drupal.behaviors.hpSlider = {
     attach: function (context, settings) {
-      $('.field--name-field-homepage-slider-images', context).once('hp-slider').each(function() {
+      $('.field--name-field-homepage-slider-images', context).once().each(function () {
         $(this).slick({
           infinite: true,
           autoplay: false,
           autoplaySpeed: 8000,
           fade: true,
           dots: false,
-          prevArrow: '<button class="slick-prev fi fi-line-angle-left"></button>',
-          nextArrow: '<button class="slick-next fi fi-line-angle-right"></button>'
+          // prevArrow: '<button class="slick-prev fi fi-line-angle-left"></button>',
+          // nextArrow: '<button class="slick-next fi fi-line-angle-right"></button>'
         });
       });
     }
@@ -70,33 +69,25 @@
 
   Drupal.behaviors.nodeSlider = {
     attach: function (context) {
-      $('.node--type-lamp').once('my-custom-behaviour').each(function () {
-          $('.js-slick-slider').slick({
-            arrows: false,
-            asNavFor: '.js-slick-nav',
-            // autoplay: true,
-            adaptiveHeight: true,
-            centerMode: true,
-            fade: false,
-            focusOnSelect: true,
-            slide: '.field__item',
-            slidesToScroll: 1,
-            // slidesToShow: 3,
-            variableWidth: true
-          });
-          $('.js-slick-nav').slick({
-            asNavFor: '.js-slick-slider',
-            centerMode: true,
-            dots: false,
-            focusOnSelect: true,
-            nextArrow: '<button class="slick-next fi fi-line-angle-down"></button>',
-            prevArrow: '<button class="slick-prev fi fi-line-angle-up"></button>',
-            slide: '.field__item',
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            vertical: true,
-            verticalSwiping: true
-          });
+      $('.node--type-lamp').once().each(function () {
+        $(this).find('.js-slick-slider').slick({
+          arrows: false,
+          asNavFor: '.js-slick-nav',
+          adaptiveHeight: true,
+          centerMode: true,
+          fade: false,
+          focusOnSelect: true,
+          slide: '.field__item',
+          slidesToScroll: 1,
+          variableWidth: true
+        });
+        $(this).find('.js-slick-nav').slick({
+          asNavFor: '.js-slick-slider',
+          focusOnSelect: true,
+          slide: '.field__item',
+          slidesToShow: 3,
+          vertical: true,
+        });
       });
     }
   };
@@ -131,11 +122,11 @@
   Drupal.behaviors.fullImageViewLink = {
     attach: function (context) {
       var link, linkHref;
-      $('.field--name-field-images .field__item').once().each(function(){
+      $('.field--name-field-images .field__item').once().each(function () {
         link = $(this).find('a');
         linkHref = link.prop('href');
         link.find('img').unwrap('a');
-        $(this).append('<a href="' + linkHref + '" class="slick-expander"><i class="fi fi-object-selected"/i></a>');
+        $(this).append('<a href="' + linkHref + '" class="slick-expander"></a>');
       });
     }
   };
