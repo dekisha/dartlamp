@@ -37,7 +37,7 @@
     
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
     
-    {% if page.featured|render|striptags|trim is not empty %}
+    {% if page.featured %}
       <div class="l-featured">
         {{ page.featured }}
       </div>
