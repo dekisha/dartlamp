@@ -158,6 +158,7 @@ ul.tabs {
   border-radius: $radius-global;
   max-width: 100%;
   padding: 6px 8px;
+  color: $color-dark;
 
   @include inuit-font-size(14px);
 }
@@ -166,10 +167,21 @@ ul.tabs {
 // TITLE
 // ----------------------------------------------------------------------------
 .block-page-title-block {
-  padding-top: $inuit-global-spacing-unit;
-
-  @include mq($from: tablet_landscape) {
-    padding-top: $inuit-global-spacing-unit-large;
+  h1 {
+    font-weight: 400;
+  }
+  .region-featured & {
+    position: absolute;
+    h1 {
+      margin: 0 auto;
+    }
+  }
+  .region-content & {
+    padding-top: $inuit-global-spacing-unit;
+    
+    @include mq($from: tablet_landscape) {
+      padding-top: $inuit-global-spacing-unit-large;
+    }
   }
 }
 
