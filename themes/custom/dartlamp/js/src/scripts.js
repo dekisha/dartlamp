@@ -70,7 +70,16 @@
   Drupal.behaviors.nodeSlider = {
     attach: function (context) {
       $('.node--type-lamp').once().each(function () {
-        $(this).find('.js-slick-slider').slick({
+        var $slickSlider = $(this).find('.js-slick-slider');
+        var $slickNav = $(this).find('.js-slick-nav');
+        $slickSlider.find('.field__item').each(function(){
+          $(this).prepend('<div class="slick-count"/>');
+        });
+        $slickSlider.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+          var i = (currentSlide ? currentSlide : 0) + 1;
+          $('.slick-count').text(i + ' of ' + slick.slideCount);
+        });
+        $slickSlider.slick({
           arrows: false,
           asNavFor: '.js-slick-nav',
           adaptiveHeight: true,
@@ -81,7 +90,7 @@
           slidesToScroll: 1,
           variableWidth: true
         });
-        $(this).find('.js-slick-nav').slick({
+        $slickNav.slick({
           asNavFor: '.js-slick-slider',
           focusOnSelect: true,
           slide: '.field__item',

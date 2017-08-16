@@ -165,9 +165,9 @@ ul.tabs {
   background-color: white;
   border: 2px solid $color-dark-lighter;
   border-radius: $radius-global;
+  color: $color-dark;
   max-width: 100%;
   padding: 6px 8px;
-  color: $color-dark;
 
   @include inuit-font-size(14px);
 }
@@ -187,7 +187,7 @@ ul.tabs {
   }
   .region-content & {
     padding-top: $inuit-global-spacing-unit;
-    
+
     @include mq($from: tablet_landscape) {
       padding-top: $inuit-global-spacing-unit-large;
     }
@@ -633,18 +633,36 @@ ul.tabs {
   background-size: 60%;
   border-radius: 50%;
   bottom: 30px;
-  display: none;
-  opacity: 0.5;
+  // display: none;
+  opacity: 0;
   position: absolute;
   right: 30px;
   size: 40px;
   text-decoration: none;
-  &:hover {
+  .slick-active:hover & {
+    opacity: 0.7;
+    transition: $transition-duration;
+  }
+  &.slick-expander:hover {
+    background-color: rgba(black, 0.9);
     opacity: 1;
     transition: $transition-duration;
   }
-  .slick-active & {
-    display: block;
+}
+
+.slick-count {
+  background-color: rgba(black, 0.4);
+  border-radius: 0 0 $radius-global $radius-global;
+  left: 0;
+  margin: auto;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  width: 100px;
+  z-index: 1;
+  .slick-active:hover & {
+    opacity: 1;
+    transition: $transition-duration;
   }
 }
 
