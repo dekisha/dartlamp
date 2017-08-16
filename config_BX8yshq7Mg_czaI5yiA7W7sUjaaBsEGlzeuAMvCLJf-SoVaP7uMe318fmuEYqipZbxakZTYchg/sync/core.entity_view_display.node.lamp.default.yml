@@ -16,6 +16,7 @@ dependencies:
     - field_group
     - image
     - link
+    - options
     - text
     - user
 third_party_settings:
@@ -39,8 +40,9 @@ third_party_settings:
       ds_content:
         - group_lamp_slider
         - field_images
-        - node_title
         - 'display_field_copy:node-lamp_images_copy'
+        - node_title
+        - field_lamp_type
         - body
         - field_made_in
         - field_ebay_link
@@ -62,7 +64,7 @@ third_party_settings:
         formatter: default
       'dynamic_block_field:node-facebook_like_button_field':
         plugin_id: 'dynamic_block_field:node-facebook_like_button_field'
-        weight: 5
+        weight: 6
         label: hidden
         formatter: default
   field_group:
@@ -90,7 +92,7 @@ mode: default
 content:
   body:
     type: text_summary_or_trimmed
-    weight: 2
+    weight: 3
     region: ds_content
     label: hidden
     settings:
@@ -98,7 +100,7 @@ content:
     third_party_settings: {  }
   field_ebay_link:
     type: link
-    weight: 4
+    weight: 5
     region: ds_content
     label: hidden
     settings:
@@ -119,9 +121,16 @@ content:
     third_party_settings:
       ds:
         ds_limit: ''
+  field_lamp_type:
+    type: list_default
+    weight: 2
+    region: ds_content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
   field_made_in:
     type: datetime_custom
-    weight: 3
+    weight: 4
     region: ds_content
     label: above
     settings:
@@ -129,5 +138,4 @@ content:
       date_format: 'Y M'
     third_party_settings: {  }
 hidden:
-  field_lamp_type: true
   links: true

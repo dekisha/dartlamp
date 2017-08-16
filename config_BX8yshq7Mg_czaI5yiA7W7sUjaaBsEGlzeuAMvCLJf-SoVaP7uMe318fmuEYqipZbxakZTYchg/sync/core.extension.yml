@@ -61,6 +61,7 @@ module:
   splashify: 0
   stage_file_proxy: 0
   state_machine: 0
+  styleguide: 0
   system: 0
   taxonomy: 0
   text: 0
