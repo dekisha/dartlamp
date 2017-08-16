@@ -427,7 +427,7 @@ display:
           tokenize: false
           content:
             value: "<div class=\"button-group filters-button-group\">\n  <button data-filter=\".lamp-type--all\">all</button>\n  <button data-filter=\".lamp-type--table\">table</button>\n  <button data-filter=\".lamp-type--interior\">interior</button>\n  <button data-filter=\".lamp-type--other\">other</button>\n</div>"
-            format: full_html
+            format: fullhtml
           plugin_id: text
       footer: {  }
       empty: {  }

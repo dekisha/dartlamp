@@ -45,7 +45,6 @@ third_party_settings:
         - field_made_in
         - field_ebay_link
         - 'dynamic_block_field:node-facebook_like_button_field'
-        - field_block_field_for_images
     fields:
       'display_field_copy:node-lamp_images_copy':
         plugin_id: 'display_field_copy:node-lamp_images_copy'
