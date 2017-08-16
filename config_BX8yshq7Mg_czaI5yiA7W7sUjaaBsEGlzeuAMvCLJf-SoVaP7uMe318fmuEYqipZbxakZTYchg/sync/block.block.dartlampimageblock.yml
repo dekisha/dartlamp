@@ -16,7 +16,7 @@ third_party_settings:
 id: dartlampimageblock
 theme: dartlamp
 region: featured
-weight: 0
+weight: -11
 provider: null
 plugin: 'block_content:dd8dddf4-41c5-47c8-b289-2989635877a0'
 settings:

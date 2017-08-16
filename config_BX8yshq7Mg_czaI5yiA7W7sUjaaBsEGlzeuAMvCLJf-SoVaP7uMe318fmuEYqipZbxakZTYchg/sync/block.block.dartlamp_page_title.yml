@@ -5,6 +5,7 @@ dependencies:
   module:
     - block_class
     - ctools
+    - system
   theme:
     - dartlamp
 third_party_settings:
@@ -15,7 +16,7 @@ _core:
 id: dartlamp_page_title
 theme: dartlamp
 region: content
-weight: -7
+weight: -9
 provider: null
 plugin: page_title_block
 settings:
@@ -27,8 +28,12 @@ visibility:
   'entity_bundle:node':
     id: 'entity_bundle:node'
     bundles:
-      homepage: homepage
-      lamp: lamp
-    negate: true
+      page: page
+    negate: false
     context_mapping:
       node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: "/bio\r\n/gallery\r\n/dart-lamp"
+    negate: true
+    context_mapping: {  }

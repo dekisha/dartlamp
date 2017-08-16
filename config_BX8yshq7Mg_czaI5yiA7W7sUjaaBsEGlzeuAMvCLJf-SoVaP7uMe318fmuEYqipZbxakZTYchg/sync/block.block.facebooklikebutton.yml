@@ -13,7 +13,7 @@ third_party_settings:
 id: facebooklikebutton
 theme: dartlamp
 region: content
-weight: 0
+weight: -5
 provider: null
 plugin: fblikebutton_block
 settings:

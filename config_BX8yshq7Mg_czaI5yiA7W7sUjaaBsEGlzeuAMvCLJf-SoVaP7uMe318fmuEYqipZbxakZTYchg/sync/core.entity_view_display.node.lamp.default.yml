@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.lamp.body
-    - field.field.node.lamp.field_block_field_for_images
     - field.field.node.lamp.field_ebay_link
     - field.field.node.lamp.field_images
     - field.field.node.lamp.field_lamp_type
@@ -12,7 +11,6 @@ dependencies:
     - image.style.extra_large_x700_
     - node.type.lamp
   module:
-    - block_field
     - datetime
     - ds
     - field_group
@@ -99,13 +97,6 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
-  field_block_field_for_images:
-    weight: 6
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: block_field
-    region: ds_content
   field_ebay_link:
     type: link
     weight: 4

@@ -9,7 +9,7 @@ _core:
 id: dartlamp_local_actions
 theme: dartlamp
 region: content
-weight: -6
+weight: -8
 provider: null
 plugin: local_actions_block
 settings:

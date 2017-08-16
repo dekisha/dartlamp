@@ -15,7 +15,7 @@ _core:
 id: dartlamp_breadcrumbs
 theme: dartlamp
 region: content
-weight: -8
+weight: -11
 provider: null
 plugin: system_breadcrumb_block
 settings:

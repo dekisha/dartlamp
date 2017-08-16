@@ -1,32 +1,29 @@
-uuid: 11c22ee0-2088-4bf6-b40c-2eb6e27c42ea
+uuid: 7d724e89-11d2-455f-8994-a99b3e335b08
 langcode: en
 status: true
 dependencies:
   module:
     - block_class
     - system
-    - webform
   theme:
     - dartlamp
 third_party_settings:
   block_class:
     classes: ''
-id: webform
+id: pagetitle
 theme: dartlamp
-region: content
-weight: -6
+region: featured
+weight: 0
 provider: null
-plugin: webform_block
+plugin: page_title_block
 settings:
-  id: webform_block
-  label: Webform
-  provider: webform
+  id: page_title_block
+  label: 'Page title'
+  provider: core
   label_display: '0'
-  webform_id: contact
-  default_data: ''
 visibility:
   request_path:
     id: request_path
-    pages: contact
+    pages: "/bio\r\n/gallery\r\n/dart-lamp"
     negate: false
     context_mapping: {  }

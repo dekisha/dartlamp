@@ -16,7 +16,7 @@ third_party_settings:
 id: bioimageblock
 theme: dartlamp
 region: featured
-weight: 0
+weight: -12
 provider: null
 plugin: 'block_content:4998fcce-c9fd-46b8-ada4-f8105a290315'
 settings:

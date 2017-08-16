@@ -16,7 +16,7 @@ third_party_settings:
 id: galleryimageblock
 theme: dartlamp
 region: featured
-weight: 0
+weight: -10
 provider: null
 plugin: 'block_content:d8c3bb33-3e82-48e7-8e53-12047106cc64'
 settings:
