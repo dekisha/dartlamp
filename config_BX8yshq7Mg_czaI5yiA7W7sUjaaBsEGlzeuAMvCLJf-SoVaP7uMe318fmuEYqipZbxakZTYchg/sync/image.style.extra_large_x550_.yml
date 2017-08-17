@@ -1,0 +1,15 @@
+uuid: 0b7021ec-afc1-4a63-80f4-4d211dc6aee3
+langcode: en
+status: true
+dependencies: {  }
+name: extra_large_x550_
+label: 'Extra large (x550)'
+effects:
+  d8e34945-710b-435d-a036-2b32a9274da3:
+    uuid: d8e34945-710b-435d-a036-2b32a9274da3
+    id: image_scale
+    weight: 1
+    data:
+      width: null
+      height: 550
+      upscale: false

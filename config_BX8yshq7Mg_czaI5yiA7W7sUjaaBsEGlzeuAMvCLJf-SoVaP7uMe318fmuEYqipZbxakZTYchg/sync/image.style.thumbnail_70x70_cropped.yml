@@ -1,0 +1,14 @@
+uuid: cd28c5b0-c95b-487c-9f20-ffa6039e4072
+langcode: en
+status: true
+dependencies: {  }
+name: thumbnail_70x70_cropped
+label: 'Thumbnail (70x70) cropped'
+effects:
+  9f9ada43-d6b3-4d66-949d-8ab1112471e2:
+    uuid: 9f9ada43-d6b3-4d66-949d-8ab1112471e2
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 70
+      height: 70

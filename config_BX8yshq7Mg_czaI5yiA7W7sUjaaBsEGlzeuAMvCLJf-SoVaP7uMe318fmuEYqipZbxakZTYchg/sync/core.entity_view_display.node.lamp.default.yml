@@ -8,7 +8,7 @@ dependencies:
     - field.field.node.lamp.field_images
     - field.field.node.lamp.field_lamp_type
     - field.field.node.lamp.field_made_in
-    - image.style.extra_large_x700_
+    - image.style.extra_large_x550_
     - node.type.lamp
   module:
     - datetime
@@ -16,7 +16,6 @@ dependencies:
     - field_group
     - image
     - link
-    - options
     - text
     - user
 third_party_settings:
@@ -42,7 +41,6 @@ third_party_settings:
         - field_images
         - 'display_field_copy:node-lamp_images_copy'
         - node_title
-        - field_lamp_type
         - body
         - field_made_in
         - field_ebay_link
@@ -55,7 +53,7 @@ third_party_settings:
         formatter: image
         settings:
           formatter:
-            image_style: thumbnail_100x100_cropped
+            image_style: thumbnail_70x70_cropped
             image_link: ''
       node_title:
         plugin_id: node_title
@@ -64,7 +62,7 @@ third_party_settings:
         formatter: default
       'dynamic_block_field:node-facebook_like_button_field':
         plugin_id: 'dynamic_block_field:node-facebook_like_button_field'
-        weight: 6
+        weight: 5
         label: hidden
         formatter: default
   field_group:
@@ -92,7 +90,7 @@ mode: default
 content:
   body:
     type: text_summary_or_trimmed
-    weight: 3
+    weight: 2
     region: ds_content
     label: hidden
     settings:
@@ -100,7 +98,7 @@ content:
     third_party_settings: {  }
   field_ebay_link:
     type: link
-    weight: 5
+    weight: 4
     region: ds_content
     label: hidden
     settings:
@@ -116,21 +114,14 @@ content:
     region: ds_content
     label: hidden
     settings:
-      image_style: extra_large_x700_
+      image_style: extra_large_x550_
       image_link: file
     third_party_settings:
       ds:
         ds_limit: ''
-  field_lamp_type:
-    type: list_default
-    weight: 2
-    region: ds_content
-    label: inline
-    settings: {  }
-    third_party_settings: {  }
   field_made_in:
     type: datetime_custom
-    weight: 4
+    weight: 3
     region: ds_content
     label: above
     settings:
@@ -138,4 +129,5 @@ content:
       date_format: 'Y M'
     third_party_settings: {  }
 hidden:
+  field_lamp_type: true
   links: true
