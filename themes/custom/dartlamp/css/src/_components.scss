@@ -315,11 +315,16 @@ ul.tabs {
 .node--type-lamp.node--view-mode-full {
   margin-bottom: $inuit-global-spacing-unit-large;
   text-align: center;
-  .field {
+  > div {
     margin-bottom: $inuit-global-spacing-unit-large;
     &:last-child {
       margin-bottom: 0;
     }
+  }
+  > div:not(.c-lamp-slider) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
   }
   .field--name-node-title {
     text-align: center;
@@ -328,8 +333,13 @@ ul.tabs {
     }
   }
   .field--name-body {
-    margin: auto;
-    max-width: 800px;
+  }
+}
+
+.field--name-field-lamp-type {
+  > div {
+    display: inline-block;
+    vertical-align: middle;
   }
 }
 
@@ -660,7 +670,7 @@ ul.tabs {
   right: 0;
   width: 100px;
   z-index: 1;
-  .slick-active:hover & {
+  .slick-active & {
     opacity: 1;
     transition: $transition-duration;
   }
@@ -674,7 +684,7 @@ ul.tabs {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 100px;
+    width: 70px;
   }
   .field__item {
     &:at-most(3) {
@@ -683,7 +693,6 @@ ul.tabs {
   }
   .slick-slide {
     border: 0;
-    // margin-bottom: $inuit-global-spacing-unit;
     outline: none;
     &.slick-current {
       outline-color: white;
@@ -863,10 +872,22 @@ ul.tabs {
 // HERO
 // ----------------------------------------------------------------------------
 .c-hero {
+  position: relative;
   .field--type-image {
     img {
       height: auto;
       max-width: 100%;
     }
   }
+}
+
+.c-hero__overlay {
+  position: absolute;
+  background-color: $color-dark;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  opacity: 0;
 }

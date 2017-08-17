@@ -72,7 +72,7 @@
       $('.node--type-lamp').once().each(function () {
         var $slickSlider = $(this).find('.js-slick-slider');
         var $slickNav = $(this).find('.js-slick-nav');
-        $slickSlider.find('.field__item').each(function(){
+        $slickSlider.find('.field__item').each(function () {
           $(this).prepend('<div class="slick-count"/>');
         });
         $slickSlider.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
@@ -136,6 +136,27 @@
         linkHref = link.prop('href');
         link.find('img').unwrap('a');
         $(this).append('<a href="' + linkHref + '" class="slick-expander"></a>');
+      });
+    }
+  };
+
+  Drupal.behaviors.faddingEffect = {
+    attach: function (context) {
+      $('.region-featured', context).once().each(function () {
+        var $hero = $(this).find('.c-hero');
+        $hero.append('<div class="c-hero__overlay"/>')
+        var heroOffset = $hero.offset();
+        var heroHeight = $hero.outerHeight();
+        var windowScrollTop;
+        $(window).on('scroll', function () {
+          windowScrollTop = $(window).scrollTop();
+          if (windowScrollTop > heroOffset.top) {
+            $('.c-hero__overlay').css({
+              'background-color': 'black',
+              'opacity': (windowScrollTop - heroOffset.top) / heroHeight
+            });
+          }
+        });
       });
     }
   };
