@@ -54,6 +54,26 @@ elements: |
         required:
           ':input[name="buttons_required_conditional_trigger"]':
             checked: true
+  radios_descriptions_example:
+    '#type': details
+    '#title': 'Radios descriptions'
+    '#open': true
+    radios_description:
+      '#type': radios
+      '#title': radios_description
+      '#options_description_display': description
+      '#options':
+        one: 'One -- This is a description'
+        two: 'Two -- This is a description'
+        three: 'Three -- This is a description'
+    radios_help:
+      '#type': radios
+      '#title': radios_help
+      '#options_description_display': help
+      '#options':
+        one: 'One -- This is a description'
+        two: 'Two -- This is a description'
+        three: 'Three -- This is a description'
 css: ''
 javascript: ''
 settings:
@@ -89,7 +109,7 @@ settings:
   wizard_start_label: ''
   wizard_complete: true
   wizard_complete_label: ''
-  preview: 0
+  preview: 1
   preview_label: ''
   preview_title: ''
   preview_message: ''
@@ -117,7 +137,7 @@ settings:
   purge_days: null
   entity_limit_total: null
   entity_limit_user: null
-  results_disabled: true
+  results_disabled: false
   results_disabled_ignore: false
   token_update: false
 access:

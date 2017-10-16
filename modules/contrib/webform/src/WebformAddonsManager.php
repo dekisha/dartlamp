@@ -137,18 +137,8 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       ],
       [
         '#markup' => $this->t('The Lingotek-Inside Drupal Module integrates a translation management system (TMS) directly into Drupal, thus allowing the Drupal community to use professional-grade translation technologies (e.g. machine translation, translation memory, CAT tool) without ever having to leave the comfort of the Drupal environment.'),
-        '#prefix' => '<p>',
-        '#suffix' => '<p>',
-      ],
-      [
-        '#markup' => $this->t('You can help support the Webform module by signing up and trying the Lingotek-Inside Drupal Module for <strong>free</strong>. The maintainer of Webform for Drupal 8 (<a href="http://www.jrockowitz.com/">jrockowitz</a>) has become a Lingotek partner. If you become a customer of Lingotek\'s professional translation service, Jacob Rockowitz will receive a software referral fee, which will help fund his ongoing and dedicated effort to improving and making the Webform module for Drupal 8 <strong>awesome!!!</strong>'),
-        '#prefix' => '<blockquote>',
-        '#suffix' => '</blockquote>',
-      ],
-      [
-        '#markup' => $this->t('It only takes 5 simple questions to indicate that the Webform module referred you to Lingotek. Then you can download and try the Lingotek module for free.'),
-        '#prefix' => '<p>',
-        '#suffix' => '<p>',
+        '#prefix' => '<div class="clearfix">',
+        '#suffix' => '</div>',
       ],
       ['#markup' => '<hr/>'],
       'actions' => [
@@ -156,7 +146,7 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
           '#type' => 'link',
           '#title' => $this->t('Sign up and try Lingotek'),
           '#url' => Url::fromUri('https://lingotek.com/webform'),
-          '#attributes' => ['class' =>  ['button', 'button--primary']],
+          '#attributes' => ['class' => ['button', 'button--primary']],
         ],
         'video' => [
           '#type' => 'link',
@@ -230,7 +220,7 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
     // Element: Webform Score.
     $projects['webform_score'] = [
       'title' => $this->t('Webform Score'),
-      'description' => $this->t('Lets you score an individual user\'s answers, then store and display the scores.'),
+      'description' => $this->t("Lets you score an individual user's answers, then store and display the scores."),
       'url' => Url::fromUri('https://www.drupal.org/project/webform_score'),
       'category' => 'element',
     ];
@@ -259,7 +249,7 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'category' => 'integration',
     ];
 
-    // Integrations: Webform Product
+    // Integrations: Webform Product.
     $projects['webform_product'] = [
       'title' => $this->t('Webform Product'),
       'description' => $this->t('Links commerce products to webform elements.'),
@@ -283,7 +273,7 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'category' => 'integration',
     ];
 
-    // Integrations: Webform SugarCRM Integration
+    // Integrations: Webform SugarCRM Integration.
     $projects['webform_sugarcrm'] = [
       'title' => $this->t('Webform SugarCRM Integration'),
       'description' => $this->t('Provides integration for webform submission with SugarCRM.'),
@@ -373,6 +363,14 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'category' => 'submission',
     ];
 
+    // Submissions: Webform Permissions By Term.
+    $projects['webform_permissions_by_term'] = [
+      'title' => $this->t('Webform Permissions By Term'),
+      'description' => $this->t('Extends the functionality of Permissions By Term to be able to limit the webform submissions access by users or roles.'),
+      'url' => Url::fromUri('https://www.drupal.org/project/webform_permissions_by_term'),
+      'category' => 'submission',
+    ];
+
     // Submissions: Webform Queue.
     $projects['webform_queue'] = [
       'title' => $this->t('Webform Queue'),
@@ -415,7 +413,6 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'category' => 'utility',
     ];
 
-
     // Validation: Clientside Validation.
     $projects['clientside_validation'] = [
       'title' => $this->t('Clientside Validation'),
@@ -432,7 +429,7 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'category' => 'validation',
     ];
 
-    // Devel: Maillog / Mail Developer
+    // Devel: Maillog / Mail Developer.
     $projects['maillog'] = [
       'title' => $this->t('Maillog / Mail Developer'),
       'description' => $this->t('Utility to log all Mails for debugging purposes. It is possible to suppress mail delivery for e.g. dev or staging systems.'),

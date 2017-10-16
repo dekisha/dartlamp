@@ -3,7 +3,6 @@
 namespace Drupal\webform;
 
 use Drupal\Component\Render\PlainTextOutput;
-use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\EntityInterface;
@@ -19,7 +18,6 @@ use Drupal\Core\Routing\TrustedRedirectResponse;
 use Drupal\Core\Url;
 use Drupal\webform\Entity\WebformSubmission;
 use Drupal\webform\Form\WebformDialogFormTrait;
-use Drupal\webform\Plugin\Field\FieldType\WebformEntityReferenceItem;
 use Drupal\webform\Plugin\WebformElementManagerInterface;
 use Drupal\webform\Plugin\WebformHandlerInterface;
 use Drupal\webform\Utility\WebformArrayHelper;
@@ -103,6 +101,13 @@ class WebformSubmissionForm extends ContentEntityForm {
   protected $conditionsValidator;
 
   /**
+   * The webform entity reference manager.
+   *
+   * @var \Drupal\webform\WebformEntityReferenceManagerInterface
+   */
+  protected $webformEntityReferenceManager;
+
+  /**
    * The webform settings.
    *
    * @var array
@@ -146,8 +151,10 @@ class WebformSubmissionForm extends ContentEntityForm {
    *   The webform token manager.
    * @param \Drupal\webform\WebformSubmissionConditionsValidator $conditions_validator
    *   The webform submission conditions (#states) validator.
+   * @param \Drupal\webform\WebformEntityReferenceManagerInterface $webform_entity_reference_manager
+   *   The webform entity reference manager.
    */
-  public function __construct(EntityManagerInterface $entity_manager, RendererInterface $renderer, AliasManagerInterface $alias_manager, PathValidatorInterface $path_validator, WebformRequestInterface $request_handler, WebformElementManagerInterface $element_manager, WebformThirdPartySettingsManagerInterface $third_party_settings_manager, WebformMessageManagerInterface $message_manager, WebformTokenManagerInterface $token_manager, WebformSubmissionConditionsValidator $conditions_validator) {
+  public function __construct(EntityManagerInterface $entity_manager, RendererInterface $renderer, AliasManagerInterface $alias_manager, PathValidatorInterface $path_validator, WebformRequestInterface $request_handler, WebformElementManagerInterface $element_manager, WebformThirdPartySettingsManagerInterface $third_party_settings_manager, WebformMessageManagerInterface $message_manager, WebformTokenManagerInterface $token_manager, WebformSubmissionConditionsValidator $conditions_validator, WebformEntityReferenceManagerInterface $webform_entity_reference_manager) {
     parent::__construct($entity_manager);
     $this->renderer = $renderer;
     $this->requestHandler = $request_handler;
@@ -159,6 +166,7 @@ class WebformSubmissionForm extends ContentEntityForm {
     $this->messageManager = $message_manager;
     $this->tokenManager = $token_manager;
     $this->conditionsValidator = $conditions_validator;
+    $this->webformEntityReferenceManager = $webform_entity_reference_manager;
   }
 
   /**
@@ -175,7 +183,9 @@ class WebformSubmissionForm extends ContentEntityForm {
       $container->get('webform.third_party_settings_manager'),
       $container->get('webform.message_manager'),
       $container->get('webform.token_manager'),
-      $container->get('webform_submission.conditions_validator')
+      $container->get('webform_submission.conditions_validator'),
+      $container->get('webform.entity_reference_manager')
+
     );
   }
 
@@ -387,7 +397,7 @@ class WebformSubmissionForm extends ContentEntityForm {
             'content' => $webform_confirmation_modal['content'],
             '#prefix' => '<div class="webform-confirmation-modal--content">',
             '#suffix' => '</div>',
-          ]
+          ],
         ],
         '#attributes' => ['class' => ['js-hide', 'webform-confirmation-modal', 'js-webform-confirmation-modal']],
         '#weight' => -1000,
@@ -444,7 +454,7 @@ class WebformSubmissionForm extends ContentEntityForm {
     $assets = $webform->getAssets();
     foreach ($assets as $type => $value) {
       if ($value) {
-        $form['#attached']['library'][] = 'webform/webform.' . $type. '.' . $webform->id() ;
+        $form['#attached']['library'][] = 'webform/webform.' . $type . '.' . $webform->id() ;
       }
     }
 
@@ -572,7 +582,7 @@ class WebformSubmissionForm extends ContentEntityForm {
         '#submit' => ['::reset'],
         '#attributes' => [
           'style' => 'display:none',
-          'class' => ['js-webform-confirmation-back-submit-ajax']
+          'class' => ['js-webform-confirmation-back-submit-ajax'],
         ],
       ];
       return $form;
@@ -1265,7 +1275,9 @@ class WebformSubmissionForm extends ContentEntityForm {
 
   /**
    * Determine if this is a multistep wizard form.
+   *
    * @return bool
+   *   TRUE if this multistep wizard form.
    */
   protected function hasPages() {
     return $this->getWebform()->getPages($this->operation);
@@ -1427,7 +1439,8 @@ class WebformSubmissionForm extends ContentEntityForm {
       $form['preview'] = [
         '#theme' => 'webform_preview',
         '#webform_submission' => $this->entity,
-        '#weight' => -10, // Progress bar is -20.
+        // Progress bar is -20.
+        '#weight' => -10,
       ];
     }
     else {
@@ -1779,7 +1792,7 @@ class WebformSubmissionForm extends ContentEntityForm {
       return FALSE;
     }
 
-    /** @var WebformSubmissionInterface $webform_submission */
+    /** @var \Drupal\webform\WebformSubmissionInterface $webform_submission */
     $webform_submission = $this->getEntity();
 
     // Once a form is completed drafts are no longer applicable.
@@ -1864,12 +1877,12 @@ class WebformSubmissionForm extends ContentEntityForm {
       return FALSE;
     }
 
-    $webform_field_name = WebformEntityReferenceItem::getEntityWebformFieldName($this->sourceEntity);
-    if (!$webform_field_name) {
+    $webform = $this->webformEntityReferenceManager->getWebform($this->sourceEntity);
+    if (!$webform) {
       return FALSE;
     }
 
-    return $this->sourceEntity->$webform_field_name->target_id == $this->getWebform()->id();
+    return ($webform->id() == $this->getWebform()->id()) ? TRUE : FALSE;
   }
 
   /****************************************************************************/
@@ -1880,7 +1893,7 @@ class WebformSubmissionForm extends ContentEntityForm {
    * Get the message manager.
    *
    * We need to wrap the message manager service because the webform submission
-   * entity is being continuous cloned and updated during form processing
+   * entity is being continuous cloned and updated during form processing.
    *
    * @see \Drupal\Core\Entity\EntityForm::buildEntity
    */
@@ -1888,7 +1901,7 @@ class WebformSubmissionForm extends ContentEntityForm {
     $this->messageManager->setWebformSubmission($this->getEntity());
     return $this->messageManager;
   }
-  
+
   /**
    * Get the webform submission's webform.
    *

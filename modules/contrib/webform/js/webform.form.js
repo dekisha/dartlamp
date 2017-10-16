@@ -109,22 +109,6 @@
   };
 
   /**
-   * Disable validate when save draft submit button is clicked.
-   *
-   * @type {Drupal~behavior}
-   *
-   * @prop {Drupal~behaviorAttach} attach
-   *   Attaches the behavior for the webform draft submit button.
-   */
-  Drupal.behaviors.webformDraft = {
-    attach: function (context) {
-      $(context).find('#edit-draft').once('webform-draft').on('click', function () {
-        $(this.form).attr('novalidate', 'novalidate');
-      });
-    }
-  };
-
-  /**
    * Filters the webform element list by a text input search string.
    *
    * The text input will have the selector `input.webform-form-filter-text`.
@@ -192,7 +176,7 @@
       }
 
       if ($table.length) {
-        $filter_rows = $table.find('div.webform-form-filter-text-source');
+        $filter_rows = $table.find('.webform-form-filter-text-source');
         $input.on('keyup', filterElementList);
         if ($input.val()) {
           $input.keyup();

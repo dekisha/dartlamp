@@ -25,6 +25,11 @@ class WebformFormHelper {
    * @see \Drupal\webform\Plugin\WebformElementBase::buildConfigurationFormTabs
    */
   public static function buildTabs(array $form, array $tabs) {
+    // Allow tabs to be disabled via $form['#tab'] = FALSE.
+    if (isset($form['#tabs']) && $form['#tabs'] === FALSE) {
+      return $form;
+    }
+
     // Determine if the form has nested (configuration) settings.
     // Used by WebformHandlers.
     $has_settings = (isset($form['settings']) && !empty($form['settings']['#tree']));
@@ -35,7 +40,7 @@ class WebformFormHelper {
         'title' => t('General'),
         'elements' => [],
         'weight' => 0,
-      ]
+      ],
     ] + $tabs;
 
     // Sort tabs by weight.
@@ -86,7 +91,7 @@ class WebformFormHelper {
       $tab_items[] = [
         '#type' => 'link',
         '#url' => Url::fromRoute('<none>', [], ['fragment' => 'webform-tab--' . $tab_name]),
-        '#title' =>  $tab['title'],
+        '#title' => $tab['title'],
         '#attributes' => [
           'class' => ['webform-tab'],
           'data-tab-index' => $index++,

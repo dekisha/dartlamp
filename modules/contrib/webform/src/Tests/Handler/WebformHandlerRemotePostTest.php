@@ -28,17 +28,6 @@ class WebformHandlerRemotePostTest extends WebformTestBase {
   protected static $testWebforms = ['test_handler_remote_post'];
 
   /**
-   * {@inheritdoc}
-   */
-  public function setUp() {
-    parent::setUp();
-
-    // Add view own submission to anonymous so the submissions can be be
-    // converted to authenticated.
-    $this->addViewWebformSubmissionOwnPermissionToAnonymous();
-  }
-
-  /**
    * Test remote post handler.
    */
   public function testRemotePostHandler() {
@@ -60,7 +49,7 @@ class WebformHandlerRemotePostTest extends WebformTestBase {
 
     // Check confirmation number is set via the
     // [webform:handler:remote_post:completed:confirmation_number] token.
-    $this->assertRaw('Your confirmation number is ' . $webform_submission->getData('confirmation_number') . '.');
+    $this->assertRaw('Your confirmation number is ' . $webform_submission->getElementData('confirmation_number') . '.');
 
     // Check custom header.
     $this->assertRaw('{&quot;custom_header&quot;:&quot;true&quot;}');

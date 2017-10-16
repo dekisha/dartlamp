@@ -67,6 +67,7 @@ class WebformEntitySettingsFormForm extends WebformEntitySettingsBaseForm {
         WebformInterface::STATUS_CLOSED => $this->t('Closed'),
         WebformInterface::STATUS_SCHEDULED => $this->t('Scheduled'),
       ],
+      '#options_display' => 'side_by_side',
     ];
 
     // @see \Drupal\webform\Plugin\Field\FieldWidget\WebformEntityReferenceAutocompleteWidget::formElement
@@ -217,6 +218,7 @@ class WebformEntitySettingsFormForm extends WebformEntitySettingsBaseForm {
       '#weight' => ++$form['form_behaviors']['form_prepopulate_source_entity_required']['#weight'],
       '#empty_option' => '',
       '#options' => $entity_type_options,
+      '#default_value' => $settings['form_prepopulate_source_entity_type'],
       '#states' => [
         'visible' => [':input[name="form_prepopulate_source_entity"]' => ['checked' => TRUE]],
       ],
@@ -294,6 +296,7 @@ class WebformEntitySettingsFormForm extends WebformEntitySettingsBaseForm {
         DRUPAL_OPTIONAL => $this->t('Optional'),
         DRUPAL_REQUIRED => $this->t('Required'),
       ],
+      '#options_display' => 'side_by_side',
       '#description' => $this->t('Add a page for previewing the webform before submitting.'),
       '#default_value' => $settings['preview'],
     ];
