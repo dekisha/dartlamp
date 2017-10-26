@@ -1,29 +1,29 @@
-uuid: 8b4d1706-5c3a-4657-a7a3-5ad05dce0b38
+uuid: e88055cc-b5e8-408c-bc5b-4a922f5843e2
 langcode: en
-status: false
+status: true
 dependencies:
+  config:
+    - simple_block.simple_block.hero_image_dartlamp
   module:
     - block_class
+    - simple_block
     - system
   theme:
     - dartlamp
 third_party_settings:
   block_class:
     classes: c-hero
-id: dartlampimageblock
+id: heroimagedartlamp
 theme: dartlamp
 region: featured
-weight: -11
+weight: 0
 provider: null
-plugin: 'block_content:dd8dddf4-41c5-47c8-b289-2989635877a0'
+plugin: 'simple_block:hero_image_dartlamp'
 settings:
-  id: 'block_content:dd8dddf4-41c5-47c8-b289-2989635877a0'
-  label: 'Dartlamp image block'
-  provider: block_content
+  id: 'simple_block:hero_image_dartlamp'
+  label: 'Hero image dartlamp'
+  provider: simple_block
   label_display: '0'
-  status: true
-  info: ''
-  view_mode: full
 visibility:
   request_path:
     id: request_path

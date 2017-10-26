@@ -1,0 +1,11 @@
+uuid: 2c996bd0-4551-4966-8e5f-882ac6aac3da
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+id: hero_image_default
+title: 'Hero image default'
+content:
+  value: "<p><img alt=\"Hero default\" data-entity-type=\"file\" data-entity-uuid=\"45834ffe-9a53-40d3-b101-b7ceeba2b1cf\" src=\"/sites/default/files/inline-images/hero-default2--cropped.jpg\" /></p>\r\n"
+  format: basic_html

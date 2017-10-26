@@ -1,0 +1,32 @@
+uuid: 7d907ea0-6f63-4233-af76-233c59a602c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - simple_block.simple_block.hero_image_default
+  module:
+    - block_class
+    - simple_block
+    - system
+  theme:
+    - dartlamp
+third_party_settings:
+  block_class:
+    classes: c-hero
+id: heroimagedefault
+theme: dartlamp
+region: featured
+weight: 0
+provider: null
+plugin: 'simple_block:hero_image_default'
+settings:
+  id: 'simple_block:hero_image_default'
+  label: 'Hero image default'
+  provider: simple_block
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: "/bio\r\n/gallery\r\n/lamp/*\r\n/dart-lamp\r\n<front>"
+    negate: true
+    context_mapping: {  }

@@ -1,0 +1,11 @@
+uuid: 0bfeae24-7e23-472a-a761-107d5a692e3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+id: hero_image_gallery
+title: 'Hero image gallery'
+content:
+  value: "<p><br />\r\n<img alt=\"Gallery hero\" data-entity-type=\"file\" data-entity-uuid=\"86eb900d-f7c3-4bea-8b98-b65432c6353d\" src=\"/sites/default/files/inline-images/Naslovna-za-galery-wide.jpg\" /></p>\r\n"
+  format: basic_html

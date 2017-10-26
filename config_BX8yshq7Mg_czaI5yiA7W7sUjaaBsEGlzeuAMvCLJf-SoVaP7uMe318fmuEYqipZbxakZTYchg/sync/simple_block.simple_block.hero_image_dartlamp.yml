@@ -1,0 +1,11 @@
+uuid: d4bcfab7-64b5-43c5-b810-6a15c48b4ae7
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+id: hero_image_dartlamp
+title: 'Hero image dartlamp'
+content:
+  value: "<p><img alt=\"Dartlamp hero image\" data-entity-type=\"file\" data-entity-uuid=\"885b1533-608b-4422-913b-dbabbc1b4fe9\" src=\"/sites/default/files/inline-images/dl2--cropped.jpg\" /></p>\r\n"
+  format: basic_html

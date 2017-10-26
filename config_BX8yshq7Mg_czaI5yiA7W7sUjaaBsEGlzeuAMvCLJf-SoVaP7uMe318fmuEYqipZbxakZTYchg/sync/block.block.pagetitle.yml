@@ -24,6 +24,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/bio\r\n/gallery\r\n/dart-lamp"
-    negate: false
+    pages: '<front>'
+    negate: true
     context_mapping: {  }

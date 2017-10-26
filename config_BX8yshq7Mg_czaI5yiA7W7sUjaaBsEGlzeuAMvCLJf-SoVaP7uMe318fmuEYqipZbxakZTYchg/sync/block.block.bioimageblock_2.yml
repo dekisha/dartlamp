@@ -1,29 +1,29 @@
-uuid: 95e7ee45-5faa-4b42-b623-4aecf24e331e
+uuid: 4ff10325-a604-4cec-afb5-fa54d256247e
 langcode: en
-status: false
+status: true
 dependencies:
+  config:
+    - simple_block.simple_block.bio_image_block
   module:
     - block_class
+    - simple_block
     - system
   theme:
     - dartlamp
 third_party_settings:
   block_class:
     classes: c-hero
-id: bioimageblock
+id: bioimageblock_2
 theme: dartlamp
 region: featured
-weight: -12
+weight: 0
 provider: null
-plugin: 'block_content:4998fcce-c9fd-46b8-ada4-f8105a290315'
+plugin: 'simple_block:bio_image_block'
 settings:
-  id: 'block_content:4998fcce-c9fd-46b8-ada4-f8105a290315'
-  label: 'Bio image block'
-  provider: block_content
+  id: 'simple_block:bio_image_block'
+  label: 'Hero image bio'
+  provider: simple_block
   label_display: '0'
-  status: true
-  info: ''
-  view_mode: full
 visibility:
   request_path:
     id: request_path
