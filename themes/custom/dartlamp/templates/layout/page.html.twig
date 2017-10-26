@@ -1,12 +1,12 @@
+{% if page.highlighted|render|striptags|trim is not empty %}
+<aside class="l-highlighted">
+  <div class="o-wrapper">
+    {{ page.highlighted }}
+  </div>
+</aside>
+{% endif %}
+
 <div class="l-container">
-  
-  {% if page.highlighted|render|striptags|trim is not empty %}
-    <aside class="l-highlighted">
-      <div class="o-wrapper">
-        {{ page.highlighted }}
-      </div>
-    </aside>
-  {% endif %}
 
   <div class="l-master-header">
     
@@ -23,25 +23,25 @@
         {{ page.header }}
       </div>
     </header>
-  </div>
-
-  {% if page.submenu|render|striptags|trim is not empty %}
+    
+    {% if page.submenu|render|striptags|trim is not empty %}
     <div id="submenu" class="l-submenu" role="banner">
       <div class="o-wrapper">
         {{ page.submenu }}
       </div>
+    </div>
+    {% endif %}
+  </div>
+  
+  {% if page.featured %}
+    <div class="l-featured">
+      {{ page.featured }}
     </div>
   {% endif %}
 
   <main class="l-main" role="main">
     
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-    
-    {% if page.featured %}
-      <div class="l-featured">
-        {{ page.featured }}
-      </div>
-    {% endif %}
       
     {% if page.pre_content|render|striptags|trim is not empty %}
       <div class="l-pre-content">

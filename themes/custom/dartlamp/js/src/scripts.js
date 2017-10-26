@@ -109,24 +109,32 @@
   //   }
   // };
 
-  Drupal.behaviors.threesixty = {
-    attach: function (context) {
-      $('.product1').once().ThreeSixty({
-        totalFrames: 52, // Total no. of image you have for 360 slider
-        endFrame: 52, // end frame for the auto spin animation
-        currentFrame: 1, // This the start frame for auto spin
-        imgList: '.threesixty_images', // selector for image list
-        progress: '.spinner', // selector to show the loading progress
-        imagePath: '/themes/custom/dartlamp/images/assets/', // path of the image assets
-        filePrefix: '', // file prefix if any
-        ext: '.png', // extention for the assets
-        height: 265,
-        width: 400,
-        navigation: true,
-        disableSpin: true // Default false
-      });
-    }
-  };
+  // Drupal.behaviors.threesixty = {
+  //   attach: function (context) {
+  //     $('.product1').once().ThreeSixty({
+  //       totalFrames: 52, // Total no. of image you have for 360 slider
+  //       endFrame: 52, // end frame for the auto spin animation
+  //       currentFrame: 1, // This the start frame for auto spin
+  //       imgList: '.threesixty_images', // selector for image list
+  //       progress: '.spinner', // selector to show the loading progress
+  //       imagePath: '/themes/custom/dartlamp/images/assets/', // path of the image assets
+  //       filePrefix: '', // file prefix if any
+  //       ext: '.png', // extention for the assets
+  //       height: 265,
+  //       width: 400,
+  //       navigation: true,
+  //       disableSpin: true // Default false
+  //     });
+  //   }
+  // };
+
+  // Drupal.behaviors.reel = {
+  //   attach: function (context) {
+  //     $('.reel_images').once().each(function(){
+  //         $(this).append('<img class="reel result" data-images="#.png" data-path="themes/custom/dartlamp/images/assets/" data-frames="52" width="200" height="auto" src="themes/custom/dartlamp/images/assets/1.png" />');
+  //     });
+  //   }
+  // };
 
   Drupal.behaviors.fullImageViewLink = {
     attach: function (context) {
@@ -144,7 +152,7 @@
     attach: function (context) {
       $('.region-featured', context).once().each(function () {
         var $hero = $(this).find('.c-hero');
-        $hero.append('<div class="c-hero__overlay"/>')
+        $hero.append('<div class="c-hero__overlay"/>');
         var heroOffset = $hero.offset();
         var heroHeight = $hero.outerHeight();
         var windowScrollTop;

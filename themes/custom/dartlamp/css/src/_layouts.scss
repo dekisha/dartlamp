@@ -1,11 +1,13 @@
 html {
   background-color: #333333;
 }
+
 // ----------------------------------------------------------------------------
 // MASTER CONTAINER
 // ----------------------------------------------------------------------------
 .l-container {
   color: white;
+  position: relative;
   a {
     color: white;
   }
@@ -29,7 +31,7 @@ html {
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  > div {
+   > div {
     &:first-child {
       text-align: left;
     }
@@ -43,7 +45,11 @@ html {
 // MASTER HEADER
 // ----------------------------------------------------------------------------
 .l-master-header {
-  height: 120px;
+  // height: 120px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 2;
 }
 
 // ----------------------------------------------------------------------------
@@ -58,7 +64,7 @@ html {
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  > div {
+   > div {
     &:first-child {
       text-align: left;
     }
@@ -72,7 +78,7 @@ html {
 // SUBMENU
 // ----------------------------------------------------------------------------
 .l-submenu {
-  background-color: #9e9e9e;
+  background-color: rgba(black, 0.8);
   padding: $inuit-global-spacing-unit-small 0;
   text-align: right;
 }
@@ -81,12 +87,13 @@ html {
 // FEATURED
 // ----------------------------------------------------------------------------
 .l-featured {
+  // margin-bottom: $inuit-global-spacing-unit * 2;
 }
 
 .region-featured {
-  align-items: center;
-  display: flex;
-  justify-content: center;
+  // align-items: center;
+  // display: flex;
+  // justify-content: center;
   position: relative;
 }
 
@@ -101,5 +108,21 @@ html {
 // MAIN
 // ----------------------------------------------------------------------------
 .l-main {
-  // margin-top: $inuit-global-spacing-unit-large;
+  flex: 1 0 auto;
+  padding-bottom: 100px;
+  // padding-top: 60px;
+  width: 100%;
+}
+
+// ----------------------------------------------------------------------------
+// CONTENT
+// ----------------------------------------------------------------------------
+.l-content {
+  > .o-wrapper {
+    .path-gallery &,
+    .page-node-type-lamp & {
+      max-width: none;
+      padding: 0;
+    }
+  }
 }

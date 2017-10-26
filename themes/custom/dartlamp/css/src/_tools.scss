@@ -1,0 +1,96 @@
+// ----------------------------------------------------------------------------
+// MIXINS
+// ----------------------------------------------------------------------------
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}
+
+@mixin hidden-visually {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important;
+}
+
+@mixin o-wrapper {
+  @include clearfix;
+  padding-right: gutter-span();
+  padding-left:  gutter-span();
+  margin-right: auto;
+  margin-left:  auto;
+  max-width: $wrapper-width;
+}
+
+@mixin o-wrapper--medium {
+  @include clearfix;
+  padding-right: gutter-span();
+  padding-left:  gutter-span();
+  margin-right: auto;
+  margin-left:  auto;
+  max-width: $wrapper-width-medium;
+}
+
+@mixin o-wrapper--small {
+  @include clearfix;
+  padding-right: gutter-span();
+  padding-left:  gutter-span();
+  margin-right: auto;
+  margin-left:  auto;
+  max-width: $wrapper-width-small;
+}
+
+@mixin c-btn {
+  border-radius: $radius-btn;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  line-height: 40px;
+  margin: 0;
+  padding: 0.125em 1.25em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 250ms cubic-bezier(0.23,0.61,0.41,1);
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
+  &:hover,
+  &:focus {
+    color: #ffffff;
+    outline: 0;
+  }
+}
+
+@mixin c-btn--primary {
+  background-color: #ef413d;
+  border: 0;
+  color: white;
+  &:hover,
+  &:focus {
+    background-color: #ce1511;
+    border-color: #2a0403;
+  }
+  &:active {
+    background-color: #ce1511;
+    border-color: #880e0b;
+  }
+}
+
+@mixin c-btn--ghost {
+  background-color: transparent;
+  border: 2px solid #e8edf2;
+}

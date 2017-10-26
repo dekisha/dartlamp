@@ -45,6 +45,7 @@
 @import "node_modules/inuitcss/tools/tools.hidden";
 @import "node_modules/sass-mq/mq";
 @import "node_modules/singularitygs/stylesheets/singularitygs.scss";
+@import "tools";
 
 
 // GENERIC - resets, normalize, global style...
@@ -59,6 +60,7 @@
 @import "node_modules/inuitcss/elements/elements.headings";
 @import "node_modules/inuitcss/elements/elements.images";
 @import "node_modules/inuitcss/elements/elements.tables";
+@import "elements";
 
 
 // OBJECTS - abstractions
@@ -78,7 +80,7 @@
 // COMPONENTS - particular component theming
 @import 'node_modules/slick-carousel/slick/slick.scss';
 @import "node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar";
-@import "node_modules/threesixty-slider/src/styles/threesixty";
+// @import "node_modules/threesixty-slider/src/styles/threesixty";
 @import "layouts";
 @import "components";
 
