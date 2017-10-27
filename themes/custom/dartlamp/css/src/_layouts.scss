@@ -46,10 +46,12 @@ html {
 // ----------------------------------------------------------------------------
 .l-master-header {
   // height: 120px;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 2;
+  .page-node-type-page & {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+  }
 }
 
 // ----------------------------------------------------------------------------
@@ -119,7 +121,7 @@ html {
 // ----------------------------------------------------------------------------
 .l-content {
   > .o-wrapper {
-    .path-gallery &,
+    // .path-gallery &,
     .page-node-type-lamp & {
       max-width: none;
       padding: 0;

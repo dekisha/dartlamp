@@ -221,6 +221,14 @@ ul.tabs {
 //     }
 //   }
 // }
+.form-actions {
+  margin-left: - $inuit-global-spacing-unit / 2;
+  margin-right: - $inuit-global-spacing-unit / 2;
+  > .button {
+    margin-left: $inuit-global-spacing-unit / 2;
+    margin-right: $inuit-global-spacing-unit / 2;
+  }
+}
 
 .form--inline {
   @include clearfix;
@@ -248,9 +256,7 @@ ul.tabs {
   }
   .form-actions {
     margin-top: $inuit-global-spacing-unit-large;
-    text-align: center;
     width: 100%;    
-      justify-content: center;
   }
 }
 
@@ -288,6 +294,10 @@ ul.tabs {
 // ----------------------------------------------------------------------------
 // BLOCKS
 // ----------------------------------------------------------------------------
+.block-region {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
 .block {
   .region-content & {
     margin-bottom: $inuit-global-spacing-unit;
@@ -388,6 +398,14 @@ ul.tabs {
   //     }
   //   }
   // }
+}
+
+.view-hero {
+  .views-field-field-hero-image {
+    img {
+      width: 100%;
+    }
+  }
 }
 
 // ----------------------------------------------------------------------------
