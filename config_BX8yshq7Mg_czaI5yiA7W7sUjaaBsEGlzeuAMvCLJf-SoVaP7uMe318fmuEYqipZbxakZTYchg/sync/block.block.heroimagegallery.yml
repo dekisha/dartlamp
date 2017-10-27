@@ -1,6 +1,6 @@
 uuid: 8aecb09e-868a-422a-a862-68de8ae476ab
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - simple_block.simple_block.hero_image_gallery
@@ -16,7 +16,7 @@ third_party_settings:
 id: heroimagegallery
 theme: dartlamp
 region: featured
-weight: 0
+weight: -6
 provider: null
 plugin: 'simple_block:hero_image_gallery'
 settings:

@@ -6,7 +6,7 @@ dependencies:
     - views.view.galery
   module:
     - block_class
-    - ctools
+    - system
     - views
   theme:
     - dartlamp
@@ -27,10 +27,8 @@ settings:
   views_label: ''
   items_per_page: none
 visibility:
-  'entity_bundle:node':
-    id: 'entity_bundle:node'
-    bundles:
-      lamp: lamp
+  request_path:
+    id: request_path
+    pages: "/gallery\r\n/lamp/*"
     negate: false
-    context_mapping:
-      node: '@node.node_route_context:node'
+    context_mapping: {  }

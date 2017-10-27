@@ -1,6 +1,6 @@
 uuid: 4ff10325-a604-4cec-afb5-fa54d256247e
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - simple_block.simple_block.bio_image_block
@@ -16,7 +16,7 @@ third_party_settings:
 id: bioimageblock_2
 theme: dartlamp
 region: featured
-weight: 0
+weight: -9
 provider: null
 plugin: 'simple_block:bio_image_block'
 settings:

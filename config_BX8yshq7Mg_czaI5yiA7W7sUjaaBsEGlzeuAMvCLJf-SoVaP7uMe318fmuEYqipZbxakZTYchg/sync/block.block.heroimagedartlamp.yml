@@ -1,6 +1,6 @@
 uuid: e88055cc-b5e8-408c-bc5b-4a922f5843e2
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - simple_block.simple_block.hero_image_dartlamp
@@ -16,7 +16,7 @@ third_party_settings:
 id: heroimagedartlamp
 theme: dartlamp
 region: featured
-weight: 0
+weight: -8
 provider: null
 plugin: 'simple_block:hero_image_dartlamp'
 settings:

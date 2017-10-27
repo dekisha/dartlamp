@@ -468,16 +468,17 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: gallery
+      path: gallery2
       menu:
         type: normal
-        title: Gallery
+        title: Gallery2
         description: ''
         expanded: false
         parent: ''
         weight: -49
         context: '0'
         menu_name: main
+      enabled: true
     cache_metadata:
       max-age: -1
       contexts:
