@@ -109,6 +109,10 @@ img {
   vertical-align: middle;
 }
 
+img[width], img[height] {
+  max-width: 100%;
+}
+
 input[type="image"] {
   background-color: transparent;
   border: 0;
