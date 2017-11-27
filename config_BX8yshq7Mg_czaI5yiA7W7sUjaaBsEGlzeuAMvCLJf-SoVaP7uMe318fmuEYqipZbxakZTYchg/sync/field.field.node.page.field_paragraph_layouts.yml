@@ -1,0 +1,34 @@
+uuid: deef5c8f-7ff0-428a-8717-596461da9aff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraph_layouts
+    - node.type.page
+    - paragraphs.paragraphs_type.two_column_layout
+  module:
+    - entity_reference_revisions
+id: node.page.field_paragraph_layouts
+field_name: field_paragraph_layouts
+entity_type: node
+bundle: page
+label: 'Paragraph layouts'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      two_column_layout: two_column_layout
+    target_bundles_drag_drop:
+      homepage_slider:
+        weight: 3
+        enabled: false
+      two_column_layout:
+        enabled: true
+        weight: 4
+field_type: entity_reference_revisions

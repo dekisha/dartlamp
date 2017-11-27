@@ -1,0 +1,21 @@
+uuid: 378bb47f-f20a-4fc9-8d57-10315d499044
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_rotating_images2
+    - paragraphs.paragraphs_type.two_column_layout
+  module:
+    - text
+id: paragraph.two_column_layout.field_rotating_images2
+field_name: field_rotating_images2
+entity_type: paragraph
+bundle: two_column_layout
+label: 'Rotating images'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

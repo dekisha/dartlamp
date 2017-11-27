@@ -1,0 +1,9 @@
+uuid: ffae92bf-bf41-46fe-a156-66083a61d56d
+langcode: en
+status: true
+dependencies: {  }
+id: two_column_layout
+label: 'Two column layout'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

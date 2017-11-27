@@ -475,9 +475,10 @@ display:
         description: ''
         expanded: false
         parent: ''
-        weight: -49
+        weight: -48
         context: '0'
         menu_name: main
+        enabled: false
       enabled: true
     cache_metadata:
       max-age: -1

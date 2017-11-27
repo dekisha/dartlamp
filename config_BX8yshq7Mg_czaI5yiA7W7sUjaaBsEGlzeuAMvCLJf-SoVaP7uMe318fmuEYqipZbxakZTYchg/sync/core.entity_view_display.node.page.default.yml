@@ -5,11 +5,13 @@ dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.field_hero_image
+    - field.field.node.page.field_paragraph_layouts
     - field.field.node.page.field_photo
     - field.field.node.page.field_video
     - node.type.page
   module:
     - ds
+    - entity_reference_revisions
     - image
     - text
     - user
@@ -36,6 +38,7 @@ third_party_settings:
         - body
         - field_photo
         - field_video
+        - field_paragraph_layouts
 _core:
   default_config_hash: oZ-7vpIJxjxL2up9B5KrJGD0lazQ9aN0P-fIPo6OrSU
 id: node.page.default
@@ -44,24 +47,34 @@ bundle: page
 mode: default
 content:
   body:
-    label: hidden
-    type: text_trimmed
+    type: text_default
     weight: 0
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
     region: ds_content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_paragraph_layouts:
+    type: entity_reference_revisions_entity_view
+    weight: 3
+    region: ds_content
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
   field_photo:
+    type: image
     weight: 1
+    region: ds_content
     label: hidden
     settings:
       image_style: ''
       image_link: ''
     third_party_settings: {  }
-    type: image
-    region: ds_content
   field_video:
+    type: video_embed_field_video
     weight: 2
+    region: ds_content
     label: hidden
     settings:
       responsive: true
@@ -69,8 +82,6 @@ content:
       height: 480
       autoplay: true
     third_party_settings: {  }
-    type: video_embed_field_video
-    region: ds_content
 hidden:
   field_hero_image: true
   links: true

@@ -5,12 +5,14 @@ dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.field_hero_image
+    - field.field.node.page.field_paragraph_layouts
     - field.field.node.page.field_photo
     - field.field.node.page.field_video
     - image.style.thumbnail
     - node.type.page
   module:
     - image
+    - paragraphs
     - path
     - text
     - video_embed_field
@@ -43,6 +45,18 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
+  field_paragraph_layouts:
+    type: entity_reference_paragraphs
+    weight: 28
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
     region: content
   field_photo:
     weight: 8

@@ -1,17 +1,17 @@
-uuid: 8cbbbb24-1431-493e-9c88-3cb2d5f033a3
+uuid: a066cfc5-8b08-441a-ae72-0a4e24b41191
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_hero_image
-    - node.type.page
+    - field.storage.paragraph.field_image
+    - paragraphs.paragraphs_type.two_column_layout
   module:
     - image
-id: node.page.field_hero_image
-field_name: field_hero_image
-entity_type: node
-bundle: page
-label: 'Hero image'
+id: paragraph.two_column_layout.field_image
+field_name: field_image
+entity_type: paragraph
+bundle: two_column_layout
+label: Image
 description: ''
 required: false
 translatable: false
@@ -24,15 +24,15 @@ settings:
   max_resolution: ''
   min_resolution: ''
   alt_field: true
-  alt_field_required: false
+  alt_field_required: true
   title_field: false
   title_field_required: false
   default_image:
-    uuid: 0d704b5c-c42d-4645-bfec-782d881e4c8f
-    alt: 'Dartlamp Hero image'
-    title: 'Dartlamp Hero image'
-    width: 1393
-    height: 930
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
   handler: 'default:file'
   handler_settings: {  }
 field_type: image
