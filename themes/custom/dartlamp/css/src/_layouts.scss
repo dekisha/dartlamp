@@ -64,16 +64,18 @@ html {
 
 .region-header {
   align-items: center;
+  display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
-   > div {
-    &:first-child {
-      text-align: left;
-    }
-    &:last-child {
-      text-align: right;
-    }
-  }
+  //  > div {
+    // &:first-child {
+    //   text-align: left;
+    // }
+    // &:last-child {
+    //   text-align: right;
+    // }
+  // }
 }
 
 // ----------------------------------------------------------------------------

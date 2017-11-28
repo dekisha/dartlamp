@@ -168,5 +168,34 @@
       });
     }
   };
+  
+  Drupal.behaviors.mobileMenu = {
+    attach: function (context) {
+      function toggleClassMenu() {
+        myMenu.classList.add("c-smooth__menu--animatable");
+        if (!myMenu.classList.contains("c-smooth__menu--visible")) {
+          myMenu.classList.add("c-smooth__menu--visible");
+        } else {
+          myMenu.classList.remove('c-smooth__menu--visible');
+        }
+      }
+      
+      function OnTransitionEnd() {
+        myMenu.classList.remove("c-smooth__menu--animatable");
+      }
+      var myMenu = document.querySelector(".c-smooth__menu");
+      var oppMenu = document.querySelector(".c-smooth__layout__header__menu-icon");
+      var appMenu = document.querySelector(".c-smooth__menu__app-menu");
+      myMenu.addEventListener("transitionend", OnTransitionEnd, false);
+      oppMenu.addEventListener("click", toggleClassMenu, false);
+      appMenu.addEventListener('click', function (e) {
+        e.stopPropagation();
+      });
+      myMenu.addEventListener('click', function (e) {
+        e.stopPropagation();
+        toggleClassMenu();
+      });
+    }
+  };
 
 })(jQuery);

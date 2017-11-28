@@ -224,7 +224,7 @@ ul.tabs {
 .form-actions {
   margin-left: - $inuit-global-spacing-unit / 2;
   margin-right: - $inuit-global-spacing-unit / 2;
-  > .button {
+   > .button {
     margin-left: $inuit-global-spacing-unit / 2;
     margin-right: $inuit-global-spacing-unit / 2;
   }
@@ -235,8 +235,8 @@ ul.tabs {
   .form-item {
     display: inline-block;
     float: none;
-    margin: 0;
     margin-right: 10px;
+    margin: 0;
     vertical-align: top;
   }
   .form-actions {
@@ -256,7 +256,7 @@ ul.tabs {
   }
   .form-actions {
     margin-top: $inuit-global-spacing-unit-large;
-    width: 100%;    
+    width: 100%;
   }
 }
 
@@ -271,9 +271,9 @@ ul.tabs {
   text-align: center;
   z-index: 1;
   h1 {
-    animation: fadeIn 350ms cubic-bezier(0.23,0.61,0.41,1) 1.75s;
     // padding: 0.2em 1em;
     animation-fill-mode: both;
+    animation: fadeIn 350ms cubic-bezier(0.23,0.61,0.41,1) 1.75s;
     // border-radius: $radius-global $radius-global 0 0;
     display: inline-block;
     font-size: 100px;
@@ -288,7 +288,7 @@ ul.tabs {
 // LOGO
 // ----------------------------------------------------------------------------
 .block-system-branding-block {
-  display: table-cell;
+  // display: table-cell;
 }
 
 // ----------------------------------------------------------------------------
@@ -912,8 +912,8 @@ ul.tabs {
     background-position: center;
     background-repeat: no-repeat;
     background-size: 82%;
-    border: 4px solid black;
     border-radius: 50%;
+    border: 4px solid black;
     box-shadow: 0 0 0 rgba(0,0,0, 0.4);
     cursor: pointer;
     display: inline-block;
@@ -972,9 +972,98 @@ ul.tabs {
     position: absolute;
     right: 0;
     top: 0;
-    transform: scaleX(0);
     transform-origin: 0 50%;
+    transform: scaleX(0);
     z-index: 999;
+  }
+}
+
+// ----------------------------------------------------------------------------
+// SMOOTH MENU
+// ----------------------------------------------------------------------------
+@include mq($until: tablet_landscape) {
+  .c-smooth__menu {
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 150;
+    &:after {
+      background: rgba(0, 0, 0, 0.4);
+      content: "";
+      display: block;
+      height: 100%;
+      left: 0;
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      transition: opacity 0.3s cubic-bezier(0, 0, 0.3, 1);
+      width: 100%;
+      will-change: opacity;
+    }
+    &--visible {
+      pointer-events: auto;
+      &:after {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+
+  .c-smooth__menu__app-menu {
+    background-color: #000000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 400px;
+    pointer-events: auto;
+    position: relative;
+    transform: translateX(-103%);
+    width: 77%;
+    will-change: transform;
+    z-index: 160;
+
+    .c-smooth__menu--visible & {
+      transform: none;
+    }
+    .c-smooth__menu--animatable & {
+      transition: all 130ms ease-in;
+    }
+    .c-smooth__menu--visible.c-smooth__menu--animatable & {
+      transition: all 330ms ease-out;
+    }
+  }
+
+  .c-smooth__layout {
+    background-color: #f5f5f5;
+    height: 667px;
+    position: relative;
+    width: 100%;
+  }
+
+  .c-smooth__layout__header {
+    background-color: #cccccc;
+  }
+}
+.c-smooth__layout__header__menu-icon {
+  background-color: #666666;
+  // content: "Menu";
+  color: #ffffff;
+  display: block;
+  height: 40px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40px;
+
+  @include mq($from: tablet_landscape) {
+    display: none;
   }
 }
 

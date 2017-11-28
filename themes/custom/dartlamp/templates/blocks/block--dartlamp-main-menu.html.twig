@@ -3,8 +3,7 @@
     'block',
     'block-menu',
     'navigation',
-    'menu--' ~ derivative_plugin_id|clean_class,
-    'o-layout__item'
+    'menu--' ~ derivative_plugin_id|clean_class
   ]
 %}
 {% set heading_id = attributes.id ~ '-menu'|clean_id %}
@@ -22,3 +21,5 @@
     {{ content }}
   {% endblock %}
 </nav>
+
+<!-- this template can be removed -->

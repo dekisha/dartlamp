@@ -18,9 +18,16 @@
       </aside>
     {% endif %}
 
-    <header id="header" class="l-header" role="banner">
+    <header id="header" class="l-header c-smooth__layout" role="banner">
       <div class="o-wrapper">
-        {{ page.header }}
+        <div class="c-smooth__layout__header">
+          <div class="c-smooth__menu">
+            <div class="c-smooth__menu__app-menu">
+              {{ page.header }}
+            </div>
+          </div>
+          <div class="c-smooth__layout__header__menu-icon"></div>
+        </div>
       </div>
     </header>
     
