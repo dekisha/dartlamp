@@ -20,6 +20,7 @@ regions:
   top: Top
   header: Header
   submenu: Submenu
+  navigation: Mobile navigation
   help: Help
   featured: Featured
   pre_content: Pre-content

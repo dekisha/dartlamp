@@ -148,26 +148,26 @@
     }
   };
 
-  Drupal.behaviors.faddingEffect = {
-    attach: function (context) {
-      $('.region-featured', context).once().each(function () {
-        var $hero = $(this).find('.c-hero');
-        $hero.append('<div class="c-hero__overlay"/>');
-        var heroOffset = $hero.offset();
-        var heroHeight = $hero.outerHeight();
-        var windowScrollTop;
-        $(window).on('scroll', function () {
-          windowScrollTop = $(window).scrollTop();
-          if (windowScrollTop > heroOffset.top) {
-            $('.c-hero__overlay').css({
-              'background-color': 'black',
-              'opacity': (windowScrollTop - heroOffset.top) / heroHeight
-            });
-          }
-        });
-      });
-    }
-  };
+  // Drupal.behaviors.faddingEffect = {
+  //   attach: function (context) {
+  //     $('.region-featured', context).once().each(function () {
+  //       var $hero = $(this).find('.c-hero');
+  //       $hero.append('<div class="c-hero__overlay"/>');
+  //       var heroOffset = $hero.offset();
+  //       var heroHeight = $hero.outerHeight();
+  //       var windowScrollTop;
+  //       $(window).on('scroll', function () {
+  //         windowScrollTop = $(window).scrollTop();
+  //         if (windowScrollTop > heroOffset.top) {
+  //           $('.c-hero__overlay').css({
+  //             'background-color': 'black',query ui files
+  //             'opacity': (windowScrollTop - heroOffset.top) / heroHeight
+  //           });
+  //         }
+  //       });
+  //     });
+  //   }
+  // };
   
   Drupal.behaviors.mobileMenu = {
     attach: function (context) {

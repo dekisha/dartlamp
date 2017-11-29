@@ -289,6 +289,9 @@ ul.tabs {
 // ----------------------------------------------------------------------------
 .block-system-branding-block {
   // display: table-cell;
+  .region-navigation & {
+    // margin-bottom: $inuit-global-spacing-unit;
+  }
 }
 
 // ----------------------------------------------------------------------------
@@ -486,28 +489,45 @@ ul.tabs {
 // MENUS
 // ----------------------------------------------------------------------------  
 .menu--main {
-  .menu {
-    margin: 0 (-$inuit-global-spacing-unit-small);
-  }
-  .menu-item {
-    display: inline-block;
-    margin: 0 $inuit-global-spacing-unit-small;
-    vertical-align: middle;
-    .region-header & {
-      &--active-trail {
-        position: relative;
-      }
+  .region-header & {
+    .menu {
+      margin: 0 (-$inuit-global-spacing-unit-small);
     }
-    a {
-      color: white;
-      display: block;
-      font-family: $font-leelawui;
-      overflow: hidden;
-      position: relative;
-      text-decoration: none;
-      text-transform: uppercase;
-      &.is-active {
-        pointer-events: none;
+    .menu-item {
+      display: inline-block;
+      margin: 0 $inuit-global-spacing-unit-small;
+      vertical-align: middle;
+      .region-header & {
+        &--active-trail {
+          position: relative;
+        }
+      }
+      a {
+        color: white;
+        display: block;
+        font-family: $font-leelawui;
+        overflow: hidden;
+        position: relative;
+        text-decoration: none;
+        text-transform: uppercase;
+        &.is-active {
+          pointer-events: none;
+          &:after {
+            background-color: #ffffff;
+            bottom: 0;
+            content: "";
+            height: 2px;
+            left: 0;
+            position: absolute;
+            transform: translate(0, 0);
+            width: 100%;
+          }
+        }
+        &:hover {
+          &:after {
+            transform: translate(102%, 0px);
+          }
+        }
         &:after {
           background-color: #ffffff;
           bottom: 0;
@@ -515,25 +535,54 @@ ul.tabs {
           height: 2px;
           left: 0;
           position: absolute;
-          transform: translate(0, 0);
+          transform: translate(-102%, 0px);
+          transition: transform 700ms cubic-bezier(0.23, 1, 0.32, 1) 0s;
           width: 100%;
         }
       }
-      &:hover {
-        &:after {
-          transform: translate(102%, 0px);
+    }
+  }
+}
+
+.menu--main {
+  .region-navigation & {
+    .menu {
+      margin: 0;
+      .menu {
+        margin-top: $inuit-global-spacing-unit-small;
+      }
+    }
+    .menu-item {
+      display: block;
+      margin-bottom: $inuit-global-spacing-unit-small;
+      a {
+        color: white;
+        // display: inline-block;
+        font-family: $font-leelawui;
+        overflow: hidden;
+        position: relative;
+        text-decoration: none;
+        text-transform: uppercase;
+        vertical-align: middle;
+        &.is-active {
+          pointer-events: none;
+          &:after {
+            background-color: #ffffff;
+            bottom: 0;
+            content: "";
+            height: 2px;
+            left: 0;
+            position: absolute;
+            transform: translate(0, 0);
+            width: 100%;
+          }
         }
       }
-      &:after {
-        background-color: #ffffff;
-        bottom: 0;
-        content: "";
-        height: 2px;
-        left: 0;
-        position: absolute;
-        transform: translate(-102%, 0px);
-        transition: transform 700ms cubic-bezier(0.23, 1, 0.32, 1) 0s;
-        width: 100%;
+      .menu-item {
+        a {
+          color: rgba(255,255, 255, 0.8);
+          font-size: 13px;
+        }
       }
     }
   }
@@ -981,83 +1030,87 @@ ul.tabs {
 // ----------------------------------------------------------------------------
 // SMOOTH MENU
 // ----------------------------------------------------------------------------
-@include mq($until: tablet_landscape) {
-  .c-smooth__menu {
+.c-smooth__menu {
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 150;
+  &:after {
+    background: rgba(0, 0, 0, 0.4);
+    content: "";
+    display: block;
     height: 100%;
     left: 0;
-    overflow: hidden;
+    opacity: 0;
     pointer-events: none;
-    position: fixed;
+    position: absolute;
     top: 0;
+    transition: opacity 0.3s cubic-bezier(0, 0, 0.3, 1);
     width: 100%;
-    z-index: 150;
-    &:after {
-      background: rgba(0, 0, 0, 0.4);
-      content: "";
-      display: block;
-      height: 100%;
-      left: 0;
-      opacity: 0;
-      pointer-events: none;
-      position: absolute;
-      top: 0;
-      transition: opacity 0.3s cubic-bezier(0, 0, 0.3, 1);
-      width: 100%;
-      will-change: opacity;
-    }
-    &--visible {
-      pointer-events: auto;
-      &:after {
-        opacity: 1;
-        pointer-events: auto;
-      }
-    }
+    will-change: opacity;
   }
-
-  .c-smooth__menu__app-menu {
-    background-color: #000000;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    max-width: 400px;
+  &--visible {
     pointer-events: auto;
-    position: relative;
-    transform: translateX(-103%);
-    width: 77%;
-    will-change: transform;
-    z-index: 160;
-
-    .c-smooth__menu--visible & {
-      transform: none;
+    &:after {
+      opacity: 1;
+      pointer-events: auto;
     }
-    .c-smooth__menu--animatable & {
-      transition: all 130ms ease-in;
-    }
-    .c-smooth__menu--visible.c-smooth__menu--animatable & {
-      transition: all 330ms ease-out;
-    }
-  }
-
-  .c-smooth__layout {
-    background-color: #f5f5f5;
-    height: 667px;
-    position: relative;
-    width: 100%;
-  }
-
-  .c-smooth__layout__header {
-    background-color: #cccccc;
   }
 }
+
+.c-smooth__menu__app-menu {
+  background-color: #000000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  max-width: 400px;
+  pointer-events: auto;
+  position: relative;
+  transform: translateX(-103%);
+  width: 77%;
+  will-change: transform;
+  z-index: 160;
+  .c-smooth__menu--visible & {
+    transform: none;
+  }
+  .c-smooth__menu--animatable & {
+    transition: all 130ms ease-in;
+  }
+  .c-smooth__menu--visible.c-smooth__menu--animatable & {
+    transition: all 330ms ease-out;
+  }
+}
+
+.c-smooth__layout {
+  // background-color: #f5f5f5;
+  // height: 667px;
+  position: relative;
+  width: 100%;
+  z-index: 5;
+}
+
+.c-smooth__layout__header {
+  background-color: #cccccc;
+}
+
 .c-smooth__layout__header__menu-icon {
   background-color: #666666;
+  background-image: svg("hamburger.svg", "[fill]: white");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20px;
   // content: "Menu";
   color: #ffffff;
   display: block;
   height: 40px;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   width: 40px;

@@ -7,6 +7,21 @@
 {% endif %}
 
 <div class="l-container">
+  
+  {% if page.navigation | render | striptags | trim is not empty %}
+    <aside id="navigation" class="l-navigation c-smooth__layout">
+      <div class="o-wrapper">
+        <div class="c-smooth__layout__header">
+          <div class="c-smooth__menu">
+            <div class="c-smooth__menu__app-menu">
+              {{ page.navigation }}
+            </div>
+          </div>
+          <div class="c-smooth__layout__header__menu-icon"></div>
+        </div>
+      </div>
+    </aside>
+  {% endif %}
 
   <div class="l-master-header">
     
@@ -17,17 +32,10 @@
         </div>
       </aside>
     {% endif %}
-
-    <header id="header" class="l-header c-smooth__layout" role="banner">
+    
+    <header id="header" class="l-header" role="banner">
       <div class="o-wrapper">
-        <div class="c-smooth__layout__header">
-          <div class="c-smooth__menu">
-            <div class="c-smooth__menu__app-menu">
-              {{ page.header }}
-            </div>
-          </div>
-          <div class="c-smooth__layout__header__menu-icon"></div>
-        </div>
+        {{ page.header }}
       </div>
     </header>
     

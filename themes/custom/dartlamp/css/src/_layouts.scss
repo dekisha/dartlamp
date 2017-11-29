@@ -21,6 +21,26 @@ html {
 }
 
 // ----------------------------------------------------------------------------
+// MOBILE NAVIGATION
+// ----------------------------------------------------------------------------
+.l-navigation {
+  @include mq($from: tablet_landscape) {
+    display: none;
+  }
+}
+
+.region-navigation {
+  padding: $inuit-global-spacing-unit;
+  text-align: center;
+  > * {
+    margin-bottom: $inuit-global-spacing-unit;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// ----------------------------------------------------------------------------
 // TOP
 // ----------------------------------------------------------------------------
 .l-top {
@@ -46,6 +66,9 @@ html {
 // ----------------------------------------------------------------------------
 .l-master-header {
   // height: 120px;
+  @include mq($until: tablet_landscape) {
+    display: none;
+  }
   .page-node-type-page & {
     position: absolute;
     top: 0;
