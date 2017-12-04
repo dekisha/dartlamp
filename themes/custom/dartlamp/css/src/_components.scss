@@ -489,7 +489,8 @@ ul.tabs {
 // MENUS
 // ----------------------------------------------------------------------------  
 .menu--main {
-  .region-header & {
+  .region-header &,
+  .region-submenu & {
     .menu {
       margin: 0 (-$inuit-global-spacing-unit-small);
     }
