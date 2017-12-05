@@ -4,8 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.two_column_layout.field_image
-    - field.field.paragraph.two_column_layout.field_rotating_images2
-    - field.field.paragraph.two_column_layout.field_text
+    - field.field.paragraph.two_column_layout.field_text_left
+    - field.field.paragraph.two_column_layout.field_text_right
     - image.style.thumbnail
     - paragraphs.paragraphs_type.two_column_layout
   module:
@@ -24,16 +24,16 @@ content:
     third_party_settings: {  }
     type: image_image
     region: content
-  field_rotating_images2:
-    weight: 3
+  field_text_left:
+    weight: 2
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
     region: content
-  field_text:
-    weight: 1
+  field_text_right:
+    weight: 3
     settings:
       rows: 5
       placeholder: ''

@@ -4,61 +4,66 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.two_column_layout.field_image
-    - field.field.paragraph.two_column_layout.field_rotating_images2
-    - field.field.paragraph.two_column_layout.field_text
+    - field.field.paragraph.two_column_layout.field_text_left
+    - field.field.paragraph.two_column_layout.field_text_right
     - paragraphs.paragraphs_type.two_column_layout
   module:
+    - background_image_formatter
     - ds
-    - image
     - text
 third_party_settings:
   ds:
     layout:
-      id: ds_2col
-      library: ds/ds_2col
-      disable_css: false
+      id: ds_2col_stacked
+      library: ds/ds_2col_stacked
+      disable_css: true
       entity_classes: all_classes
       settings:
         wrappers:
+          header: div
           left: div
           right: div
+          footer: div
         outer_wrapper: div
         attributes: ''
         link_attribute: ''
         link_custom: ''
         classes:
           layout_class: {  }
+          header: {  }
           left: {  }
           right: {  }
+          footer: {  }
     regions:
-      left:
-        - field_rotating_images2
-      right:
+      header:
         - field_image
-        - field_text
+      left:
+        - field_text_left
+      right:
+        - field_text_right
 id: paragraph.two_column_layout.default
 targetEntityType: paragraph
 bundle: two_column_layout
 mode: default
 content:
   field_image:
-    weight: 1
-    label: hidden
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: right
-  field_rotating_images2:
     weight: 0
     label: hidden
     settings:
-      trim_length: 600
+      image_style: ''
+      background_image_output_type: inline
+      background_image_selector: ''
     third_party_settings: {  }
-    type: text_trimmed
+    type: background_image_formatter
+    region: header
+  field_text_left:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
     region: left
-  field_text:
+  field_text_right:
     weight: 2
     label: hidden
     settings: {  }

@@ -5,8 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.page.body
-    - field.field.node.page.field_photo
-    - field.field.node.page.field_video
+    - field.field.node.page.field_hero_image
+    - field.field.node.page.field_paragraph_layouts
     - node.type.page
   module:
     - text
@@ -30,5 +30,5 @@ content:
     weight: 101
     region: content
 hidden:
-  field_photo: true
-  field_video: true
+  field_hero_image: true
+  field_paragraph_layouts: true

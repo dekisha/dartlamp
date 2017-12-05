@@ -1,17 +1,17 @@
-uuid: 378bb47f-f20a-4fc9-8d57-10315d499044
+uuid: bf7b7991-53fd-44ad-9732-0b85db0d599d
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_rotating_images2
+    - field.storage.paragraph.field_text_right
     - paragraphs.paragraphs_type.two_column_layout
   module:
     - text
-id: paragraph.two_column_layout.field_rotating_images2
-field_name: field_rotating_images2
+id: paragraph.two_column_layout.field_text_right
+field_name: field_text_right
 entity_type: paragraph
 bundle: two_column_layout
-label: 'Rotating images'
+label: 'Text right'
 description: ''
 required: false
 translatable: false

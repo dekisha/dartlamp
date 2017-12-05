@@ -6,16 +6,12 @@ dependencies:
     - field.field.node.page.body
     - field.field.node.page.field_hero_image
     - field.field.node.page.field_paragraph_layouts
-    - field.field.node.page.field_photo
-    - field.field.node.page.field_video
     - node.type.page
   module:
     - ds
     - entity_reference_revisions
-    - image
     - text
     - user
-    - video_embed_field
 third_party_settings:
   ds:
     layout:
@@ -61,26 +57,6 @@ content:
     settings:
       view_mode: default
       link: ''
-    third_party_settings: {  }
-  field_photo:
-    type: image
-    weight: 1
-    region: ds_content
-    label: hidden
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-  field_video:
-    type: video_embed_field_video
-    weight: 2
-    region: ds_content
-    label: hidden
-    settings:
-      responsive: true
-      width: 854
-      height: 480
-      autoplay: true
     third_party_settings: {  }
 hidden:
   field_hero_image: true

@@ -6,8 +6,6 @@ dependencies:
     - field.field.node.page.body
     - field.field.node.page.field_hero_image
     - field.field.node.page.field_paragraph_layouts
-    - field.field.node.page.field_photo
-    - field.field.node.page.field_video
     - image.style.thumbnail
     - node.type.page
   module:
@@ -15,7 +13,6 @@ dependencies:
     - paragraphs
     - path
     - text
-    - video_embed_field
 _core:
   default_config_hash: KSvzyFhdLuxniTsunUnUfpfMmod2l57GibtVjL8ymHM
 id: node.page.default
@@ -57,20 +54,6 @@ content:
       form_display_mode: default
       default_paragraph_type: ''
     third_party_settings: {  }
-    region: content
-  field_photo:
-    weight: 8
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-    type: image_image
-    region: content
-  field_video:
-    weight: 9
-    settings: {  }
-    third_party_settings: {  }
-    type: video_embed_field_textfield
     region: content
   path:
     type: path

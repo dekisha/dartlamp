@@ -1,17 +1,17 @@
-uuid: efcd67c4-8e62-43a0-83cf-20273d700c4a
+uuid: 0c8bac08-8ada-4f81-970d-03311c28c246
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_text
+    - field.storage.paragraph.field_text_left
     - paragraphs.paragraphs_type.two_column_layout
   module:
     - text
-id: paragraph.two_column_layout.field_text
-field_name: field_text
+id: paragraph.two_column_layout.field_text_left
+field_name: field_text_left
 entity_type: paragraph
 bundle: two_column_layout
-label: Text
+label: 'Text left'
 description: ''
 required: false
 translatable: false

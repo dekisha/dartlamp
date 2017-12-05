@@ -3,6 +3,8 @@ module:
   admin_toolbar_tools: 0
   automated_cron: 0
   back_to_top: 0
+  background_image_formatter: 0
+  bg_image_formatter: 0
   blazy: 0
   block: 0
   block_class: 0
