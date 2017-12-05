@@ -1,4 +1,19 @@
 // ----------------------------------------------------------------------------
+// DISPLAY SUITE
+// ----------------------------------------------------------------------------
+.ds-2col-stacked {
+  display: grid;
+  grid-gap: 40px;
+
+  @include mq($from: tablet_landscape) {
+    grid-template-columns: 1fr 1fr;
+  }
+   > .group-header {
+    grid-column: 1 / -1;
+  }
+}
+
+// ----------------------------------------------------------------------------
 // CAPTION
 // ----------------------------------------------------------------------------
 figure {
@@ -886,6 +901,34 @@ ul.tabs {
   .slick-next {
     background-image: svg("angle-down.svg", "[fill]: #fff");
     bottom: 0;
+  }
+}
+
+// ----------------------------------------------------------------------------
+// PARAGRAPHS
+// ---------------------------------------------------------------------------- 
+.field--name-field-paragraph-layouts {
+   > .field__item {
+    position: relative;
+  }
+}
+.paragraph--type-two-column-layout {
+  padding-bottom: 110px;
+  padding-top: 110px;
+
+  @include o-wrapper;
+  .field--name-field-image {
+    div {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: -1;
+    }
   }
 }
 
