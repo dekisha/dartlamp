@@ -3,13 +3,13 @@ langcode: en
 status: true
 dependencies: {  }
 name: gallery_te
-label: 'Gallery teaser'
+label: 'Gallery teaser (650x)'
 effects:
   b4d3f07f-5044-4a53-802c-2482ff82f11e:
     uuid: b4d3f07f-5044-4a53-802c-2482ff82f11e
     id: image_scale
     weight: 1
     data:
-      width: 400
+      width: 650
       height: null
       upscale: true
