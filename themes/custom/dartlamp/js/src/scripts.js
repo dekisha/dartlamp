@@ -5,7 +5,7 @@
     attach: function (context) {
 
       // init Isotope
-      var $grid = $('.view-galery .view-content').isotope({
+      var $grid = $('.view-galery .view-content__inner').isotope({
         itemSelector: '.views-row',
         layoutMode: 'masonry',
         getSortData: {

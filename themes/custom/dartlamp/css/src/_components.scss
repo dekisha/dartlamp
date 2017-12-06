@@ -348,7 +348,15 @@ ul.tabs {
       }
     }
   }
+  .view-content {
+    background-color: white;
+    padding: 5px;
+    font-size: 0;
+  }
   .views-row {
+    padding: 5px;
+  }
+  .views-row__inner {
     overflow: hidden;
     position: relative;
     &:hover {
@@ -368,9 +376,9 @@ ul.tabs {
       transform: scale(1);
     }
   }
-  .o-layout__item {
-    padding: 0;
-  }
+  // .o-layout__item {
+  //   padding: 0;
+  // }
   .views-field-field-images {
     ul {
       margin: 0;
