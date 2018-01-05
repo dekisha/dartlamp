@@ -560,21 +560,28 @@ figure {
 // ---------------------------------------------------------------------------- 
 .field--name-field-homepage-slider-images {
   &.slick-slider {
+    bottom: 0;
     left: 0;
     position: fixed; // because of contextual links
     right: 0;
     top: 0;
     z-index: -1;
   }
+  .slick-list,
+  .slick-track {
+    height: 100%;
+  }
   .slick-slide {
-    img {
-      height: auto;
-      margin: auto;
+    div {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100%;
       width: 100%;
     }
   }
   .slick-current {
-    img {
+    div {
       animation: zoomin 120s infinite linear 1s;
     }
   }
