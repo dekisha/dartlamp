@@ -6,8 +6,8 @@ dependencies:
     - field.field.paragraph.homepage_slider.field_homepage_slider_images
     - paragraphs.paragraphs_type.homepage_slider
   module:
+    - background_image_formatter
     - ds
-    - image
 id: paragraph.homepage_slider.default
 targetEntityType: paragraph
 bundle: homepage_slider
@@ -18,10 +18,11 @@ content:
     label: hidden
     settings:
       image_style: ''
-      image_link: ''
+      background_image_output_type: inline
+      background_image_selector: ''
     third_party_settings:
       ds:
         ds_limit: ''
-    type: image
+    type: background_image_formatter
     region: content
 hidden: {  }
