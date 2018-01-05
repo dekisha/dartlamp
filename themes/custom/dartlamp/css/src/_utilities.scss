@@ -54,3 +54,14 @@
     transform: scaleX(0);
   }
 }
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+    top: 0;
+  }
+  100% {
+    opacity: 0;
+    top: 30px;
+  }
+}

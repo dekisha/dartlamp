@@ -1,6 +1,6 @@
 .DS_store
 node_modules
-css/*.css.map
-js/*.js.map
+*.css.map
+*.js.map
 npm-debug.log
 test.*

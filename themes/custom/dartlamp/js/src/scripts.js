@@ -156,10 +156,23 @@
         $(window).on('scroll', function () {
           $overlay.css('opacity', $(window).scrollTop() / $this.outerHeight());
         });
+        $this.append('<a class="scroll-to" href="#main">Scroll to</a>');
       });
     }
   };
-  
+
+  Drupal.behaviors.smoothScroll = {
+    attach: function (context) {
+      // On click, smooth scroll this baby!
+      $('a.scroll-to').on('click', function () {
+        $('html, body').animate({
+          scrollTop: $($(this).attr('href')).offset().top
+        }, 500);
+        return false;
+      });
+    }
+  };
+    
   Drupal.behaviors.mobileMenu = {
     attach: function (context) {
       function toggleClassMenu() {
