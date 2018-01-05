@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Parallax Effect with jQuery - Demo</title>
+    <link rel="stylesheet" href="css/StyleSheet.css" />
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/jquery.scrollorama.js" type="text/javascript"></script>    
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet'
+        type='text/css'>
+   <script type="text/javascript">
+$(document).ready(function () {
+    var scrollorama = $.scrollorama({
+        blocks: '.scrolling'
+    });
+    scrollorama.animate('#main-img', {
+        delay: 0, duration: 800, property: 'top', start: 80, end:0
+    });
+    scrollorama.animate('#icons-back', {
+        delay: 0, duration: 800, property: 'top', start: 280, end: 360
+    });
+    scrollorama.animate('#icons-mid', {
+        delay: 0, duration: 800, property: 'top', start: 400, end: -200
+    }); 
+    scrollorama.animate('#icons-front', {
+        delay: 0, duration: 800, property: 'top', start: 1000, end: -500
+    }); 
+});
+   </script>
+</head>
+<body>
+    <div class="scrolling">
+        <div id="description">
+            <h1>
+                Parallax Effect with jQuery</h1>
+            <h2>
+                Google Nexus 7</h2>
+            <p>
+                <strong>Your travel anywhere companion.</strong>
+                <br />
+                Nexus 7 was built to bring you the best of Google in a slim, portable device that
+                fits perfectly in your hand.</p>
+        </div>
+        <img id="main-img" src="images/nexus7.png" />
+        <div id="icons-back">
+            <img src="images/play-icons/Books.png" />
+            <img src="images/play-icons/Browser.png" />
+            <img src="images/play-icons/Calculator.png" />
+            <img src="images/play-icons/Calendar.png" />
+            <img src="images/play-icons/Camera.png" />
+            <img src="images/play-icons/Market.png" />
+        </div>
+        <div id="icons-mid">
+            <img class="mid1" src="images/play-icons/Clock.png" />
+            <img class="mid2" src="images/play-icons/Contacts.png" />
+            <img class="mid3" src="images/play-icons/Gallery.png" />
+            <img class="mid4" src="images/play-icons/Gmail.png" />
+            <img class="mid5" src="images/play-icons/Mail.png" />
+            <img class="mid6" src="images/play-icons/Maps.png" />
+        </div>
+        <div id="icons-front">
+            <img class="front1" src="images/play-icons/Movie.png" />
+            <img class="front2" src="images/play-icons/Music.png" />
+            <img class="front3" src="images/play-icons/Phone.png" />
+            <img class="front4" src="images/play-icons/Settings.png" />
+            <img class="front5" src="images/play-icons/Talk.png" />
+            <img class="front6" src="images/play-icons/YouTube.png" />
+        </div>
+    </div>
+</body>
+</html>

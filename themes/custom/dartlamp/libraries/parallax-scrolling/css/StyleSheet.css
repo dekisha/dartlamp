@@ -1,0 +1,103 @@
+﻿body
+{
+    /*margin: 0px;
+    padding: 0px;
+    font: 16px 'Roboto';
+    color: #ffffff;
+    height: 1400px;
+    background-image: url('../images/background.jpg');    
+    background-attachment: fixed;*/
+}
+.scrolling
+{
+    margin: auto;
+    width: 900px;
+    padding: 50px;
+}
+/*h1, h2
+{
+    font-weight: 300;
+}*/
+#description
+{
+    position: fixed;
+    width: 400px;
+    z-index: 2;
+}
+#description h1
+{
+    font-size: 24px;
+}
+#description h2
+{
+    font-size: 48px;
+}
+#main-img
+{
+    position: fixed;
+    right: 100px;
+    z-index: 3;
+}
+#icons-back
+{
+    position: fixed;
+    z-index: 1;
+}
+#icons-back img
+{
+    margin: 30px 100px;
+}
+#icons-mid
+{
+    position: fixed;
+    left: 150px;
+    z-index: 4;
+}
+#icons-mid img
+{
+    margin: 100px;
+}
+#icons-front
+{
+    position: fixed;
+    z-index: 10;
+}
+#icons-front img
+{
+    margin: 50px;
+}
+.front1
+{
+    position: relative;
+    top: 150px;
+}
+.front3
+{
+    position: relative;
+    top: -100px;
+}
+.front4
+{
+    position: relative;
+    top: 200px;
+}
+.front6
+{
+    position: relative;
+    top: 400px;
+}
+.mid2
+{
+    position: relative;
+    top: 30px;
+}
+.mid4
+{
+    position: relative;
+    top: 100px;
+}
+.mid5
+{
+    position: relative;
+    top: -50px;
+}
