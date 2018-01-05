@@ -1,0 +1,28 @@
+uuid: 2f37e5d2-4c23-4d1b-baa9-186975a7065b
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - block_class
+    - system
+  theme:
+    - dartlamp
+third_party_settings:
+  block_class:
+    classes: ''
+id: mainnavigation_2
+theme: dartlamp
+region: navigation
+weight: -13
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility: {  }
