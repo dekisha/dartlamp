@@ -58,6 +58,16 @@
       });
     }
   };
+  
+  Drupal.behaviors.parallax = {
+    attach: function (context) {
+      $('.field--name-field-paragraph-layouts', context).once('zzzzzzz').each(function(){
+        $(this).find('.field__item').addClass('section');
+        console.log($(this))
+        $(this).fullpage();
+      });
+    }
+  };
 
   Drupal.behaviors.getItSticky = {
     attach: function (context) {
@@ -201,5 +211,6 @@
       });
     }
   };
+  
 
 })(jQuery);

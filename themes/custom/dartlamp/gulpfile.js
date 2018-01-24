@@ -33,6 +33,8 @@ var gulp = require('gulp'),
     'node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js',
     'node_modules/threesixty-slider/src/threesixty.js',
     'node_modules/jquery-sticky/jquery.sticky.js',
+    // 'node_modules/jquery-migrate/dist/jquery-migrate.js',
+    'node_modules/fullpage.js/dist/jquery.fullpage.js',
     'js/src/scripts.js'
   ],
   scssfiles = [
