@@ -34,7 +34,8 @@ var gulp = require('gulp'),
     'node_modules/threesixty-slider/src/threesixty.js',
     'node_modules/jquery-sticky/jquery.sticky.js',
     // 'node_modules/jquery-migrate/dist/jquery-migrate.js',
-    'node_modules/fullpage.js/dist/jquery.fullpage.js',
+    'node_modules/headroom.js/dist/headroom.js',
+    'node_modules/headroom.js/dist/jQuery.headroom.js',
     'js/src/scripts.js'
   ],
   scssfiles = [

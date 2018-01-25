@@ -58,13 +58,24 @@
       });
     }
   };
-  
-  Drupal.behaviors.parallax = {
+
+  // Drupal.behaviors.parallax = {
+  //   attach: function (context) {
+  //     $('.field--name-field-paragraph-layouts', context).once('zzzzzzz').each(function(){
+  //       $(this).find('.field__item').addClass('section');
+  //       console.log($(this))
+  //       $(this).fullpage();
+  //     });
+  //   }
+  // };
+
+  Drupal.behaviors.headroomFn = {
     attach: function (context) {
-      $('.field--name-field-paragraph-layouts', context).once('zzzzzzz').each(function(){
-        $(this).find('.field__item').addClass('section');
-        console.log($(this))
-        $(this).fullpage();
+      $('.page-node-type-page', context).once().each(function () {
+        $(this).find('.l-master-header').headroom({
+          'offset': 20,
+          'tolerance': 2
+        });
       });
     }
   };
@@ -182,7 +193,7 @@
       });
     }
   };
-    
+
   Drupal.behaviors.mobileMenu = {
     attach: function (context) {
       function toggleClassMenu() {
@@ -193,7 +204,7 @@
           myMenu.classList.remove('c-smooth__menu--visible');
         }
       }
-      
+
       function OnTransitionEnd() {
         myMenu.classList.remove("c-smooth__menu--animatable");
       }
@@ -211,6 +222,6 @@
       });
     }
   };
-  
+
 
 })(jQuery);
