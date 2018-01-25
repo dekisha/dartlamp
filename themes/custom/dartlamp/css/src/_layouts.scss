@@ -69,7 +69,7 @@ html {
   @include mq($until: tablet_landscape) {
     display: none;
   }
-  .page-node-type-page & {
+  .page-node-type-page.not-logged-in & {
     position: fixed;
     z-index: 10;
     right: 0;

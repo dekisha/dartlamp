@@ -71,7 +71,7 @@
 
   Drupal.behaviors.headroomFn = {
     attach: function (context) {
-      $('.page-node-type-page', context).once().each(function () {
+      $('.page-node-type-page.not-logged-in', context).once().each(function () {
         $(this).find('.l-master-header').headroom({
           'offset': 20,
           'tolerance': 2
