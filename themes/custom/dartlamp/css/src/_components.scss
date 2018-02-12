@@ -887,8 +887,8 @@ figure {
 .splash-active {
   margin: 0 !important;
   padding: 0 !important;
-  .toolbar,
-  .l-container {
+  .toolbar {
+  // .l-container {
     display: none;
   }
 }
