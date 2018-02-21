@@ -188,16 +188,18 @@
         var $this = $(this);
         // trigger on power off button click
         $this.find('.icon-power-off').on('click', function () {
-          // get slick object
-          var slickSlider = $('.field--name-field-homepage-slider-images');
-          // go to 1st slide (if autoplay is running)
-          slickSlider.slick('slickGoTo', 0);
-          // get that 1st slide (active one)
-          var slickCurrent = slickSlider.find('.slick-current');
-          //Prepend the clone & then remove the original - this way we reset css animation
-          slickCurrent.before(slickCurrent.clone(true)).remove();
           // remove splashify
-          $this.remove();
+          $this.fadeOut(3000);
+          setTimeout(function(){
+            // get slick object
+            var slickSlider = $('.field--name-field-homepage-slider-images');
+            // go to 1st slide (if autoplay is running)
+            slickSlider.slick('slickGoTo', 0);
+            // get that 1st slide (active one)
+            var slickCurrent = slickSlider.find('.slick-current');
+            // This way we start css animation
+            $('body').removeClass('splash-active').addClass('splash-hidden');
+          },3000);
         });
       });
     }
