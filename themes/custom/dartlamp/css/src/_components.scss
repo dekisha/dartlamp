@@ -294,6 +294,11 @@ figure {
   }
 }
 
+.site-logo {
+  display: block;
+  padding: 5px 0;
+}
+
 // ----------------------------------------------------------------------------
 // MENUS
 // ----------------------------------------------------------------------------  
@@ -640,6 +645,10 @@ figure {
 }
 
 .field--name-field-images {
+  // prevent content jump before JS init
+   > .field__item:not(:first-child) {
+    display: none;
+  }
   &.slick-slider {
     overflow: hidden;
   }
@@ -660,10 +669,8 @@ figure {
       top: 0;
     }
     &.slick-active {
+      border-bottom: 3px solid white;
       cursor: default;
-      outline-color: white;
-      outline-style: auto;
-      outline-width: 5px;
       &:after {
         display: none;
       }
@@ -757,9 +764,16 @@ figure {
     border: 0;
     outline: none;
     &.slick-current {
-      outline-color: white;
-      outline-style: auto;
-      outline-width: 5px;
+      position: relative;
+      &:before {
+        background-color: white;
+        bottom: 0;
+        content: "";
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 2px;
+      }
     }
     img {
       height: auto;
@@ -891,7 +905,7 @@ figure {
   margin: 0 !important;
   padding: 0 !important;
   .toolbar {
-  // .l-container {
+    // .l-container {
     display: none;
   }
 }
@@ -1190,6 +1204,19 @@ ul.tabs {
   .views-row__inner {
     overflow: hidden;
     position: relative;
+    &:before {
+      background-color: white;
+      bottom: 0;
+      content: "";
+      height: 3px;
+      left: 0;
+      opacity: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: none;
+      z-index: 1;
+    }
     &:after {
       background-color: transparent;
       bottom: 0;
@@ -1206,6 +1233,9 @@ ul.tabs {
         opacity: 1;
         top: 50%;
         visibility: visible;
+      }
+      &:before {
+        opacity: 1;
       }
       &:after {
         background-color: rgba(black, 0.8);
