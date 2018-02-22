@@ -676,6 +676,12 @@ figure {
       }
     }
   }
+  .slick-slide-next {
+    cursor: svg("angle-right.svg", "[fill]: #fff");
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // background-size: 100px;
+  }
   .slick-arrow {
     background-color: rgba(black, 0.8);
     background-position: center;

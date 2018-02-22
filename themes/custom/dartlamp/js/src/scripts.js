@@ -99,6 +99,10 @@
         $slickSlider.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
           var i = (currentSlide ? currentSlide : 0) + 1;
           $('.slick-count').text(i + ' of ' + slick.slideCount);
+          $(this).find('.slick-active').siblings('.slick-slide-prev').addBack().removeClass('slick-slide-prev');
+          $(this).find('.slick-active').prev().addClass('slick-slide-prev');
+          $(this).find('.slick-active').siblings('.slick-slide-next').addBack().removeClass('slick-slide-next');
+          $(this).find('.slick-active').next().addClass('slick-slide-next');
         });
         $slickSlider.slick({
           arrows: false,
