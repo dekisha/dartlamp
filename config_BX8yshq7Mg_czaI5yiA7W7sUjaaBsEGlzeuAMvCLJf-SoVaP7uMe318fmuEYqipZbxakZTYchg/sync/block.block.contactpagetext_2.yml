@@ -1,32 +1,29 @@
-uuid: 0fb3eb85-4830-4228-87c7-f047c7ce9497
+uuid: bec977ad-8902-4433-a616-c8d0cfb2ca25
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:cd4c7e03-3114-4d4d-af8c-b205b8c2fcd9'
+  config:
+    - simple_block.simple_block.contact_page_text
   module:
     - block_class
-    - block_content
+    - simple_block
     - system
   theme:
     - dartlamp
 third_party_settings:
   block_class:
     classes: ''
-id: contactpagetext
+id: contactpagetext_2
 theme: dartlamp
 region: content
-weight: -12
+weight: -11
 provider: null
-plugin: 'block_content:cd4c7e03-3114-4d4d-af8c-b205b8c2fcd9'
+plugin: 'simple_block:contact_page_text'
 settings:
-  id: 'block_content:cd4c7e03-3114-4d4d-af8c-b205b8c2fcd9'
+  id: 'simple_block:contact_page_text'
   label: 'Contact page text'
-  provider: block_content
+  provider: simple_block
   label_display: '0'
-  status: true
-  info: ''
-  view_mode: full
 visibility:
   request_path:
     id: request_path

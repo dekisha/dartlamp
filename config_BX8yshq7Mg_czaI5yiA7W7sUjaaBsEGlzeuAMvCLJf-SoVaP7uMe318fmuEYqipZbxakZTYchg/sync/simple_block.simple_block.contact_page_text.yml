@@ -1,0 +1,11 @@
+uuid: e2a955df-07bc-4400-b1d4-293a789937b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+id: contact_page_text
+title: 'Contact page text'
+content:
+  value: "<h3>Get in touch</h3>\r\n\r\n<p>If you have any questions, please feel free to drop me a line.<br />\r\nIf you don't get an answer immediately,&nbsp;<br />\r\nI might just be travelling through the middle of nowhere.&nbsp;<br />\r\nI'll get back to you as soon as I can. That's a promise!</p>"
+  format: basic_html
