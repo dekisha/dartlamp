@@ -229,9 +229,10 @@ figure {
 }
 
 .contact-form {
+  background-color: $color-dark;
   font-size: 0;
-
-  @include o-wrapper--small;
+  padding: 20px;
+  width: 50%;
    > * {
     font-size: 16px;
   }
