@@ -7,8 +7,8 @@ type: module
 
 configure: shield.settings
 
-# Information added by Drupal.org packaging script on 2016-08-17
-version: '8.x-1.0'
+# Information added by Drupal.org packaging script on 2018-02-23
+version: '8.x-1.2'
 core: '8.x'
 project: 'shield'
-datestamp: 1471420740
+datestamp: 1519345985

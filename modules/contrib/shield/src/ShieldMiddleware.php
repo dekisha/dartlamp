@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- *   Contains \Drupal\shield\ShieldMiddleware.
- */
 
 namespace Drupal\shield;
 
@@ -50,13 +46,41 @@ class ShieldMiddleware implements HttpKernelInterface {
   public function handle(Request $request, $type = self::MASTER_REQUEST, $catch = TRUE) {
     $config = $this->configFactory->get('shield.settings');
     $allow_cli = $config->get('allow_cli');
-    $user = $config->get('user');
-    $pass = $config->get('pass');
 
-    if (empty($user) || (PHP_SAPI === 'cli' && $allow_cli)) {
-      // If username is empty, then authentication is disabled,
-      // or if request is coming from a cli and it is allowed,
-      // then proceed with response without shield authentication.
+    switch ($config->get('credential_provider')) {
+      case 'shield':
+        $user = $config->get('credentials.shield.user');
+        $pass = $config->get('credentials.shield.pass');
+        break;
+      case 'key':
+        $user = $config->get('credentials.key.user');
+
+        /** @var \Drupal\Core\Entity\EntityStorageInterface $storage */
+        $storage = \Drupal::entityTypeManager()->getStorage('key');
+        /** @var \Drupal\key\KeyInterface $pass_key */
+        $pass_key = $storage->load($config->get('credentials.key.pass_key'));
+        if ($pass_key) {
+          $pass = $pass_key->getKeyValue();
+        }
+        break;
+      case 'multikey':
+        /** @var \Drupal\Core\Entity\EntityStorageInterface $storage */
+        $storage = \Drupal::entityTypeManager()->getStorage('key');
+        /** @var \Drupal\key\KeyInterface $user_pass_key */
+        $user_pass_key = $storage->load($config->get('credentials.multikey.user_pass_key'));
+        if ($user_pass_key) {
+          $values = $user_pass_key->getKeyValues();
+          $user = $values['username'];
+          $pass = $values['password'];
+        }
+        break;
+    }
+
+    if ($type != self::MASTER_REQUEST || !$user || (PHP_SAPI === 'cli' && $allow_cli)) {
+      // Bypass:
+      // 1. Subrequests
+      // 2. Empty username
+      // 3. CLI requests if CLI is allowed.
       return $this->httpKernel->handle($request, $type, $catch);
     }
     else {
@@ -64,10 +88,10 @@ class ShieldMiddleware implements HttpKernelInterface {
         $input_user = $request->server->get('PHP_AUTH_USER');
         $input_pass = $request->server->get('PHP_AUTH_PW');
       }
-      elseif ($request->server->has('HTTP_AUTHORIZATION')) {
+      elseif (!empty($request->server->get('HTTP_AUTHORIZATION'))) {
         list($input_user, $input_pass) = explode(':', base64_decode(substr($request->server->get('HTTP_AUTHORIZATION'), 6)), 2);
       }
-      elseif ($request->server->has('REDIRECT_HTTP_AUTHORIZATION')) {
+      elseif (!empty($request->server->get('REDIRECT_HTTP_AUTHORIZATION'))) {
         list($input_user, $input_pass) = explode(':', base64_decode(substr($request->server->get('REDIRECT_HTTP_AUTHORIZATION'), 6)), 2);
       }
 
