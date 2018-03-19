@@ -39,8 +39,8 @@ third_party_settings:
       ds_content:
         - group_lamp_slider
         - field_images
-        - 'display_field_copy:node-lamp_images_copy'
         - node_title
+        - 'display_field_copy:node-lamp_images_copy'
         - body
         - field_made_in
         - field_ebay_link
@@ -89,12 +89,11 @@ bundle: lamp
 mode: default
 content:
   body:
-    type: text_summary_or_trimmed
+    type: text_default
     weight: 2
     region: ds_content
     label: hidden
-    settings:
-      trim_length: 600
+    settings: {  }
     third_party_settings: {  }
   field_ebay_link:
     type: link
