@@ -889,6 +889,15 @@ figure {
     display: none;
   }
 }
+
+// hide slider before fully loaded
+.js-slick-slider {
+  visibility: hidden;
+  &.slick-initialized {
+    visibility: visible;
+  }
+}
+
 // ----------------------------------------------------------------------------
 // SHARETHIS
 // ----------------------------------------------------------------------------
