@@ -47,7 +47,7 @@ class WebformCliService implements WebformCliServiceInterface {
   /**
    * Call WebformCommand method or drush function.
    *
-   * @param $name
+   * @param string $name
    *   Function name.
    * @param array $arguments
    *   Function arguments.
@@ -109,6 +109,7 @@ class WebformCliService implements WebformCliServiceInterface {
         'range-latest' => 'Integer specifying the latest X submissions will be downloaded. Used if "range-type" is "latest" or no other range options are provided.',
         'range-start' => 'The submission ID or start date at which to start exporting.',
         'range-end' => 'The submission ID or end date at which to end exporting.',
+        'order' => 'The submission order "asc" (default) or "desc".',
         'state' => 'Submission state to be included: "completed", "draft" or "all" (default).',
         'sticky' => 'Flagged/starred submission status.',
         'files' => 'Download files: "1" or "0" (default). If set to 1, the exported CSV file and any submission file uploads will be download in a gzipped tar file.',
@@ -126,7 +127,7 @@ class WebformCliService implements WebformCliServiceInterface {
         'webform_id' => "A webform machine name. If not provided, user may choose from a list of names.",
       ],
       'options' => [
-        'all' => 'Flush all submissions',
+        'all' => '[boolean] Flush all submissions',
         'entity-type' => 'The entity type for webform submissions to be purged',
         'entity-id' => 'The ID of the entity for webform submissions to be purged',
       ],
@@ -145,7 +146,7 @@ class WebformCliService implements WebformCliServiceInterface {
       'core' => ['8+'],
       'bootstrap' => DRUSH_BOOTSTRAP_DRUPAL_ROOT,
       'options' => [
-        'dependencies' => 'Add module dependencies to installed webform and options configuration entities.',
+        'dependencies' => '[boolean] Add module dependencies to installed webform and options configuration entities.',
         'prefix' => 'Prefix for file names to be tidied. (Defaults to webform)',
       ],
       'arguments' => [
@@ -218,7 +219,7 @@ class WebformCliService implements WebformCliServiceInterface {
         'num' => 'Number of submissions to insert. Defaults to 50.',
       ],
       'options' => [
-        'kill' => 'Delete all submissions in specified webform before generating.',
+        'kill' => '[boolean] Delete all submissions in specified webform before generating.',
         'feedback' => 'An integer representing interval for insertion rate logging. Defaults to 1000',
         'entity-type' => 'The entity type to which this submission was submitted from.',
         'entity-id' => 'The ID of the entity of which this webform submission was submitted from.',
@@ -285,7 +286,7 @@ class WebformCliService implements WebformCliServiceInterface {
    * {@inheritdoc}
    */
   public function drush_webform_export_validate($webform_id = NULL) {
-    return $this->_drush_webform_validate($webform_id);
+    return ($webform_id) ? $this->_drush_webform_validate($webform_id) : NULL;
   }
 
   /**
@@ -1111,9 +1112,13 @@ function $command_hook() {
       }
     }
 
-    // Include.
+    // Build commands
     $commands = Variable::export($this->webform_drush_command());
+    // Remove [datatypes] which are only needed for Drush 9.x.
+    $commands = preg_replace('/\[(boolean)\]\s+/', '', $commands);
     $commands = trim(preg_replace('/^/m', '  ', $commands));
+
+    // Include.
     $functions = implode(PHP_EOL, $functions) . PHP_EOL;
 
     return "<?php
@@ -1198,8 +1203,19 @@ $functions
         // options.
         $command_options = [];
         foreach ($command_item['options'] as $option_name => $option_description) {
+          $option_default = NULL;
+          // Parse [datatype] from option description.
+          if (preg_match('/\[(boolean)\]\s+/', $option_description, $match)) {
+            $option_description = preg_replace('/\[(boolean)\]\s+/', '', $option_description);
+            switch ($match[1]) {
+              case 'boolean':
+                $option_default = FALSE;
+                break;
+            }
+          }
+
           $command_annotations[] = "@option $option_name $option_description";
-          $command_options[$option_name] = NULL;
+          $command_options[$option_name] = $option_default ;
         }
         if ($command_options) {
           $command_options = Variable::export($command_options);
