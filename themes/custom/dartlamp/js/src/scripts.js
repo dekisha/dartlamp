@@ -161,17 +161,17 @@
   //   }
   // };
 
-  Drupal.behaviors.fullImageViewLink = {
-    attach: function (context) {
-      var link, linkHref;
-      $('.field--name-field-images .field__item').once().each(function () {
-        link = $(this).find('a');
-        linkHref = link.prop('href');
-        link.find('img').unwrap('a');
-        $(this).append('<a href="' + linkHref + '" class="slick-expander"></a>');
-      });
-    }
-  };
+  // Drupal.behaviors.fullImageViewLink = {
+  //   attach: function (context) {
+  //     var link, linkHref;
+  //     $('.field--name-field-images .field__item').once().each(function () {
+  //       link = $(this).find('a');
+  //       linkHref = link.prop('href');
+  //       link.find('img').unwrap('a');
+  //       $(this).append('<a href="' + linkHref + '" class="slick-expander"></a>');
+  //     });
+  //   }
+  // };
 
   Drupal.behaviors.faddingEffect = {
     attach: function (context) {

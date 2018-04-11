@@ -678,6 +678,30 @@ figure {
       &:after {
         display: none;
       }
+      a {
+        &:after {
+          background-color: rgba(black, 0.4);
+          background-image: svg("expand.svg", "[fill]: #fff");
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: 60%;
+          border-radius: 50%;
+          bottom: 30px;
+          content: "";
+          opacity: 0.7;
+          position: absolute;
+          right: 30px;
+          size: 50px;
+          text-decoration: none;
+          transition: $transition-duration;
+        }
+        &:hover:after {
+          animation: pulse 4s infinite;
+          background-color: rgba(black, 0.9);
+          opacity: 1;
+          transform: scale(1.2);
+        }
+      }
     }
   }
   .slick-slide-prev {
@@ -711,31 +735,6 @@ figure {
   .slick-next {
     background-image: svg("right-arrow-angle.svg", "[fill]: #fff");
     right: 0;
-  }
-}
-
-.slick-expander {
-  background-color: rgba(black, 0.4);
-  background-image: svg("expand.svg", "[fill]: #fff");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 60%;
-  border-radius: 50%;
-  bottom: 30px;
-  // display: none;
-  opacity: 0;
-  position: absolute;
-  right: 30px;
-  size: 40px;
-  text-decoration: none;
-  .slick-active:hover & {
-    opacity: 0.7;
-    transition: $transition-duration;
-  }
-  &.slick-expander:hover {
-    background-color: rgba(black, 0.9);
-    opacity: 1;
-    transition: $transition-duration;
   }
 }
 
