@@ -8,14 +8,13 @@ dependencies:
     - field.field.node.lamp.field_images
     - field.field.node.lamp.field_lamp_type
     - field.field.node.lamp.field_made_in
-    - image.style.extra_large_x550_
     - node.type.lamp
   module:
     - datetime
     - ds
     - field_group
-    - image
     - link
+    - magnific_popup
     - text
     - user
 third_party_settings:
@@ -37,10 +36,10 @@ third_party_settings:
           ds_content: {  }
     regions:
       ds_content:
-        - group_lamp_slider
         - field_images
-        - node_title
+        - group_lamp_slider
         - 'display_field_copy:node-lamp_images_copy'
+        - node_title
         - body
         - field_made_in
         - field_ebay_link
@@ -55,14 +54,14 @@ third_party_settings:
           formatter:
             image_style: thumbnail_70x70_cropped
             image_link: ''
-      node_title:
-        plugin_id: node_title
-        weight: 1
-        label: hidden
-        formatter: default
       'dynamic_block_field:node-facebook_like_button_field':
         plugin_id: 'dynamic_block_field:node-facebook_like_button_field'
         weight: 5
+        label: hidden
+        formatter: default
+      node_title:
+        plugin_id: node_title
+        weight: 1
         label: hidden
         formatter: default
   field_group:
@@ -108,13 +107,14 @@ content:
       target: ''
     third_party_settings: {  }
   field_images:
-    type: image
+    type: magnific_popup
     weight: 0
     region: ds_content
     label: hidden
     settings:
-      image_style: extra_large_x550_
-      image_link: file
+      thumbnail_image_style: extra_large_x700_
+      popup_image_style: ''
+      gallery_type: all_items
     third_party_settings:
       ds:
         ds_limit: ''

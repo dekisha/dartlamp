@@ -48,6 +48,7 @@ module:
   libraries: 0
   link: 0
   link_class: 0
+  magnific_popup: 0
   masonry: 0
   media_watermark: 0
   menu_link_attributes: 0
