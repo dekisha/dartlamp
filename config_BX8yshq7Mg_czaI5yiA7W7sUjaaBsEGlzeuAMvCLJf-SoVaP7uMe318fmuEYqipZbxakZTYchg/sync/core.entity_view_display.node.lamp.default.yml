@@ -114,7 +114,7 @@ content:
     settings:
       thumbnail_image_style: extra_large_x700_
       popup_image_style: ''
-      gallery_type: all_items
+      gallery_type: separate_items
     third_party_settings:
       ds:
         ds_limit: ''
