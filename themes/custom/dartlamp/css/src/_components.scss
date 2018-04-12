@@ -66,19 +66,19 @@
 // ----------------------------------------------------------------------------
 // CAPTION
 // ----------------------------------------------------------------------------
-figure {
-   > figcaption {
-    border-bottom: 1px solid #e8edf2;
-    color: #666666;
-    padding: $inuit-global-spacing-unit-small;
-
-    @include inuit-font-size(15px);
-    @include mq($from: tablet_landscape) {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
-}
+// figure {
+//    > figcaption {
+//     border-bottom: 1px solid #e8edf2;
+//     color: #666666;
+//     padding: $inuit-global-spacing-unit-small;
+// 
+//     @include inuit-font-size(15px);
+//     @include mq($from: tablet_landscape) {
+//       padding-left: 0;
+//       padding-right: 0;
+//     }
+//   }
+// }
 
 // ----------------------------------------------------------------------------
 // DISPLAY SUITE
@@ -309,6 +309,13 @@ figure {
 .site-logo {
   display: block;
   padding: 5px 0;
+}
+
+// ----------------------------------------------------------------------------
+// MAGNIFIC POPUP
+// ----------------------------------------------------------------------------
+.mfp-bg {
+  opacity: 0.9;
 }
 
 // ----------------------------------------------------------------------------
