@@ -37,5 +37,8 @@
   },
   "scripts": {
     "postinstall": "find node_modules/ -name \"*.info\" -type f -delete"
+  },
+  "dependencies": {
+    "jquery-parallax.js": "^1.5.0"
   }
 }
