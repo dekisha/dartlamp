@@ -5,7 +5,6 @@ namespace Drupal\webform\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\TrustedRedirectResponse;
-use Drupal\Core\Url;
 use Drupal\webform\WebformHelpManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -86,18 +85,15 @@ class WebformHelpVideoForm extends FormBase {
       ];
     }
 
-    // Slides.
-    if ($video['presentation_id']) {
-      $form['presentation'] = [
-        '#type' => 'container',
-        '#attributes' => ['class' => ['webform-help-slides']],
-      ];
-      $form['presentation']['link'] = [
-        '#type' => 'link',
-        '#title' => $this->t('View slides'),
-        '#url' => Url::fromUri('https://docs.google.com/presentation/d/' . $video['presentation_id']),
-      ];
-    }
+    // Related resources.
+    $form['resources'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Additional resources'),
+      'links' => [
+        '#theme' => 'links',
+        '#links' => $this->helpManager->getVideoLinks($id),
+      ],
+    ];
 
     // Actions.
     if (isset($video['submit_label'])) {

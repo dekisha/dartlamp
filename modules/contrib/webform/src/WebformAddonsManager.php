@@ -102,6 +102,9 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
     $categories['utility'] = [
       'title' => $this->t('Utility'),
     ];
+    $categories['workflow'] = [
+      'title' => $this->t('Workflow'),
+    ];
     $categories['development'] = [
       'title' => $this->t('Development'),
     ];
@@ -166,6 +169,14 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'category' => 'element',
     ];
 
+    // Element: Webform Handsontable.
+    $projects['handsontable_yml_webform'] = [
+      'title' => $this->t('Webform Handsontable'),
+      'description' => $this->t("Allows both the Drupal Form API and the Drupal 8 Webforms module to use the Excel-like Handsontable library."),
+      'url' => Url::fromUri('https://www.drupal.org/handsontable_yml_webform'),
+      'category' => 'element',
+    ];
+
     // Element: Webform Layout Container.
     $projects['webform_layout_container'] = [
       'title' => $this->t('Webform Layout Container'),
@@ -214,6 +225,14 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'category' => 'integration',
     ];
 
+    // Integrations: Micro Webform.
+    $projects['micro_webform'] = [
+      'title' => $this->t('Micro Webform'),
+      'description' => $this->t('Integrate webform module with a micro site.'),
+      'url' => Url::fromUri('https://www.drupal.org/project/micro_webform'),
+      'category' => 'integration',
+    ];
+
     // Integration: Webform iContact.
     $projects['webform_icontact'] = [
       'title' => $this->t('Webform iContact'),
@@ -227,6 +246,14 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'title' => $this->t('Webform MailChimp'),
       'description' => $this->t('Posts form submissions to MailChimp list.'),
       'url' => Url::fromUri('https://www.drupal.org/project/webform_mailchimp'),
+      'category' => 'integration',
+    ];
+
+    // Integrations: Webform MyEmma.
+    $projects['webform_myemma'] = [
+      'title' => $this->t('Webform MyEmma'),
+      'description' => $this->t('Provides MyEmma subscription field to webforms'),
+      'url' => Url::fromUri('https://www.drupal.org/project/webform_myemma'),
       'category' => 'integration',
     ];
 
@@ -343,7 +370,14 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'url' => Url::fromUri('https://www.drupal.org/project/captcha'),
       'category' => 'spam',
       'recommended' => TRUE,
+    ];
 
+    // Spam: CleanTalk.
+    $projects['cleantalk'] = [
+      'title' => $this->t('CleanTalk'),
+      'description' => $this->t('Antispam service from CleanTalk to protect your site.'),
+      'url' => Url::fromUri('https://www.drupal.org/project/cleantalk'),
+      'category' => 'spam',
     ];
 
     // Spam: Honeypot.
@@ -473,6 +507,15 @@ class WebformAddonsManager implements WebformAddonsManagerInterface {
       'description' => $this->t('Provides Symfony (form) Validators for Drupal 8.'),
       'url' => Url::fromUri('https://www.drupal.org/project/validators'),
       'category' => 'validation',
+    ];
+
+    // Workflow: Maestro.
+    $projects['maestro'] = [
+      'title' => $this->t('Maestro Workflow Engine'),
+      'description' => $this->t('A business process workflow solution that allows you to create and automate a sequence of tasks representing any business, document approval or collaboration process.'),
+      'url' => Url::fromUri('https://www.drupal.org/project/maestro'),
+      'category' => 'workflow',
+      'recommended' => TRUE,
     ];
 
     // Devel: Maillog / Mail Developer.
