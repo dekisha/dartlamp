@@ -5,13 +5,17 @@
     attach: function (context) {
 
       // init Isotope
-      var $grid = $('.view-galery .view-content__inner').isotope({
-        itemSelector: '.views-row',
-        layoutMode: 'masonry',
-        getSortData: {
-          name: '.views-field-nothing a',
-          number: '.views-field-nid span'
-        }
+      var $grid = $('.view-galery .view-content__inner');
+      
+      $grid.imagesLoaded(function() {
+        $grid.isotope({
+          itemSelector: '.views-row',
+          layoutMode: 'masonry',
+          getSortData: {
+            name: '.views-field-nothing a',
+            number: '.views-field-nid span'
+          }
+        });
       });
 
       // bind sort button click
@@ -104,23 +108,27 @@
           $(this).find('.slick-active').siblings('.slick-slide-next').addBack().removeClass('slick-slide-next');
           $(this).find('.slick-active').next().addClass('slick-slide-next');
         });
-        $slickSlider.slick({
-          arrows: false,
-          asNavFor: '.js-slick-nav',
-          adaptiveHeight: true,
-          centerMode: true,
-          fade: false,
-          focusOnSelect: true,
-          slide: '.field__item',
-          slidesToScroll: 1,
-          variableWidth: true
+        $slickSlider.imagesLoaded(function() {
+          $slickSlider.slick({
+            arrows: false,
+            asNavFor: '.js-slick-nav',
+            adaptiveHeight: true,
+            centerMode: true,
+            fade: false,
+            focusOnSelect: true,
+            slide: '.field__item',
+            slidesToScroll: 1,
+            variableWidth: true
+          });
         });
-        $slickNav.slick({
-          asNavFor: '.js-slick-slider',
-          focusOnSelect: true,
-          slide: '.field__item',
-          slidesToShow: 3,
-          vertical: true,
+        $slickNav.imagesLoaded(function() {
+          $slickNav.slick({
+            asNavFor: '.js-slick-slider',
+            focusOnSelect: true,
+            slide: '.field__item',
+            slidesToShow: 3,
+            vertical: true,
+          });
         });
       });
     }

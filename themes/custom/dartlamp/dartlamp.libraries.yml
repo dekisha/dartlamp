@@ -7,7 +7,8 @@ global:
       css/dist/main.css: {}
 
   js:
-    js/dist/scripts.js: {}
+    js/dist/bundle.js: {}
+    js/src/scripts.js: {}
 
   dependencies:
     - core/jquery

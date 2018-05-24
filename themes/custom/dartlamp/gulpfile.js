@@ -35,8 +35,7 @@ var gulp = require('gulp'),
     'node_modules/jquery-sticky/jquery.sticky.js',
     // 'node_modules/jquery-migrate/dist/jquery-migrate.js',
     'node_modules/headroom.js/dist/headroom.js',
-    'node_modules/headroom.js/dist/jQuery.headroom.js',
-    'js/src/scripts.js'
+    'node_modules/headroom.js/dist/jQuery.headroom.js'
   ],
   scssfiles = [
     'css/src/*.scss'
@@ -46,7 +45,7 @@ var gulp = require('gulp'),
 
 //SETTINGS
 // Added task for browser-sync, enable browserSync.reload  for livereload
-gulp.task('browser-sync', function () {
+gulp.task('browser-sync', function() {
   browserSync.init({
     proxy: 'cofe.loc', // site url
     open: false // turnoff auto open on browsersync start
@@ -54,9 +53,9 @@ gulp.task('browser-sync', function () {
 });
 
 //FA FONTS
-gulp.task('fonts', function () {
+gulp.task('fonts', function() {
   return gulp.src(fonts)
-    .pipe(gulp.dest('fonts'));
+  .pipe(gulp.dest('fonts'));
 });
 
 //CSS
@@ -85,19 +84,19 @@ gulp.task('styles_prod', function () {
     .pipe(gulp.dest('css/dist'));
 });
 
-//JS
-gulp.task('scripts', function () {
-  return gulp.src(jsfiles)
-    .pipe(gp_sourcemaps.init())
-    .pipe(gp_concat('scripts.js'))
-    .pipe(gp_sourcemaps.write('./'))
-    .pipe(gulp.dest('js/dist'));
-});
+// //JS
+// gulp.task('scripts', function () {
+//   return gulp.src(jsfiles)
+//     .pipe(gp_sourcemaps.init())
+//     .pipe(gp_concat('bundle.js'))
+//     .pipe(gp_sourcemaps.write('./'))
+//     .pipe(gulp.dest('js/dist'));
+// });
 
 //JS MINIFY/UGLIFY
 gulp.task('scripts_prod', function () {
   return gulp.src(jsfiles)
-    .pipe(gp_concat('scripts.js'))
+    .pipe(gp_concat('bundle.js'))
     .pipe(gp_uglify())
     .pipe(gulp.dest('js/dist'));
 });
@@ -110,6 +109,15 @@ gulp.task('watch', function () {
   gp_livereload.listen();
   // gulp.watch('*.html').on('change', browserSync.reload);
 });
+
+gulp.task('w' ,['browser-sync'] , function() {
+  // gulp.watch(scssfiles, ['styles']);
+  gulp.watch(scssfiles, ['styles']);
+  gulp.watch(jsfiles, ['scripts']);
+  gp_livereload.listen();
+  gulp.watch('*.html').on('change', browserSync.reload);
+});
+
 
 //DEFAULT
 gulp.task('default', ['styles_prod', 'scripts_prod']);
