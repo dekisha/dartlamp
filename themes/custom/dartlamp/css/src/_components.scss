@@ -781,6 +781,10 @@
     transform: translateY(-50%);
     width: 70px;
   }
+  // prevent content show before JS init
+   > .field__item {
+    display: none;
+  }
   .field__item {
     &:at-most(3) {
       display: none;
