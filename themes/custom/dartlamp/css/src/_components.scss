@@ -660,6 +660,7 @@
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+
   @include mq($from: tablet_landscape) {
     min-height: 550px;
   }
@@ -847,17 +848,26 @@
   padding-top: 110px;
 
   @include o-wrapper;
+  .group-right,
+  .group-left {
+    align-self: center;
+  }
+  .group-header {
+    background-color: #010101;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
   .field--name-field-image {
+    height: 100%;
     div {
+      height: 100%;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      bottom: 0;
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
-      z-index: -1;
     }
   }
   .text-formatted {
@@ -867,6 +877,20 @@
       font-weight: 400;
       text-transform: uppercase;
     }
+  }
+}
+
+.reel_images {
+  height: 400px;
+  margin-bottom: 30px;
+  img {
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+  }
+  .reel-overlay {
+    width: 100%;
   }
 }
 
