@@ -1,0 +1,25 @@
+uuid: afeb6f5f-d0fc-467a-bb45-5e937eac3132
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero_video
+    - node.type.page
+  module:
+    - video_embed_field
+id: node.page.field_hero_video
+field_name: field_hero_video
+entity_type: node
+bundle: page
+label: 'Hero video'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    youtube: youtube
+    youtube_playlist: '0'
+    vimeo: '0'
+field_type: video_embed_field

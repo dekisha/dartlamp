@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.field_hero_image
+    - field.field.node.page.field_hero_video
     - field.field.node.page.field_paragraph_layouts
     - node.type.page
   module:
@@ -32,8 +33,6 @@ third_party_settings:
     regions:
       ds_content:
         - body
-        - field_photo
-        - field_video
         - field_paragraph_layouts
 _core:
   default_config_hash: oZ-7vpIJxjxL2up9B5KrJGD0lazQ9aN0P-fIPo6OrSU
@@ -51,7 +50,7 @@ content:
     third_party_settings: {  }
   field_paragraph_layouts:
     type: entity_reference_revisions_entity_view
-    weight: 3
+    weight: 1
     region: ds_content
     label: hidden
     settings:
@@ -60,4 +59,5 @@ content:
     third_party_settings: {  }
 hidden:
   field_hero_image: true
+  field_hero_video: true
   links: true
