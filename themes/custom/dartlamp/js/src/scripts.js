@@ -3,6 +3,13 @@
 
   Drupal.behaviors.gallery = {
     attach: function (context) {
+      
+      $('.views-field-field-hero-video iframe').attr('data-video-embed-field-modal', function(i, oldSrc) {
+        var isAutoPlay = oldSrc.match(/autoplay=([^&]*)/);
+        if (isAutoPlay && isAutoPlay[1] == 0) {
+          return oldSrc.replace('autoplay=0', 'autoplay=1');
+        }
+      });
 
       // init Isotope
       var $grid = $('.view-galery .view-content__inner');
