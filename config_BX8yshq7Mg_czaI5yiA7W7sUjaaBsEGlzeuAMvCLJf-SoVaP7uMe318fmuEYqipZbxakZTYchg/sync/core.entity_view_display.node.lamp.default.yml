@@ -14,7 +14,6 @@ dependencies:
     - datetime
     - ds
     - field_group
-    - image
     - link
     - magnific_popup
     - text
@@ -46,7 +45,6 @@ third_party_settings:
         - field_made_in
         - field_ebay_link
         - 'dynamic_block_field:node-facebook_like_button_field'
-        - field_teaser_image
     fields:
       'display_field_copy:node-lamp_images_copy':
         plugin_id: 'display_field_copy:node-lamp_images_copy'
@@ -130,15 +128,7 @@ content:
       timezone_override: ''
       date_format: 'Y M'
     third_party_settings: {  }
-  field_teaser_image:
-    weight: 5
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: ds_content
 hidden:
   field_lamp_type: true
+  field_teaser_image: true
   links: true
