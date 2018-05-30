@@ -20,22 +20,23 @@
           layoutMode: 'masonry',
           getSortData: {
             name: '.views-field-nothing a',
-            number: '.views-field-nid span'
+            date: '.views-field-field-made-in .field-content'
           }
         });
       });
 
       // bind sort button click
-      // $('.sort-by-button-group').on('click', 'button', function () {
-      //   var sortValue = $(this)["0"].attributes["0"].nodeValue;
-      //   $grid.isotope({
-      //     sortBy: sortValue
-      //   });
-      // });
+      $('.sorting-button-group').on('click', 'button', function () {
+        var sortByValue = $(this).attr('data-sort-by');
+        // console.log(sortByValue);
+        $grid.isotope({
+          sortBy: sortByValue
+        });
+      });
 
       // bind filter button click
       $('.filters-button-group').on('click', 'button', function () {
-        console.log('click!');
+        // console.log('click!');
         var filterValue = $(this).attr('data-filter');
         console.log(filterValue);
         $grid.isotope({
