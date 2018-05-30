@@ -5,11 +5,13 @@ dependencies:
   config:
     - field.storage.node.field_images
     - field.storage.node.field_lamp_type
+    - field.storage.node.field_made_in
     - field.storage.node.field_teaser_image
     - image.style.gallery_te
     - node.type.lamp
     - system.menu.main
   module:
+    - datetime
     - image
     - node
     - options
@@ -114,7 +116,7 @@ display:
           element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
-          element_wrapper_class: ''
+          element_wrapper_class: name
           element_default_classes: true
           empty: ''
           hide_empty: false
@@ -442,6 +444,70 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        field_made_in:
+          id: field_made_in
+          table: node__field_made_in
+          field: field_made_in
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: html_date
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       filters:
         status:
           value: '1'
@@ -464,21 +530,19 @@ display:
           entity_field: type
           plugin_id: bundle
       sorts:
-        created:
-          id: created
-          table: node_field_data
-          field: created
+        field_made_in_value:
+          id: field_made_in_value
+          table: node__field_made_in
+          field: field_made_in_value
           relationship: none
           group_type: group
           admin_label: ''
-          order: ASC
+          order: DESC
           exposed: false
           expose:
             label: ''
           granularity: second
-          entity_type: node
-          entity_field: created
-          plugin_id: date
+          plugin_id: datetime
       title: Gallery
       header:
         area:
@@ -491,7 +555,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: "<div class=\"button-group filters-button-group\">\n  <button data-filter=\".lamp-type--all\">all</button>\n  <button data-filter=\".lamp-type--table\">table</button>\n  <button data-filter=\".lamp-type--interior\">interior</button>\n  <button data-filter=\".lamp-type--other\">other</button>\n</div>"
+            value: "<h2>Filter</h2>\n<div class=\"button-group filters-button-group\">\n  <button class=\"is-checked\" data-filter=\".lamp-type--all\">all</button>\n  <button data-filter=\".lamp-type--table\">table</button>\n  <button data-filter=\".lamp-type--interior\">interior</button>\n  <button data-filter=\".lamp-type--other\">other</button>\n</div>\n<h2>Sort by</h2>\n<div class=\"button-group sorting-button-group\">\n  <!-- <button class=\"button is-checked\" data-sort-by=\"original-order\">original order</button> -->\n  <button data-sort-by=\"name\">name</button>\n  <button class=\"is-checked\" data-sort-by=\"date\">date</button>\n</div>\n"
             format: fullhtml
           plugin_id: text
       footer: {  }
@@ -509,6 +573,7 @@ display:
       tags:
         - 'config:field.storage.node.field_images'
         - 'config:field.storage.node.field_lamp_type'
+        - 'config:field.storage.node.field_made_in'
         - 'config:field.storage.node.field_teaser_image'
   block_1:
     display_plugin: block
@@ -527,6 +592,7 @@ display:
       tags:
         - 'config:field.storage.node.field_images'
         - 'config:field.storage.node.field_lamp_type'
+        - 'config:field.storage.node.field_made_in'
         - 'config:field.storage.node.field_teaser_image'
   page_1:
     display_plugin: page
@@ -557,4 +623,5 @@ display:
       tags:
         - 'config:field.storage.node.field_images'
         - 'config:field.storage.node.field_lamp_type'
+        - 'config:field.storage.node.field_made_in'
         - 'config:field.storage.node.field_teaser_image'
