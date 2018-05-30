@@ -3,8 +3,8 @@
 
   Drupal.behaviors.gallery = {
     attach: function (context) {
-      
-      $('.views-field-field-hero-video iframe').attr('data-video-embed-field-modal', function(i, oldSrc) {
+
+      $('.views-field-field-hero-video iframe').attr('data-video-embed-field-modal', function (i, oldSrc) {
         var isAutoPlay = oldSrc.match(/autoplay=([^&]*)/);
         if (isAutoPlay && isAutoPlay[1] == 0) {
           return oldSrc.replace('autoplay=0', 'autoplay=1');
@@ -13,8 +13,8 @@
 
       // init Isotope
       var $grid = $('.view-galery .view-content__inner');
-      
-      $grid.imagesLoaded(function() {
+
+      $grid.imagesLoaded(function () {
         $grid.isotope({
           itemSelector: '.views-row',
           layoutMode: 'masonry',
@@ -93,8 +93,11 @@
 
   Drupal.behaviors.getItSticky = {
     attach: function (context) {
-      $(".button-group").once().sticky({
-        topSpacing: 0
+      $('.view-galery', context).once().each(function () {
+        $(this).find('.view-header').sticky({
+          widthFromWrapper: false,
+          topSpacing: 20
+        });
       });
     }
   };
@@ -115,7 +118,7 @@
           $(this).find('.slick-active').siblings('.slick-slide-next').addBack().removeClass('slick-slide-next');
           $(this).find('.slick-active').next().addClass('slick-slide-next');
         });
-        $slickSlider.imagesLoaded(function() {
+        $slickSlider.imagesLoaded(function () {
           $slickSlider.slick({
             arrows: false,
             asNavFor: '.js-slick-nav',
@@ -128,12 +131,12 @@
             variableWidth: true
           });
         });
-        $slickNav.imagesLoaded(function() {
+        $slickNav.imagesLoaded(function () {
           $slickNav.slick({
             asNavFor: '.js-slick-slider',
             focusOnSelect: true,
             slide: '.field__item',
-            slidesToShow: 3,
+            slidesToShow: 4,
             vertical: true,
           });
         });
@@ -209,7 +212,7 @@
         $this.find('.icon-power-off').on('click', function () {
           // remove splashify
           $this.fadeOut(3000);
-          setTimeout(function(){
+          setTimeout(function () {
             // get slick object
             var slickSlider = $('.field--name-field-homepage-slider-images');
             // go to 1st slide (if autoplay is running)
@@ -218,7 +221,7 @@
             var slickCurrent = slickSlider.find('.slick-current');
             // This way we start css animation
             $('body').removeClass('splash-active').addClass('splash-hidden');
-          },3000);
+          }, 3000);
         });
       });
     }
@@ -242,7 +245,8 @@
         myMenu.classList.add("c-smooth__menu--animatable");
         if (!myMenu.classList.contains("c-smooth__menu--visible")) {
           myMenu.classList.add("c-smooth__menu--visible");
-        } else {
+        }
+        else {
           myMenu.classList.remove('c-smooth__menu--visible');
         }
       }

@@ -780,7 +780,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 70px;
+    width: 100px;
   }
   // prevent content show before JS init
    > .field__item {
@@ -864,10 +864,10 @@
   .field--name-field-image {
     height: 100%;
     div {
-      height: 100%;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
+      height: 100%;
     }
   }
   .text-formatted {
@@ -1233,36 +1233,71 @@ ul.tabs {
 // ----------------------------------------------------------------------------
 // VIEWS
 // ----------------------------------------------------------------------------
-.view-galery {
+.block-views-blockgalery-block-1 {
+  // overflow: hidden;
+  @include grid-fix;
+}
+
+.view-gallery__inner {
+  background-image: inline("wood_1.png");
+  background-position: top center;
+  background-repeat: repeat;
+  padding: 100px 20px 100px;
+  position: relative;
+
+  @include mq($from: tablet_landscape) {
+    @include grid($gutter: $default-grid-gutter);
+  }
+   > *:first-child {
+    @include mq($from: tablet_landscape) {
+      @include grid-col($gutter: $default-grid-gutter, $col: 2);
+    }
+  }
+   > *:nth-child(2) {
+    @include mq($from: tablet_landscape) {
+      @include grid-col($gutter: $default-grid-gutter, $col: 10);
+    }
+  }
+  .sticky-wrapper {
+    // padding-top: 5px;
+    margin-bottom: $default-grid-gutter;
+     > .view-header {
+      @include mq($until: tablet_landscape) {
+        position: static !important;
+        top: 0 !important;
+      }
+    }
+  }
   .view-header {
     @at-root .button-group {
       background-color: rgba(0, 0, 0, 0.3);
-      display: flex;
-      justify-content: space-between;
       button {
         background: none;
         border: 0;
         color: white;
-        flex-grow: 1;
+        display: block;
+        // flex-grow: 1;
         font-family: "LeelawUI";
-        font-weight: 700;
+        font-size: 20px;
         font-weight: 700;
         padding: $inuit-global-spacing-unit-small;
-        text-align: center;
+        text-align: left;
         text-transform: uppercase;
+        width: 100%;
+        &.is-checked {
+          background-image: svg("circle.svg", "[fill]: white");
+          background-position: right 12px center;
+          background-repeat: no-repeat;
+          background-size: 20px;
+        }
       }
     }
   }
   .view-content {
     // background-image: inline("gallery-pozadinska-fotka.jpg");
-    background-image: inline("wood_1.png");
-    background-position: top center;
-    background-repeat: repeat;
-    font-size: 0;
-    padding: 100px 5px 100px;
   }
   .views-row {
-    padding: 5px;
+    // padding: 5px;
   }
   .views-row__inner {
     overflow: hidden;
@@ -1317,7 +1352,7 @@ ul.tabs {
   // .o-layout__item {
   //   padding: 0;
   // }
-  .views-field-field-images {
+  .views-field-field-teaser-image {
     ul {
       margin: 0;
     }

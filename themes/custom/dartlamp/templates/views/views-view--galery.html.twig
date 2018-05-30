@@ -13,35 +13,37 @@
     {{ title }}
   {% endif %}
   {{ title_suffix }}
-  {% if header %}
+  <div class="view-gallery__inner">
+    {% if header %}
     <div class="view-header">
       {{ header }}
     </div>
-  {% endif %}
-  {% if exposed %}
+    {% endif %}
+    {% if exposed %}
     <div class="view-filters">
       {{ exposed }}
     </div>
-  {% endif %}
-  {% if attachment_before %}
+    {% endif %}
+    {% if attachment_before %}
     <div class="attachment attachment-before">
       {{ attachment_before }}
     </div>
-  {% endif %}
-
-  {% if rows %}
+    {% endif %}
+    
+    {% if rows %}
     <div class="view-content">
-      <div class="o-wrapper">
-        <div class="view-content__inner">
-          {{ rows }}
-        </div>
+      <!-- <div class="o-wrapper"> -->
+      <div class="view-content__inner o-layout">
+        {{ rows }}
       </div>
+      <!-- </div> -->
     </div>
-  {% elseif empty %}
+    {% elseif empty %}
     <div class="view-empty">
       {{ empty }}
     </div>
-  {% endif %}
+    {% endif %}
+  </div>
 
   {% if pager %}
     {{ pager }}

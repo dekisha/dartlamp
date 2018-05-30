@@ -4,7 +4,7 @@
 {% for row in rows %}
   {%
     set row_classes = [
-      default_row_class ? 'views-row  o-layout__item  u-1/3',
+      default_row_class ? 'views-row  o-layout__item [ u-1/2@tablet u-1/4@desktop ] u-margin-bottom',
     ]
   %}
   <div{{ row.attributes.addClass(row_classes) }}>
