@@ -836,6 +836,23 @@
 }
 
 // ----------------------------------------------------------------------------
+// PARALLAX
+// ----------------------------------------------------------------------------
+.parallax-mirror {
+  background-color: black;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  text-align: right;
+}
+
+.parallax-slider {
+  bottom: 0;
+  height: auto !important;
+  right: 0;
+  width: auto !important;
+}
+
+// ----------------------------------------------------------------------------
 // PARAGRAPHS
 // ----------------------------------------------------------------------------
 .field--name-field-paragraph-layouts {
@@ -1272,8 +1289,8 @@ ul.tabs {
   .view-header {
     h2 {
       color: $color-dark;
-      text-transform: uppercase;
       margin-bottom: 20px;
+      text-transform: uppercase;
     }
     @at-root .button-group {
       margin-bottom: 40px;
@@ -1285,9 +1302,9 @@ ul.tabs {
         color: $color-dark;
         display: block;
         // flex-grow: 1;
-        font-family: "LeelawUI";
+        // font-family: "Constantia";
         font-size: 20px;
-        font-weight: 700;
+        font-weight: 400;
         padding: $inuit-global-spacing-unit-small;
         text-align: left;
         text-transform: uppercase;

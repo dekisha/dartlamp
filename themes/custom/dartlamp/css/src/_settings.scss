@@ -14,20 +14,6 @@ $font-leelawui: 'LeelawUI';
 $font-montserrat: 'Montserrat', sans-serif;
 $font-heading: $font-montserrat;
 
-@font-face {
-  font-family: 'LeelawUI';
-  src: url(#{$font-path}/LeelawUI.ttf);
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'LeelawUI';
-  src: url(#{$font-path}/leelawdb.ttf);
-  font-weight: 700;
-  font-style: normal;
-}
-
 // Colors
 $color-brand:         #000000;
 $color-brand-lighter: #00000f;

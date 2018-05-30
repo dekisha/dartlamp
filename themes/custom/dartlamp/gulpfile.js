@@ -35,7 +35,8 @@ var gulp = require('gulp'),
     'node_modules/jquery-sticky/jquery.sticky.js',
     // 'node_modules/jquery-migrate/dist/jquery-migrate.js',
     'node_modules/headroom.js/dist/headroom.js',
-    'node_modules/headroom.js/dist/jQuery.headroom.js'
+    'node_modules/headroom.js/dist/jQuery.headroom.js',
+    'node_modules/jquery-parallax.js/parallax.js'
   ],
   scssfiles = [
     'css/src/*.scss'
@@ -85,13 +86,13 @@ gulp.task('styles_prod', function () {
 });
 
 // //JS
-// gulp.task('scripts', function () {
-//   return gulp.src(jsfiles)
-//     .pipe(gp_sourcemaps.init())
-//     .pipe(gp_concat('bundle.js'))
-//     .pipe(gp_sourcemaps.write('./'))
-//     .pipe(gulp.dest('js/dist'));
-// });
+gulp.task('scripts', function () {
+  return gulp.src(jsfiles)
+    .pipe(gp_sourcemaps.init())
+    .pipe(gp_concat('bundle.js'))
+    .pipe(gp_sourcemaps.write('./'))
+    .pipe(gulp.dest('js/dist'));
+});
 
 //JS MINIFY/UGLIFY
 gulp.task('scripts_prod', function () {

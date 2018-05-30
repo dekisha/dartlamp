@@ -71,15 +71,15 @@
     }
   };
 
-  // Drupal.behaviors.parallax = {
-  //   attach: function (context) {
-  //     $('.field--name-field-paragraph-layouts', context).once('zzzzzzz').each(function(){
-  //       $(this).find('.field__item').addClass('section');
-  //       console.log($(this))
-  //       $(this).fullpage();
-  //     });
-  //   }
-  // };
+  Drupal.behaviors.parallax = {
+    attach: function (context) {
+      $('#main', context).once('zzzzzzz').each(function(){
+        $(this).parallax({
+          imageSrc: '../../themes/custom/dartlamp/images/contact-page.jpg'  
+        });
+      });
+    }
+  };
 
   Drupal.behaviors.headroomFn = {
     attach: function (context) {
@@ -145,13 +145,13 @@
     }
   };
 
-  // Drupal.behaviors.customScrollbar = {
-  //   attach: function (context) {
-  //     $('.node--type-lamp.node--view-mode-full .field--name-body').once().mCustomScrollbar({
-  //       theme: "dark"
-  //     });
-  //   }
-  // };
+  Drupal.behaviors.customScrollbar = {
+    attach: function (context) {
+      $('.node--type-lamp.node--view-mode-full .field--name-body').once().mCustomScrollbar({
+        theme: "dark"
+      });
+    }
+  };
 
   // Drupal.behaviors.threesixty = {
   //   attach: function (context) {

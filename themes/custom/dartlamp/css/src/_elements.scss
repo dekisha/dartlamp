@@ -109,14 +109,15 @@ img {
   vertical-align: middle;
 }
 
-img[width], img[height] {
+img[width],
+img[height] {
   max-width: 100%;
 }
 
 input[type="image"] {
   background-color: transparent;
-  border: 0;
   border-radius: 0;
+  border: 0;
   box-sizing: content-box;
   color: inherit;
   padding: 0;
@@ -137,11 +138,11 @@ select,
 textarea,
 fieldset {
   background-color: white;
-  border: 0;
   border-bottom: 4px solid $color-brown-lighter;
   border-radius: $radius-form;
-  display: block;
+  border: 0;
   color: $color-dark;
+  display: block;
   font-family: inherit;
   font-size: inherit;
   line-height: 1.25em;
@@ -241,10 +242,23 @@ iframe {
   max-width: 100%;
 }
 
-// div:empty {
-//   border: 1px solid red;
-//   padding: 20px;
-//   &:before {
-//     content: "I am an empty element, plase remove me!"
-//   }
-// }
+@font-face {
+  font-family: "LeelawUI";
+  font-style: normal;
+  font-weight: 400;
+  src: url(#{$font-path}/LeelawUI.ttf);
+}
+
+@font-face {
+  font-family: "LeelawUI";
+  font-style: normal;
+  font-weight: 700;
+  src: url(#{$font-path}/leelawdb.ttf);
+}
+
+@font-face {
+  font-family: "Constantia";
+  font-style: normal;
+  font-weight: 400;
+  src: url(#{$font-path}/constan.ttf);
+}
