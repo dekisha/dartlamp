@@ -8,11 +8,13 @@ dependencies:
     - field.field.node.lamp.field_images
     - field.field.node.lamp.field_lamp_type
     - field.field.node.lamp.field_made_in
+    - field.field.node.lamp.field_teaser_image
     - node.type.lamp
   module:
     - datetime
     - ds
     - field_group
+    - image
     - link
     - magnific_popup
     - text
@@ -36,14 +38,15 @@ third_party_settings:
           ds_content: {  }
     regions:
       ds_content:
-        - field_images
         - group_lamp_slider
-        - 'display_field_copy:node-lamp_images_copy'
+        - field_images
         - node_title
+        - 'display_field_copy:node-lamp_images_copy'
         - body
         - field_made_in
         - field_ebay_link
         - 'dynamic_block_field:node-facebook_like_button_field'
+        - field_teaser_image
     fields:
       'display_field_copy:node-lamp_images_copy':
         plugin_id: 'display_field_copy:node-lamp_images_copy'
@@ -52,7 +55,7 @@ third_party_settings:
         formatter: image
         settings:
           formatter:
-            image_style: thumbnail_70x70_cropped
+            image_style: thumbnail_100x100_cropped
             image_link: ''
       'dynamic_block_field:node-facebook_like_button_field':
         plugin_id: 'dynamic_block_field:node-facebook_like_button_field'
@@ -127,6 +130,15 @@ content:
       timezone_override: ''
       date_format: 'Y M'
     third_party_settings: {  }
+  field_teaser_image:
+    weight: 5
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: ds_content
 hidden:
   field_lamp_type: true
   links: true
