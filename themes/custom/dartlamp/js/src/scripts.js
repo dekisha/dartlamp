@@ -75,15 +75,32 @@
     }
   };
 
-  Drupal.behaviors.parallax = {
+  Drupal.behaviors.contactPageParallax = {
     attach: function (context) {
-      $('.path-contact #main', context).once('parallax').each(function(){
+      $('.path-contact #main', context).once('contactPageParallax').each(function () {
         $(this).parallax({
           imageSrc: '../../themes/custom/dartlamp/images/contact-page.jpg',
           positionY: '200px',
           positionX: 'right'
         });
       });
+    }
+  };
+
+  Drupal.behaviors.bioPageParallax = {
+    attach: function (context) {
+      // check if biography page
+      if($('.node--type-page.node--view-mode-full').data('history-node-id') === 4) { 
+        $('#block-dartlamp-content .group-left', context).once('bioPageParallax').each(function () {
+          $(this).css({
+            'z-index': 1
+          }).paroller({
+            factor: -0.15, // multiplier for scrolling speed and offset
+            type: 'foreground', // background, foreground
+            direction: 'vertical' // vertical, horizontal
+          });
+        });
+      }
     }
   };
 
@@ -118,7 +135,10 @@
           $(this).prepend('<div class="slick-count"/>');
         });
         $slickSlider.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
-          var i = (currentSlide ? currentSlide : 0) + 1;
+          var i = (
+            currentSlide ?
+            currentSlide :
+            0) + 1;
           $('.slick-count').text(i + ' of ' + slick.slideCount);
           $(this).find('.slick-active').siblings('.slick-slide-prev').addBack().removeClass('slick-slide-prev');
           $(this).find('.slick-active').prev().addClass('slick-slide-prev');
@@ -144,7 +164,7 @@
             focusOnSelect: true,
             slide: '.field__item',
             slidesToShow: 4,
-            vertical: true,
+            vertical: true
           });
         });
       });
@@ -163,18 +183,18 @@
   // Drupal.behaviors.threesixty = {
   //   attach: function (context) {
   //     $('.product1').once().ThreeSixty({
-  //       totalFrames: 52, // Total no. of image you have for 360 slider
-  //       endFrame: 52, // end frame for the auto spin animation
-  //       currentFrame: 1, // This the start frame for auto spin
-  //       imgList: '.threesixty_images', // selector for image list
-  //       progress: '.spinner', // selector to show the loading progress
-  //       imagePath: '/themes/custom/dartlamp/images/assets/', // path of the image assets
-  //       filePrefix: '', // file prefix if any
-  //       ext: '.png', // extention for the assets
+  //       totalFrames: 52,  Total no. of image you have for 360 slider
+  //       endFrame: 52,  end frame for the auto spin animation
+  //       currentFrame: 1,  This the start frame for auto spin
+  //       imgList: '.threesixty_images',  selector for image list
+  //       progress: '.spinner',  selector to show the loading progress
+  //       imagePath: '/themes/custom/dartlamp/images/assets/',  path of the image assets
+  //       filePrefix: '',  file prefix if any
+  //       ext: '.png',  extention for the assets
   //       height: 265,
   //       width: 400,
   //       navigation: true,
-  //       disableSpin: true // Default false
+  //       disableSpin: true  Default false
   //     });
   //   }
   // };
@@ -276,6 +296,5 @@
       });
     }
   };
-
 
 })(jQuery);

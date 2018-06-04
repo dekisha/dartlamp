@@ -36,7 +36,8 @@ var gulp = require('gulp'),
     // 'node_modules/jquery-migrate/dist/jquery-migrate.js',
     'node_modules/headroom.js/dist/headroom.js',
     'node_modules/headroom.js/dist/jQuery.headroom.js',
-    'node_modules/jquery-parallax.js/parallax.js'
+    'node_modules/jquery-parallax.js/parallax.js',
+    'node_modules/paroller.js/dist/jquery.paroller.js'
   ],
   scssfiles = [
     'css/src/*.scss'
