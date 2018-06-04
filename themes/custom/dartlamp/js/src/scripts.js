@@ -30,7 +30,11 @@
         var sortByValue = $(this).attr('data-sort-by');
         // console.log(sortByValue);
         $grid.isotope({
-          sortBy: sortByValue
+          sortBy: sortByValue,
+          sortAscending: {
+            name: true,
+            date: false
+          }
         });
       });
 
@@ -145,13 +149,14 @@
     }
   };
 
-  Drupal.behaviors.customScrollbar = {
-    attach: function (context) {
-      $('.node--type-lamp.node--view-mode-full .field--name-body').once().mCustomScrollbar({
-        theme: "dark"
-      });
-    }
-  };
+  // Drupal.behaviors.customScrollbar = {
+  //   attach: function (context) {
+  //     $('.node--type-lamp.node--view-mode-full .field--name-body').once().mCustomScrollbar({
+  //       setHeight: '500px',
+  //       theme: 'dark'
+  //     });
+  //   }
+  // };
 
   // Drupal.behaviors.threesixty = {
   //   attach: function (context) {
