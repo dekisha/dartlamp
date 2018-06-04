@@ -61,7 +61,7 @@
 
   Drupal.behaviors.hpSlider = {
     attach: function (context, settings) {
-      $('.field--name-field-homepage-slider-images', context).once().each(function () {
+      $('.field--name-field-homepage-slider-images', context).once('hpSlider').each(function () {
         $(this).slick({
           infinite: true,
           autoplay: false,
@@ -77,9 +77,11 @@
 
   Drupal.behaviors.parallax = {
     attach: function (context) {
-      $('#main', context).once('zzzzzzz').each(function(){
+      $('.path-contact #main', context).once('parallax').each(function(){
         $(this).parallax({
-          imageSrc: '../../themes/custom/dartlamp/images/contact-page.jpg'  
+          imageSrc: '../../themes/custom/dartlamp/images/contact-page.jpg',
+          positionY: '200px',
+          positionX: 'right'
         });
       });
     }
@@ -98,7 +100,7 @@
 
   Drupal.behaviors.getItSticky = {
     attach: function (context) {
-      $('.view-galery', context).once().each(function () {
+      $('.view-galery', context).once('getItSticky').each(function () {
         $(this).find('.view-header').sticky({
           widthFromWrapper: false,
           topSpacing: 20
