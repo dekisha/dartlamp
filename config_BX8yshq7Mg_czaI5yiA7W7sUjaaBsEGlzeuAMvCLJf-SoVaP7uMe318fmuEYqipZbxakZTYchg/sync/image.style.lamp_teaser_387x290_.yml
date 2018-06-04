@@ -1,0 +1,17 @@
+uuid: 811886b1-6191-4c35-a1c8-1661514d0c64
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: lamp_teaser_387x290_
+label: 'Lamp teaser (387x290)'
+effects:
+  0e888e36-08c2-428b-88bf-107ec8230186:
+    uuid: 0e888e36-08c2-428b-88bf-107ec8230186
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 387
+      height: 290
+      crop_type: focal_point

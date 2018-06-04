@@ -22,6 +22,7 @@ module:
   context_active_trail: 0
   context_ui: 0
   contextual: 0
+  crop: 0
   ctools: 0
   datetime: 0
   dblog: 0
@@ -38,6 +39,7 @@ module:
   field_ui: 0
   file: 0
   filter: 0
+  focal_point: 0
   google_analytics: 0
   help: 0
   history: 0

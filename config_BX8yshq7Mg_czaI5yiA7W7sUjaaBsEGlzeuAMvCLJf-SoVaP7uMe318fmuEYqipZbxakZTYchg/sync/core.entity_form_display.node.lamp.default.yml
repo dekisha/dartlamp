@@ -9,10 +9,12 @@ dependencies:
     - field.field.node.lamp.field_lamp_type
     - field.field.node.lamp.field_made_in
     - field.field.node.lamp.field_teaser_image
+    - image.style.lamp_teaser_387x290_
     - image.style.thumbnail
     - node.type.lamp
   module:
     - datetime
+    - focal_point
     - image
     - link
     - path
@@ -68,10 +70,12 @@ content:
   field_teaser_image:
     weight: 7
     settings:
+      preview_image_style: lamp_teaser_387x290_
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_link: true
+      offsets: '50,50'
     third_party_settings: {  }
-    type: image_image
+    type: image_focal_point
     region: content
   path:
     type: path

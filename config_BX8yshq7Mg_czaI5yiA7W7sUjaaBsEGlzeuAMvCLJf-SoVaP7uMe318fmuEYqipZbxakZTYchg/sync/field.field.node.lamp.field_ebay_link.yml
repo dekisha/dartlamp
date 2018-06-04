@@ -11,7 +11,7 @@ id: node.lamp.field_ebay_link
 field_name: field_ebay_link
 entity_type: node
 bundle: lamp
-label: 'Ebay link'
+label: 'Buy link'
 description: 'Linking this gourd lamp to the one on Ebay'
 required: false
 translatable: false
