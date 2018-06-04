@@ -95,7 +95,7 @@
           $(this).css({
             'z-index': 1
           }).paroller({
-            factor: -0.15, // multiplier for scrolling speed and offset
+            factor: -0.2, // multiplier for scrolling speed and offset
             type: 'foreground', // background, foreground
             direction: 'vertical' // vertical, horizontal
           });
