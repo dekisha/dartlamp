@@ -9,7 +9,7 @@ dependencies:
     - field.field.node.lamp.field_lamp_type
     - field.field.node.lamp.field_made_in
     - field.field.node.lamp.field_teaser_image
-    - image.style.lamp_teaser_387x290_
+    - image.style.extra_large_x550_
     - image.style.thumbnail
     - node.type.lamp
   module:
@@ -70,10 +70,10 @@ content:
   field_teaser_image:
     weight: 7
     settings:
-      preview_image_style: lamp_teaser_387x290_
-      progress_indicator: throbber
+      preview_image_style: extra_large_x550_
       preview_link: true
       offsets: '50,50'
+      progress_indicator: throbber
     third_party_settings: {  }
     type: image_focal_point
     region: content
