@@ -90,15 +90,26 @@
   Drupal.behaviors.bioPageParallax = {
     attach: function (context) {
       // check if biography page
-      if($('.node--type-page.node--view-mode-full').data('history-node-id') === 4) { 
-        $('#block-dartlamp-content .group-left', context).once('bioPageParallax').each(function () {
-          $(this).css({
-            'z-index': 1
-          }).paroller({
-            factor: -0.2, // multiplier for scrolling speed and offset
-            type: 'foreground', // background, foreground
-            direction: 'vertical' // vertical, horizontal
-          });
+      if ($('.node--type-page.node--view-mode-full').data('history-node-id') === 4) {
+        $('.field--name-field-paragraph-layouts > .field__item', context).once('bioPageParallax').each(function () {
+            if($(this).hasClass('field__item--1')) {
+              $(this)
+              .find('.group-left')
+              .paroller({
+                factor: 0.4, // multiplier for scrolling speed and offset
+                type: 'foreground', // background, foreground
+                direction: 'vertical' // vertical, horizontal
+              });
+            }
+            if($(this).hasClass('field__item--2')) {
+              $(this)
+              .find('.group-left')
+              .paroller({
+                factor: -0.4, // multiplier for scrolling speed and offset
+                type: 'foreground', // background, foreground
+                direction: 'vertical' // vertical, horizontal
+              });
+            }
         });
       }
     }
