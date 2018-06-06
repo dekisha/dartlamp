@@ -1,0 +1,21 @@
+uuid: f9f212bc-1ab0-427d-8844-67e93705127a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text_left_col
+    - paragraphs.paragraphs_type.three_column_layout
+  module:
+    - text
+id: paragraph.three_column_layout.field_text_left_col
+field_name: field_text_left_col
+entity_type: paragraph
+bundle: three_column_layout
+label: 'Text left'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

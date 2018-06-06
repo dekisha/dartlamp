@@ -1,0 +1,67 @@
+uuid: d7774e12-f35d-41ba-b5f8-b785d66ddd6c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.three_column_layout.field_text_center
+    - field.field.paragraph.three_column_layout.field_text_left_col
+    - field.field.paragraph.three_column_layout.field_text_right_col
+    - paragraphs.paragraphs_type.three_column_layout
+  module:
+    - ds
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: ds_3col_equal_width
+      library: ds/ds_3col_equal_width
+      disable_css: true
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          left: div
+          middle: div
+          right: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+          left: {  }
+          middle: {  }
+          right: {  }
+    regions:
+      left:
+        - field_text_left_col
+      middle:
+        - field_text_center
+      right:
+        - field_text_right_col
+id: paragraph.three_column_layout.default
+targetEntityType: paragraph
+bundle: three_column_layout
+mode: default
+content:
+  field_text_center:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: middle
+  field_text_left_col:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: left
+  field_text_right_col:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: right
+hidden: {  }

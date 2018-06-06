@@ -556,7 +556,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: "<h2>Filter</h2>\n<div class=\"button-group filters-button-group\">\n  <button class=\"is-checked\" data-filter=\".lamp-type--all\">all</button>\n  <button data-filter=\".lamp-type--table\">table</button>\n  <button data-filter=\".lamp-type--interior\">interior</button>\n  <button data-filter=\".lamp-type--other\">other</button>\n</div>\n<h2>Sort by</h2>\n<div class=\"button-group sorting-button-group\">\n  <!-- <button class=\"button is-checked\" data-sort-by=\"original-order\">original order</button> -->\n  <button data-sort-by=\"name\">name</button>\n  <button class=\"is-checked\" data-sort-by=\"date\">date</button>\n</div>\n"
+            value: "<div class=\"view-header__inner\">\n  <div class=\"view-header__img\">\n    <img src=\"/themes/custom/dartlamp/logo.svg\" width=\"150\" />\n  </div>\n  <p>handcrafted <br/>gourd lamps</p>\n  <div class=\"button-group filters-button-group\">\n    <button class=\"is-checked\" data-filter=\".lamp-type--all\">all lamps</button>\n    <button data-filter=\".lamp-type--table\">table lamps</button>\n    <button data-filter=\".lamp-type--interior\">interior</button>\n    <button data-filter=\".lamp-type--other\">other</button>\n  </div>\n  <div class=\"button-group sorting-button-group\">\n    <button data-sort-by=\"name\">by name</button>\n    <button class=\"is-checked\" data-sort-by=\"date\">by date</button>\n  </div>\n</div>"
             format: fullhtml
           plugin_id: text
       footer: {  }
