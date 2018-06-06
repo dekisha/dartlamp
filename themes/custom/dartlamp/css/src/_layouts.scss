@@ -48,9 +48,7 @@ html {
 }
 
 .region-top {
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
+  @include grid($flex-direction: row, $justify-content: space-between, $align-items: center);
    > div {
     &:first-child {
       text-align: left;
@@ -65,16 +63,15 @@ html {
 // MASTER HEADER
 // ----------------------------------------------------------------------------
 .l-master-header {
-  // height: 120px;
   @include mq($until: tablet_landscape) {
     display: none;
   }
   .page-node-type-page.not-logged-in & {
-    position: fixed;
-    z-index: 10;
-    right: 0;
     left: 0;
+    position: fixed;
+    right: 0;
     top: 0;
+    z-index: 10;
   }
 }
 
@@ -87,11 +84,8 @@ html {
 }
 
 .region-header {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  @include grid($flex-direction: row, $justify-content: space-between, $align-items: center, $flex-wrap: wrap);
+  
   //  > div {
   // &:first-child {
   //   text-align: left;
@@ -115,13 +109,11 @@ html {
 // FEATURED
 // ----------------------------------------------------------------------------
 .l-featured {
-  // margin-bottom: $inuit-global-spacing-unit * 2;
+  position: relative;
+  z-index: 2;
 }
 
 .region-featured {
-  // align-items: center;
-  // display: flex;
-  // justify-content: center;
   position: relative;
 }
 
@@ -164,7 +156,6 @@ html {
 // ----------------------------------------------------------------------------
 .l-content {
    > .o-wrapper {
-    // .path-gallery &,
     .page-node-type-lamp &,
     .page-node-type-page & {
       max-width: none;

@@ -92,24 +92,42 @@
       // check if biography page
       if ($('.node--type-page.node--view-mode-full').data('history-node-id') === 4) {
         $('.field--name-field-paragraph-layouts > .field__item', context).once('bioPageParallax').each(function () {
-            if($(this).hasClass('field__item--1')) {
-              $(this)
-              .find('.group-left')
-              .paroller({
-                factor: 0.4, // multiplier for scrolling speed and offset
-                type: 'foreground', // background, foreground
-                direction: 'vertical' // vertical, horizontal
-              });
-            }
-            if($(this).hasClass('field__item--2')) {
-              $(this)
-              .find('.group-left')
-              .paroller({
-                factor: -0.4, // multiplier for scrolling speed and offset
-                type: 'foreground', // background, foreground
-                direction: 'vertical' // vertical, horizontal
-              });
-            }
+          if ($(this).hasClass('field__item--1')) {
+            $(this).find('.group-left').paroller({
+              factor: 0.4, // multiplier for scrolling speed and offset
+              type: 'foreground', // background, foreground
+              direction: 'vertical' // vertical, horizontal
+            });
+          }
+          if ($(this).hasClass('field__item--2')) {
+            $(this).find('.group-left').paroller({
+              factor: -0.4, // multiplier for scrolling speed and offset
+              type: 'foreground', // background, foreground
+              direction: 'vertical' // vertical, horizontal
+            });
+          }
+          if ($(this).hasClass('field__item--4')) {
+            $(this).find('.group-left').paroller({
+              factor: 0.4, // multiplier for scrolling speed and offset
+              type: 'foreground', // background, foreground
+              direction: 'vertical' // vertical, horizontal
+            }).siblings('.group-right').paroller({
+              factor: 1, // multiplier for scrolling speed and offset
+              type: 'foreground', // background, foreground
+              direction: 'vertical' // vertical, horizontal
+            });
+          }
+          if ($(this).hasClass('field__item--5')) {
+            $(this).find('.group-middle').paroller({
+              factor: 0.4, // multiplier for scrolling speed and offset
+              type: 'foreground', // background, foreground
+              direction: 'vertical' // vertical, horizontal
+            }).siblings('.group-right').paroller({
+              factor: -0.3, // multiplier for scrolling speed and offset
+              type: 'foreground', // background, foreground
+              direction: 'vertical' // vertical, horizontal
+            });
+          }
         });
       }
     }
@@ -117,7 +135,7 @@
 
   Drupal.behaviors.headroomFn = {
     attach: function (context) {
-      $('.page-node-type-page.not-logged-in', context).once().each(function () {
+      $('.page-node-type-page.not-logged-in', context).once('headroomFn').each(function () {
         $(this).find('.l-master-header').headroom({
           'offset': 20,
           'tolerance': 2
@@ -139,7 +157,7 @@
 
   Drupal.behaviors.nodeSlider = {
     attach: function (context) {
-      $('.node--type-lamp').once().each(function () {
+      $('.node--type-lamp').once('nodeSlider').each(function () {
         var $slickSlider = $(this).find('.js-slick-slider');
         var $slickNav = $(this).find('.js-slick-nav');
         $slickSlider.find('.field__item').each(function () {
@@ -232,7 +250,7 @@
 
   Drupal.behaviors.faddingEffect = {
     attach: function (context) {
-      $('.region-featured', context).once().each(function () {
+      $('.region-featured', context).once('faddingEffect').each(function () {
         var $this = $(this);
         var $overlay = $('<div class="region-featured__overlay"></div>').prependTo($this);
         $(window).on('scroll', function () {
@@ -243,9 +261,10 @@
     }
   };
 
+  // Landing page power on button functionality
   Drupal.behaviors.landingPageHide = {
     attach: function (context) {
-      $('#splashify', context).once().each(function () {
+      $('#splashify', context).once('landingPageHide').each(function () {
         var $this = $(this);
         // trigger on power off button click
         $this.find('.icon-power-off').on('click', function () {
@@ -305,6 +324,29 @@
         e.stopPropagation();
         toggleClassMenu();
       });
+    }
+  };
+
+  // Disabling hover when scrolling
+  Drupal.behaviors.disableScroll = {
+    attach: function (context) {
+      // define body var
+      var body = document.body, timer;
+      // listens for scroll event
+      window.addEventListener('scroll', function () {
+        // clear timer
+        clearTimeout(timer);
+        // check if body contains u-disable-hover class
+        if (!body.classList.contains('u-disable-hover')) {
+          // set it
+          body.classList.add('u-disable-hover');
+        }
+        // set timer function
+        timer = setTimeout(function () {
+          // remove u-disable-hover class after 1/2 of second
+          body.classList.remove('u-disable-hover');
+        }, 500);
+      }, false);
     }
   };
 

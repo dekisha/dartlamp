@@ -1,10 +1,7 @@
 // ----------------------------------------------------------------------------
-// System Setup
+// SYSTEM SETUP
 // ----------------------------------------------------------------------------
 // Requirements to compile this theme on your system
-//
-// copy this theme in your sites/all/themes/custom folder and rename it, and the
-// .info file according to the project name.
 //
 // Install the following stuff (only required the first time,
 // if your haven't used this theme before)
@@ -23,18 +20,21 @@
 // during dev, run "gulp watch"
 // when done, run "gulp"
 //
-// all source files that needs to be worked on are in assets folder
+// all source files that needs to be worked on are in src folders
 // 
 // if you need css or js plugin, try to find it in https://www.npmjs.com/
 // and include it through gulpfile.js
+// it will be compiled into js/dist/bundle.js file
 //
-// if its not there add it in libraries folder
+// if its not there add it in libraries folder and and connect it with .info file
 //
-// following imports try to follow reversed triangle principle -> 
+// following SCSS imports try to follow reversed triangle principle -> 
 // https://other.media/wp-content/uploads/2017/01/itcss_2.png
+//
+// CSS properties should also be alphabetically ordered
 
 
-// SETTINGS - colors, fonts, breakpoints...
+// SETTINGS - colors, fonts, breakpoints... doesn't generate any CSS
 @import "node_modules/inuitcss/settings/settings.core";
 @import "settings.scss";
 
@@ -67,33 +67,31 @@
 // OBJECTS - abstractions
 @import "node_modules/inuitcss/objects/objects.wrapper";
 @import "node_modules/inuitcss/objects/objects.layout";
-@import "node_modules/inuitcss/objects/objects.media";
-@import "node_modules/inuitcss/objects/objects.flag";
-@import "node_modules/inuitcss/objects/objects.box";
-@import "node_modules/inuitcss/objects/objects.block";
-@import "node_modules/inuitcss/objects/objects.ratio";
-@import "node_modules/inuitcss/objects/objects.crop";
-@import "node_modules/inuitcss/objects/objects.table";
-@import "node_modules/inuitcss/objects/objects.pack";
+// @import "node_modules/inuitcss/objects/objects.media";
+// @import "node_modules/inuitcss/objects/objects.flag";
+// @import "node_modules/inuitcss/objects/objects.box";
+// @import "node_modules/inuitcss/objects/objects.block";
+// @import "node_modules/inuitcss/objects/objects.ratio";
+// @import "node_modules/inuitcss/objects/objects.crop";
+// @import "node_modules/inuitcss/objects/objects.table";
+// @import "node_modules/inuitcss/objects/objects.pack";
 @import "objects";
 
 
 // COMPONENTS - particular component theming
 @import "node_modules/slick-carousel/slick/slick.scss";
 @import "node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar";
-// @import "node_modules/threesixty-slider/src/styles/threesixty";
-// @import "node_modules/fullpage.js/dist/jquery.fullpage";
 @import "layouts";
 @import "components";
 
 
 // UTILITIES - do one thing, and one thing only classes
-@import "node_modules/inuitcss/utilities/utilities.clearfix";
+// @import "node_modules/inuitcss/utilities/utilities.clearfix";
 @import "node_modules/inuitcss/utilities/utilities.widths";
 @import "node_modules/inuitcss/utilities/utilities.headings";
 @import "node_modules/inuitcss/utilities/utilities.spacings";
 @import "node_modules/inuitcss/utilities/utilities.responsive-spacings";
-@import "node_modules/inuitcss/utilities/utilities.print";
+// @import "node_modules/inuitcss/utilities/utilities.print";
 @import "node_modules/inuitcss/utilities/utilities.hide";
-@import "node_modules/inuit-displays/inuit-displays.scss";
+// @import "node_modules/inuit-displays/inuit-displays.scss";
 @import "utilities";
