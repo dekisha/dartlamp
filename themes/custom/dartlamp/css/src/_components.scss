@@ -865,7 +865,7 @@ figure {
   .field--name-field-paragraph-layouts {
      > .field__item {
       &.field__item--1 {
-        display: none;
+        // display: none;
         .group-left {
           align-self: flex-start;
           margin-top: -200px;
@@ -880,7 +880,7 @@ figure {
         }
       }
       &.field__item--2 {
-        display: none;
+        // display: none;
         
         position: relative;
         z-index: -1;
@@ -891,7 +891,7 @@ figure {
         }
       }
       &.field__item--3 {
-        display: none;
+        // display: none;
         
          > .paragraph {
           align-items: flex-start;
