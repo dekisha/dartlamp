@@ -106,24 +106,9 @@
               direction: 'vertical' // vertical, horizontal
             });
           }
-          if ($(this).hasClass('field__item--4')) {
-            $(this).find('.group-left').paroller({
-              factor: 0.4, // multiplier for scrolling speed and offset
-              type: 'foreground', // background, foreground
-              direction: 'vertical' // vertical, horizontal
-            }).siblings('.group-right').paroller({
-              factor: 1, // multiplier for scrolling speed and offset
-              type: 'foreground', // background, foreground
-              direction: 'vertical' // vertical, horizontal
-            });
-          }
-          if ($(this).hasClass('field__item--5')) {
-            $(this).find('.group-middle').paroller({
-              factor: 0.4, // multiplier for scrolling speed and offset
-              type: 'foreground', // background, foreground
-              direction: 'vertical' // vertical, horizontal
-            }).siblings('.group-right').paroller({
-              factor: -0.3, // multiplier for scrolling speed and offset
+          if ($(this).hasClass('field__item--3')) {
+            $(this).find('.group-right').paroller({
+              factor: 0.2, // multiplier for scrolling speed and offset
               type: 'foreground', // background, foreground
               direction: 'vertical' // vertical, horizontal
             });
