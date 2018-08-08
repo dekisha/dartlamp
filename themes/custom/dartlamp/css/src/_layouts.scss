@@ -85,7 +85,7 @@ html {
 
 .region-header {
   @include grid($flex-direction: row, $justify-content: space-between, $align-items: center, $flex-wrap: wrap);
-  
+
   //  > div {
   // &:first-child {
   //   text-align: left;
@@ -162,4 +162,18 @@ html {
       padding: 0;
     }
   }
+}
+
+// ----------------------------------------------------------------------------
+// FOOTER
+// ----------------------------------------------------------------------------
+.l-footer {
+  background-color: white;
+  height: 100px;
+  overflow: hidden;
+  position: relative;
+}
+
+.region-footer {
+  @include grid($justify-content: center);
 }

@@ -167,6 +167,7 @@
             centerMode: true,
             fade: false,
             focusOnSelect: true,
+            rows: 0,
             slide: '.field__item',
             slidesToScroll: 1,
             variableWidth: true
@@ -176,6 +177,7 @@
           $slickNav.slick({
             asNavFor: '.js-slick-slider',
             focusOnSelect: true,
+            rows: 0,
             slide: '.field__item',
             slidesToShow: 4,
             vertical: true
@@ -185,14 +187,22 @@
     }
   };
 
-  // Drupal.behaviors.customScrollbar = {
-  //   attach: function (context) {
-  //     $('.node--type-lamp.node--view-mode-full .field--name-body').once().mCustomScrollbar({
-  //       setHeight: '500px',
-  //       theme: 'dark'
-  //     });
-  //   }
-  // };
+  Drupal.behaviors.customScrollbar = {
+    attach: function (context) {
+      $('.paragraph--type-two-column-layout .field--type-text-long').once('customScrollbar').each(function(){
+        var $this = $(this);
+        if($this.find('img').length || $this.find('iframe').length) {
+          $this.addClass('has-media');
+        }
+        else {
+          $(this).addClass('has-text').mCustomScrollbar({
+            setHeight: '100%',
+            theme: 'inset'
+          });
+        }
+      });
+    }
+  };
 
   // Drupal.behaviors.threesixty = {
   //   attach: function (context) {
@@ -288,8 +298,7 @@
         myMenu.classList.add("c-smooth__menu--animatable");
         if (!myMenu.classList.contains("c-smooth__menu--visible")) {
           myMenu.classList.add("c-smooth__menu--visible");
-        }
-        else {
+        } else {
           myMenu.classList.remove('c-smooth__menu--visible');
         }
       }
@@ -316,7 +325,8 @@
   Drupal.behaviors.disableScroll = {
     attach: function (context) {
       // define body var
-      var body = document.body, timer;
+      var body = document.body,
+        timer;
       // listens for scroll event
       window.addEventListener('scroll', function () {
         // clear timer
@@ -332,6 +342,21 @@
           body.classList.remove('u-disable-hover');
         }, 500);
       }, false);
+    }
+  };
+
+  // adding class when scrolled to bottom of the page
+  Drupal.behaviors.endOfPage = {
+    attach: function (context) {
+      $(window).on('scroll', function () {
+        if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+          if (!($('body').hasClass('bottom-reached'))) {
+            $('body').addClass('bottom-reached');
+          }
+        } else {
+          $('body').removeClass('bottom-reached');
+        }
+      });
     }
   };
 

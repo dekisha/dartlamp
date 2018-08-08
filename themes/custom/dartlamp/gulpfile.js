@@ -46,13 +46,6 @@ var gulp = require('gulp'),
   ];
 
 //SETTINGS
-// Added task for browser-sync, enable browserSync.reload  for livereload
-gulp.task('browser-sync', function() {
-  browserSync.init({
-    proxy: 'cofe.loc', // site url
-    open: false // turnoff auto open on browsersync start
-  });
-});
 
 //FA FONTS
 gulp.task('fonts', function() {
@@ -72,7 +65,7 @@ gulp.task('styles', function () {
     .pipe(gulp.dest('css/dist'))
     .pipe(gp_filter('**/*.css'))
     .pipe(gp_livereload());
-  // .pipe(browserSync.reload({stream: true}));
+    // .pipe(browserSync.reload({stream: true}));
 });
 
 //CSS MINIFY
@@ -87,13 +80,13 @@ gulp.task('styles_prod', function () {
 });
 
 // //JS
-gulp.task('scripts', function () {
-  return gulp.src(jsfiles)
-    .pipe(gp_sourcemaps.init())
-    .pipe(gp_concat('bundle.js'))
-    .pipe(gp_sourcemaps.write('./'))
-    .pipe(gulp.dest('js/dist'));
-});
+// gulp.task('scripts', function () {
+//   return gulp.src(jsfiles)
+//     .pipe(gp_sourcemaps.init())
+//     .pipe(gp_concat('bundle.js'))
+//     .pipe(gp_sourcemaps.write('./'))
+//     .pipe(gulp.dest('js/dist'));
+// });
 
 //JS MINIFY/UGLIFY
 gulp.task('scripts_prod', function () {
@@ -112,12 +105,25 @@ gulp.task('watch', function () {
   // gulp.watch('*.html').on('change', browserSync.reload);
 });
 
-gulp.task('w' ,['browser-sync'] , function() {
-  // gulp.watch(scssfiles, ['styles']);
+gulp.task('w', ['styles'], function () {
+
+  browserSync.init({
+    proxy: 'www.dartlamp.com', // site url
+    open: false, // turnoff auto open on browsersync start
+    files: 'css/dist/main.css',
+    serveStatic: ['css/dist'],
+    snippetOptions: {
+    rule: {
+        match: /<\/head>/i,
+        fn: function (snippet, match) {
+          return '<link rel="stylesheet" type="text/css" href="/main.css"/>' + snippet + match;
+        }
+      }
+    }
+  });
+
   gulp.watch(scssfiles, ['styles']);
-  gulp.watch(jsfiles, ['scripts']);
-  gp_livereload.listen();
-  gulp.watch('*.html').on('change', browserSync.reload);
+  // gulp.watch('*.html').on('change', browserSync.reload);
 });
 
 
