@@ -3,12 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.left_media_right_text.field_left_media
-    - field.field.paragraph.left_media_right_text.field_right_text
     - paragraphs.paragraphs_type.left_media_right_text
   module:
     - ds
-    - text
 third_party_settings:
   ds:
     layout:
@@ -37,19 +34,5 @@ id: paragraph.left_media_right_text.default
 targetEntityType: paragraph
 bundle: left_media_right_text
 mode: default
-content:
-  field_left_media:
-    weight: 0
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: left
-  field_right_text:
-    weight: 1
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: right
+content: {  }
 hidden: {  }
