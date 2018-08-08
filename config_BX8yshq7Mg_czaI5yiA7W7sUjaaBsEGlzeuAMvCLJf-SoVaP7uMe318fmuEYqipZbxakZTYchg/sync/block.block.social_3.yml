@@ -1,4 +1,4 @@
-uuid: a6d9f5fd-0cd6-4bc8-97c5-2b3dd41cc3ec
+uuid: 254a4ccb-d415-483e-9e95-d32ed065243e
 langcode: en
 status: true
 dependencies:
@@ -6,16 +6,17 @@ dependencies:
     - system.menu.social
   module:
     - block_class
+    - ctools
     - system
   theme:
     - dartlamp
 third_party_settings:
   block_class:
     classes: ''
-id: dartlamp_social
+id: social_3
 theme: dartlamp
-region: top
-weight: -9
+region: footer
+weight: 0
 provider: null
 plugin: 'system_menu_block:social'
 settings:
@@ -25,4 +26,11 @@ settings:
   label_display: '0'
   level: 1
   depth: 0
-visibility: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      homepage: homepage
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'

@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_paragraph_layouts
     - node.type.page
+    - paragraphs.paragraphs_type.left_media_right_text
+    - paragraphs.paragraphs_type.left_text_right_media
     - paragraphs.paragraphs_type.three_column_layout
     - paragraphs.paragraphs_type.two_column_layout
   module:
@@ -26,6 +28,8 @@ settings:
     target_bundles:
       two_column_layout: two_column_layout
       three_column_layout: three_column_layout
+      left_media_right_text: left_media_right_text
+      left_text_right_media: left_text_right_media
     target_bundles_drag_drop:
       homepage_slider:
         weight: 3
@@ -36,4 +40,10 @@ settings:
       three_column_layout:
         enabled: true
         weight: 5
+      left_media_right_text:
+        enabled: true
+        weight: 7
+      left_text_right_media:
+        enabled: true
+        weight: 8
 field_type: entity_reference_revisions

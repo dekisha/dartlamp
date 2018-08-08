@@ -1,0 +1,21 @@
+uuid: 74ea4a84-623e-41e7-bdb9-a677abdac5ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_right_media
+    - paragraphs.paragraphs_type.left_text_right_media
+  module:
+    - text
+id: paragraph.left_text_right_media.field_right_media
+field_name: field_right_media
+entity_type: paragraph
+bundle: left_text_right_media
+label: 'Right media'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

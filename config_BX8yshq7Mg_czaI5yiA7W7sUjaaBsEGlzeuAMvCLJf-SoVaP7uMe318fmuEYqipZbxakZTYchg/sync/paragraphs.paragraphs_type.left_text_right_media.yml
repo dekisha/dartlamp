@@ -1,0 +1,9 @@
+uuid: ba690be9-d094-498f-8f1d-f3ca44ed09f2
+langcode: en
+status: true
+dependencies: {  }
+id: left_text_right_media
+label: 'Left text + Right media'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }
