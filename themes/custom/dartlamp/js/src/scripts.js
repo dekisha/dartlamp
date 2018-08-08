@@ -189,7 +189,7 @@
 
   Drupal.behaviors.customScrollbar = {
     attach: function (context) {
-      $('.paragraph--type-two-column-layout .field--type-text-long').once('customScrollbar').each(function(){
+      $('[data-history-node-id="37"] .paragraph--type-two-column-layout .field--type-text-long').once('customScrollbar').each(function(){
         var $this = $(this);
         if($this.find('img').length || $this.find('iframe').length) {
           $this.addClass('has-media');

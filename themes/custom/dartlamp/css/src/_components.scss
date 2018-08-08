@@ -829,17 +829,21 @@ figure {
 // ----------------------------------------------------------------------------
 .field--name-field-paragraph-layouts {
    > .field__item {
-    height: 90vh;
     position: relative;
+    [data-history-node-id="37"] & {
+      height: 90vh;
+    }
   }
 }
 
 .paragraph--type-two-column-layout {
-  height: 100%;
   padding-bottom: 110px;
   padding-top: 110px;
 
   @include wrapper;
+  [data-history-node-id="37"] & {
+    height: 100%;
+  }
   .group-right,
   .group-left {
     align-self: center;
@@ -920,7 +924,7 @@ figure {
         .group-right {
           background-color: white;
           color: black;
-          margin-left: -90px;
+          margin-left: -70px;
           padding: 40px 40px 40px 70px;
           position: relative;
         }
@@ -946,7 +950,7 @@ figure {
         .group-left {
           background-color: white;
           color: black;
-          margin-right: -90px;
+          margin-right: -70px;
           padding: 40px 70px 40px 40px;
           // position: relative;
         }
