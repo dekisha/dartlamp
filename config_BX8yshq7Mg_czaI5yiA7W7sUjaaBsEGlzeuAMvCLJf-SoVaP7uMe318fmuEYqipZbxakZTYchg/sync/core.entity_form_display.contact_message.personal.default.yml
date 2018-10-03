@@ -15,6 +15,8 @@ content:
   copy:
     weight: 50
     region: content
+    settings: {  }
+    third_party_settings: {  }
   field_email:
     weight: 51
     settings:
@@ -42,6 +44,8 @@ content:
   mail:
     weight: -40
     region: content
+    settings: {  }
+    third_party_settings: {  }
   message:
     type: string_textarea
     weight: 0
@@ -53,12 +57,18 @@ content:
   name:
     weight: -50
     region: content
+    settings: {  }
+    third_party_settings: {  }
   preview:
     weight: 40
     region: content
+    settings: {  }
+    third_party_settings: {  }
   recipient:
     weight: -30
     region: content
+    settings: {  }
+    third_party_settings: {  }
   subject:
     type: string_textfield
     weight: -10
