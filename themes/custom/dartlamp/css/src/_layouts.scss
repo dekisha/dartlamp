@@ -164,6 +164,20 @@ html {
   }
 }
 
+
+[id="block-dartlamp-content"] {
+  // 404, 403
+  // .drupal-page-error & {
+  //   padding-bottom: 100px;
+  // 
+  //   @include wrapper-medium;
+  // }
+  // login page    
+  .path-user & {
+    padding-top: 100px;
+  }
+}
+
 // ----------------------------------------------------------------------------
 // FOOTER
 // ----------------------------------------------------------------------------
