@@ -1,70 +1,9 @@
-// html {
-  // box-sizing: border-box;
-  // overflow-y: scroll;
-// }
-
-// * {
-//   &,
-//   &:before,
-//   &:after {
-//     box-sizing: inherit;
-//   }
-// }
-
-// html,
-// body {
-  // margin: 0;
-  // padding: 0;
-// }
-
 body {
   color: $color-dark;
   font-family: $font-default;
   font-size: 18px;
   line-height: 1.6;
 }
-
-// body,
-// h1,
-// h2,
-// h3,
-// h4,
-// h5,
-// h6,
-// blockquote,
-// p,
-// pre,
-// dl,
-// dd,
-// ol,
-// ul,
-// figure,
-// hr,
-// fieldset,
-// legend {
-//   margin: 0;
-//   padding: 0;
-// }
-
-// address,
-// h1,
-// h2,
-// h3,
-// h4,
-// h5,
-// h6,
-// blockquote,
-// p,
-// pre,
-// dl,
-// ol,
-// ul,
-// figure,
-// hr,
-// table,
-// fieldset {
-//   margin-bottom: gutter-span();
-// }
 
 h1 {
   font-size: 30px;

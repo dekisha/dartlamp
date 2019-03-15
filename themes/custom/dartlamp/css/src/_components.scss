@@ -191,12 +191,14 @@ figure {
   font-size: 0;
   padding: 20px;
   width: 50%;
-   > * {
+  > * {
     font-size: 16px;
   }
   .form-actions {
     margin-top: $inuit-global-spacing-unit-large;
-    width: 100%;
+    @include mq($from: tablet_landscape) {
+      width: 100%;
+    }
   }
 }
 
@@ -815,6 +817,7 @@ figure {
   background-position: right bottom;
   background-repeat: no-repeat;
   text-align: right;
+  // height: 100% !important;
 }
 
 .parallax-slider {
