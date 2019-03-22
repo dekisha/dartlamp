@@ -51,3 +51,5 @@ drush
 
 #Ignore local config
 config_BX8yshq7Mg_czaI5yiA7W7sUjaaBsEGlzeuAMvCLJf-SoVaP7uMe318fmuEYqipZbxakZTYchg/sync/stage_file_proxy.settings.yml
+
+.idea
