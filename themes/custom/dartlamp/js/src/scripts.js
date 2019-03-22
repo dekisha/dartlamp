@@ -77,7 +77,7 @@
 
   Drupal.behaviors.contactPageParallax = {
     attach: function (context) {
-      $('.path-contact #main', context).once('contactPageParallax').each(function () {
+      $('.page-node-type-contact #main', context).once('contactPageParallax').each(function () {
         $(this).parallax({
           imageSrc: '../../themes/custom/dartlamp/images/contact-page.jpg',
           positionY: '200px',
